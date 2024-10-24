@@ -1,0 +1,45 @@
+[ 
+{
+"id" : 1,
+"languageID" : 1,
+"currentCategory" : "numbers",
+"question" : "Would you like to read a fun story or play a cool game?",
+"story" : [{
+    "title" : "Let's go grocery shopping!",
+    "text" : [
+        "At the store, Tom buys one red apple.",
+        "He also looks for two ripe oranges.",
+        "He finally buys three yellow bananas."
+    ],
+    "storyTranslation" : [
+        "Au magasin, Tom achète une pomme rouge.",
+        "Il cherche aussi deux oranges.",
+        "Il achète finalement trois bananes jaunes."
+    ]
+}
+],
+"pictures" : ["apple picture", "two oranges picture", "three bananas picture"]
+},
+
+{
+"id" : 2,
+"languageID" : 2,
+"currentCategory" : "colors",
+"question" : "Would you like to read a fun story or play a cool game?",
+"story" : [{
+    "title" : "Let's decorate a cake!",
+    "text" : [
+        "Emily frosts the cake pink .",
+        "She adds yellow, purple, and blue sprinkles.",
+        "She tops the cake with five green candles."
+    ],
+    "storyTranslation" : [
+        "Emily glasea el pastel de rosa.",
+        "Agrega chispas amarillas, moradas y azules.",
+        "Ella cubre el pastel con cinco velas verdes."
+    ]
+}
+],
+"pictures" : ["pink cake picture", "colorful sprinkles picture", "lit cake picture"]
+}
+]
