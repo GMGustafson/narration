@@ -53,33 +53,36 @@ public class Category{
     }
 
     public String chooseCategory(ArrayList<String> categoryNames){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a category");
-
-        for (int i = 0; i < categoryNames.size(); i++) {
-            System.out.println((i + 1) + ". " + categoryNames.get(i));
-        }
-
-        // would all of this go into the data loader? 
-        // checks the user entered a valid number
-        int choice = 0;
-        while (choice < 1 || choice > categoryNames.size()) {
-            System.out.print("You have chosen 1.) Numbers");
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice < 1 || choice > categoryNames.size()) {
-                    System.out.println("Invalid choice. Please select a valid category number.");
-                }
-            } else {
-                System.out.println("Please enter a number.");
-                scanner.next(); 
-            }
-        }
-        // show which category the user chose
-        String selectedCategory = categoryNames.get(choice - 1);
-        System.out.println("Curreny Category: " + selectedCategory);
+        String selectedCategory = "Colors";
         return selectedCategory;
-    }
+
+    //     Scanner scanner = new Scanner(System.in);
+    //     System.out.println("Choose a category");
+
+    //     for (int i = 0; i < categoryNames.size(); i++) {
+    //         System.out.println((i + 1) + ". " + categoryNames.get(i));
+    //     }
+
+    //     // would all of this go into the data loader? 
+    //     // checks the user entered a valid number
+    //     int choice = 0;
+    //     while (choice < 1 || choice > categoryNames.size()) {
+    //         System.out.print("You have chosen 1.) Numbers");
+    //         if (scanner.hasNextInt()) {
+    //             choice = scanner.nextInt();
+    //             if (choice < 1 || choice > categoryNames.size()) {
+    //                 System.out.println("Invalid choice. Please select a valid category number.");
+    //             }
+    //         } else {
+    //             System.out.println("Please enter a number.");
+    //             scanner.next(); 
+    //         }
+    //     }
+    //     // show which category the user chose
+    //     String selectedCategory = categoryNames.get(choice - 1);
+    //     System.out.println("Curreny Category: " + selectedCategory);
+    //     return selectedCategory;
+     }
 
     public void saveCategory(){
         System.out.println( course + " saved successfully!");

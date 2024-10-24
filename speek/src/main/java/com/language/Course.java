@@ -25,10 +25,10 @@ public class Course {
         this.category = category;
     }
 
-    public Course(UUID userID, UUID courseID2, String course2, String language2, String category2,
-            JSONArray categories2) {
-        //TODO Auto-generated constructor stub
-    }
+    // public Course(UUID userID, UUID courseID2, String course2, String language2, String category2,
+    //         JSONArray categories2) {
+    //     //TODO Auto-generated constructor stub
+    // }
 
     public UUID getID(){
         return userID;
@@ -86,28 +86,31 @@ public class Course {
     }
 
     public String chooseCourse(ArrayList<String> courseNames){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a course");
-        for(int i = 0; i < courseNames.size(); i++){
-            System.out.println((i + 1) + ". " + courseNames.get(i));
-        }
-        int choice = 0;
-        while (choice < 1 || choice > courseNames.size()) {
-            System.out.print("You have chosen 1.) Phrases");
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                if (choice < 1 || choice > courseNames.size()) {
-                    System.out.println("Invalid choice. Please select a valid category number.");
-                }
-            } else {
-                System.out.println("Please enter a number.");
-                scanner.next(); 
-            }
-        }
-        // show which category the user chose
-        String selectedCourse = courseNames.get(choice - 1);
-        System.out.println("Current Course: " + selectedCourse);
+        String selectedCourse = "Phrases";
         return selectedCourse;
-    }
+
+        //     Scanner scanner = new Scanner(System.in);
+    //     System.out.println("Choose a course");
+    //     for(int i = 0; i < courseNames.size(); i++){
+    //         System.out.println((i + 1) + ". " + courseNames.get(i));
+    //     }
+    //     int choice = 0;
+    //     while (choice < 1 || choice > courseNames.size()) {
+    //         System.out.print("You have chosen 1.) Phrases");
+    //         if (scanner.hasNextInt()) {
+    //             choice = scanner.nextInt();
+    //             if (choice < 1 || choice > courseNames.size()) {
+    //                 System.out.println("Invalid choice. Please select a valid category number.");
+    //             }
+    //         } else {
+    //             System.out.println("Please enter a number.");
+    //             scanner.next(); 
+    //         }
+    //     }
+    //     // show which category the user chose
+    //     String selectedCourse = courseNames.get(choice - 1);
+    //     System.out.println("Current Course: " + selectedCourse);
+    //     return selectedCourse;
+     }
 
 }
