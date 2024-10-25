@@ -91,20 +91,24 @@ private String sentenceStructure;
     }
 
     public void chooseCourse(){
-         Course course = new Course(UUID.randomUUID(), UUID.randomUUID(), null, null, null, null);
-         ArrayList<String> availableCourses = course.getAvailableCourse();
-         String chosenCourse= course.chooseCourse(availableCourses);
-         currentCourse = new Course(UUID.randomUUID(), UUID.randomUUID(), chosenCourse, "Spanish", new ArrayList<>(), "Numbers");
-         System.out.println("you have chosen the " + chosenCourse + " course");
+        currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
+        System.out.println("You have chosen the 'Words' course in Spanish.");        
+        //  Course course = new Course(UUID.randomUUID(), UUID.randomUUID(), null, null, null, null);
+        //  ArrayList<String> availableCourses = course.getAvailableCourse();
+        //  String chosenCourse= course.chooseCourse(availableCourses);
+        //  currentCourse = new Course(UUID.randomUUID(), UUID.randomUUID(), chosenCourse, "Spanish", new ArrayList<>(), "Numbers");
+        //  System.out.println("you have chosen the " + chosenCourse + " course");
     }
 
 
     public void chooseCategory() {
-        Category category = new Category("", new ArrayList<>());
-        ArrayList<String> availableCategories = category.getAvailableCategory();
-        String chosenCategory = category.chooseCategory(availableCategories);
-        currentCategory = new Category(chosenCategory, new ArrayList<Question>());
-        System.out.println("You have chosen the " + chosenCategory + " category");
+        currentCategory = Category.COLORS;
+        System.out.println("You have chosen the 'Colors' category.");
+        // Category category = new Category("", new ArrayList<>());
+        // ArrayList<String> availableCategories = category.getAvailableCategory();
+        // String chosenCategory = category.chooseCategory(availableCategories);
+        // currentCategory = new Category(chosenCategory, new ArrayList<Question>());
+        // System.out.println("You have chosen the " + chosenCategory + " category");
     }
 
        /**
@@ -139,6 +143,9 @@ private String sentenceStructure;
             chooseLangauage();
             chooseCourse();
             chooseCategory();
+
+            //progress = new Progress(5, 4, currentCategory, currentCourse, 0, 0, currentLanguage);            System.out.println("Jim's Progress: " + progress.getProgress());
+
             //jim answers questions. gets 4/5
             String[] questions = {
                 "What is the Spanish word for red?", // right
@@ -147,9 +154,7 @@ private String sentenceStructure;
                 "What is the Spanish word for yellow?", // right
                 "What is the Spanish word for orange?" // wrong
             };
-            String[] answers = {
-                "rojo", "azul", "verde", "amarillo", "naranja"
-            };
+            String[] answers = {"rojo", "azul", "verde", "amarillo", "naranja"};
             
             int correctAnswers = 0;
 
@@ -160,8 +165,7 @@ private String sentenceStructure;
                     correctAnswers++;
                 }
             }
-            Progress progress = new Progress(5, correctAnswers, new Category("Colors", new ArrayList<>()), currentCourse, 0, 1, currentLanguage);
-            System.out.println("Jim's Progress: " + progress.getProgress());
+            progress = new Progress(5, 4, currentCategory, currentCourse, 0, 0, currentLanguage);            System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
 
         }
