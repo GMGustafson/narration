@@ -141,11 +141,11 @@ public class CategorySystemFacade {
     /**
      * getQuestion method
      * string representation of questions that could be 
-     * asked to user to help vthem learn/study
+     * asked to user to help them learn/study
      * @return a question for the user
      */
     public String getQuestion(){
-        //rewrite this shorter
+        
     }
 
     /**

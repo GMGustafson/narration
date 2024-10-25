@@ -10,22 +10,24 @@ public class Story {
     private String title;
     private ArrayList<String> pictures;
     private ArrayList<String> text;
+    private boolean read;
 
     public Story(String title2, String text2, String storyTranslation) {
 		//TODO Auto-generated constructor stub
 	}
 
 	public void start(){
-
+        System.out.println("Let's read " + title);
     }
 
     public void end(){
-
+        read = true;
+        System.out.println("you finished reading " + title);
     }
 
     public boolean isFinished()
     {
-        return true;
+        return read;
     }
 
     public double getTimeSpent(){
