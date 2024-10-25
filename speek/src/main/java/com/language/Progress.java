@@ -246,7 +246,7 @@ public class Progress {
         // System.out.print("Switched to the the otherCourse: "+ getCurrentCourse());
         String[] availableCourses = {"Words", "Phrases"};
         int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
-        currentCourse = new Course(null, null, availableCourses[nextIndex], language.SPANISH, categories, null);
+        currentCourse = new Course(null, null, availableCourses[nextIndex], language.Spanish, categories, null);
         System.out.println("Switched to the next course: " + currentCourse.getCourse());
      }
 
