@@ -1,6 +1,8 @@
 package com.language;
 import java.util.UUID;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.json.simple.JSONArray;
 import java.util.List;
 import java.util.Scanner;
@@ -13,16 +15,20 @@ public class Course {
     private UUID courseID;
     private String course;
     private String language;
-    private List<String> categories;
+    private HashMap<String, ArrayList<Phrase>> phrases = new HashMap<>();
+    private HashMap<String, ArrayList<Word>> words = new HashMap<>();
     private String category;
+    private HashMap<String, Story> stories;
 
-    public Course(UUID userID, UUID courseID, String course, String language, List<String> categories, String category ){
+    public Course(UUID userID, UUID courseID, String course, String language, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
         this.userID = userID;
         this.courseID = courseID;
         this.course = course;
         this.language = language;
-        this.categories = categories;
+        this.phrases = phrases;
         this.category = category;
+        this.words = words;
+        this.stories = stories;
     }
 
     // public Course(UUID userID, UUID courseID2, String course2, String language2, String category2,
@@ -62,12 +68,12 @@ public class Course {
         this.language = language;
     }
 
-    public List<String> getCategories(){
-        return categories;
+    public HashMap<String, ArrayList<Phrase>> getPhrases(){
+        return phrases;
     }
 
-    public void setCategories(List<String> categories){
-        this.categories = categories;
+    public ArrayList<Phrase> getPhrasesByCategory(String category){
+        return phrases.get(category);
     }
 
     public String getCategory(){

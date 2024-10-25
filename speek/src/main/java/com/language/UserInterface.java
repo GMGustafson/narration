@@ -4,6 +4,7 @@ package com.language;
  */
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Scanner;
@@ -17,6 +18,9 @@ public class UserInterface {
 private String sentenceStructure;
     private Category currentCategory;
     private Course currentCourse;
+    private Language currentLanguage;
+    private Progress progress;
+    private int missedWords;
     private int progressInLanguage;
     private HashMap<Word, String> translation;
     private ArrayList<Category> categories;
@@ -62,9 +66,9 @@ private String sentenceStructure;
         if (currentUser != null) {
             System.out.println("User " + currentUser.getUsername() + " has been logged out.");
             currentUser = null;
-        } else {
-            System.out.println("No user is currently logged in.");
-        }
+          } else {
+              System.out.println("No user is currently logged in.");
+         }
     }
 
      /**
@@ -87,11 +91,11 @@ private String sentenceStructure;
     }
 
     public void chooseCourse(){
-        Course course = new Course(UUID.randomUUID(), UUID.randomUUID(), null, null, null, null);
-        ArrayList<String> availableCourses = course.getAvailableCourse();
-        String chosenCourse= course.chooseCourse(availableCourses);
-        currentCourse = new Course(UUID.randomUUID(), UUID.randomUUID(), chosenCourse, "Spanish", new ArrayList<>(), "Numbers");
-        System.out.println("You have chosen the " + chosenCourse + " course");
+         Course course = new Course(UUID.randomUUID(), UUID.randomUUID(), null, null, null, null);
+         ArrayList<String> availableCourses = course.getAvailableCourse();
+         String chosenCourse= course.chooseCourse(availableCourses);
+         currentCourse = new Course(UUID.randomUUID(), UUID.randomUUID(), chosenCourse, "Spanish", new ArrayList<>(), "Numbers");
+         System.out.println("you have chosen the " + chosenCourse + " course");
     }
 
 
@@ -103,35 +107,13 @@ private String sentenceStructure;
         System.out.println("You have chosen the " + chosenCategory + " category");
     }
 
-    /**
+       /**
      * progressLearning method 
      * tracks what the user has learned
      */
     public void progressLearning() {
         System.out.print("Tracking the progress of what the user has learned.");
     }
-
-    // public void showUsers(){
-    //     DataWriter.printUsers();
-    // }
-
-
-
-    //  // Scenario 1: simple login
-    //  public void scenario1() {
-    //     System.out.println("Scenario 1");
-
-    //     // Hardcoded username and password for login
-    //     String username = "janesmith10";
-    //     String password = "IlovemyCat";
-
-    //     if (login(username, password)) {
-    //         System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
-    //     }
-
-    //     chooseCategory();
-    //     askLogout();
-    // }
 
     // Scenario 2: create account
     public void scenarioJim() {
@@ -150,16 +132,42 @@ private String sentenceStructure;
         //Jim logs out of the system.
         logout();
         //Show the users.json -> illustrating that Jim is now in the file.
-        //showUsers();
+        //showUsers(); Do we need a showUsers method in data writer??
         // Now have Jim successfully login to the system
         if (login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
-        }
-        chooseLangauage();
-        chooseCourse();
-        chooseCategory();
+            chooseLangauage();
+            chooseCourse();
+            chooseCategory();
+            //jim answers questions. gets 4/5
+            String[] questions = {
+                "What is the Spanish word for red?", // right
+                "What is the Spanish word for blue?", // right
+                "What is the Spanish word for green?", // right
+                "What is the Spanish word for yellow?", // right
+                "What is the Spanish word for orange?" // wrong
+            };
+            String[] answers = {
+                "rojo", "azul", "verde", "amarillo", "naranja"
+            };
+            
+            int correctAnswers = 0;
 
+            //jim got 4 right and 1 wrong
+            for (int i = 0; i < questions.length; i++) {
+                System.out.println(questions[i]);
+                if (i != 4) { 
+                    correctAnswers++;
+                }
+            }
+            Progress progress = new Progress(5, correctAnswers, new Category("Colors", new ArrayList<>()), currentCourse, 0, 1, currentLanguage);
+            System.out.println("Jim's Progress: " + progress.getProgress());
+            progress.trackPercentCorrect();
+
+        }
     }
+        
+
      // Main method to test the scenarios
      public static void main(String[] args) {
         UserInterface langUI = new UserInterface();

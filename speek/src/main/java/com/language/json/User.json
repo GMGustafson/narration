@@ -8,8 +8,8 @@
         "dateOfBirth" : "01/05/2001",
         "username" : "johndoe73",
         "password" : "IlovemyCat",
-        "courses" : {
-            "course" : {
+        "courses" : [
+            {
                 "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
                 "Progress" : {
                     "totalQuestionsAnswered" : 10,
@@ -20,7 +20,7 @@
                     "missedWords" : ["tres", "cinco", "ocho"]
                 }
             }
-        }
+        ]
     },
 
     {
