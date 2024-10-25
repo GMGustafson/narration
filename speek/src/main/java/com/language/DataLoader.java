@@ -45,10 +45,10 @@ public class DataLoader extends DataConstants{
             String password = (String)userJSON.get(USER_PASSWORD);
             
         
-            JSONObject UserJSON = (JSONObject) User.get(USER_COURSES);
-            for (int j = 0; j < UserJSON.size(); j++) {
-                JSONObject user = (JSONObject) UserJSON.get(j);
-                UUID course = UUID.fromString(String.valueOf(user.get(COURSE)));
+            JSONArray CourseJSON = (JSONArray) userJSON.get(USER_COURSES);
+            for (int j = 0; j < CourseJSON.size(); j++) {
+                JSONObject user = (JSONObject) CourseJSON.get(j);
+                UUID course = UUID.fromString(String.valueOf(user.get(USER_ID)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
@@ -95,8 +95,8 @@ public static ArrayList<Course> getCourse() {
             HashMap<String, ArrayList<Word>> catWords = new HashMap<>();
             HashMap<String, Story> catStories = new HashMap<>();
 
-            JSONArray categories = (JSONArray) parser.parse(reader); 
-            for (int j=0; j < categories.size(); j++) 
+          //  JSONArray categories = (JSONArray) parser.parse(reader); 
+            for (int j=0; j < CourseJSON.size(); j++) 
             {
                 String title = (String)CourseJSON.get(CATEGORY_TITLE); 
                 ArrayList<Word> words = new ArrayList<>();
