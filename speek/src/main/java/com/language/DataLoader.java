@@ -1,18 +1,18 @@
 package com.language;
 
 import java.io.FileReader;
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+//import java.util.List;
 import java.util.UUID;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+//import java.time.format.DateTimeParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.parser.ParseException;
 
 /**
  * The DataLoader class is responsible for loading data from the JSON files.
@@ -27,7 +27,7 @@ public class DataLoader extends DataConstants{
         ArrayList<User> userList = new ArrayList<User>();
     try {
         FileReader reader = new FileReader(FILE_NAME_USER);
-        JSONParser parser = new JSONParser();
+        //JSONParser parser = new JSONParser();
         JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -48,7 +48,7 @@ public class DataLoader extends DataConstants{
             JSONObject UserJSON = (JSONObject) User.get(USER_LANGUAGES);
             for (int j = 0; j < UserJSON.size(); j++) {
                 JSONObject user = (JSONObject) UserJSON.get(j);
-                UUID courseID = UUID.fromString(String.valueOf(user.get(LANGUAGE_ID)));
+                UUID course = UUID.fromString(String.valueOf(user.get(COURSE)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
@@ -166,7 +166,7 @@ public static Story getStory(JSONObject storyJSON) {
 // Main method to test getUsers
 
 public static void main(String[] args) {
-   // ArrayList<User> Users = getUsers();
+    ArrayList<User> users = getUsers();
     ArrayList<Course> courseList = getCourse();
 
     for (Course course : courseList) 
@@ -175,17 +175,18 @@ public static void main(String[] args) {
     }
 
 
-    // if (users != null) {
-    //     if (users.isEmpty()) {
-    //         System.out.println("No users found in the data.");
-    //     } else {
-    //         for (User user : users) {
-    //             System.out.println("User: " + user.getFirstName() + " " + user.getLastName() + ", Email: " + user.getEmail() + " Date of Birth: " + user.getDateOfBirth());
-    //         }
-    //     }
-    // } else {
-    //     System.out.println("Failed to load user data.");
+    if (users != null) {
+        if (users.isEmpty()) {
+            System.out.println("No users found in the data.");
+        } else {
+            for (User user : users) {
+                System.out.println("User: " + user.getFirstName() + " " + user.getLastName() + ", Email: " + user.getEmail() + " Date of Birth: " + user.getDateOfBirth());
+            }
+        }
+    } else {
+        System.out.println("Failed to load user data.");
     }
+}
 }
 
 
