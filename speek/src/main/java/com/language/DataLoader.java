@@ -45,7 +45,7 @@ public class DataLoader extends DataConstants{
             String password = (String)userJSON.get(USER_PASSWORD);
             
         
-            JSONObject UserJSON = (JSONObject) User.get(USER_LANGUAGES);
+            JSONObject UserJSON = (JSONObject) User.get(USER_COURSES);
             for (int j = 0; j < UserJSON.size(); j++) {
                 JSONObject user = (JSONObject) UserJSON.get(j);
                 UUID course = UUID.fromString(String.valueOf(user.get(COURSE)));
@@ -169,9 +169,12 @@ public static void main(String[] args) {
     ArrayList<User> users = getUsers();
     ArrayList<Course> courseList = getCourse();
 
-    for (Course course : courseList) 
-    { 
-        System.out.println(course);
+    if (courseList != null) {
+        for (Course course : courseList) {
+            System.out.println(course);
+        }
+    } else {
+        System.out.println("Course list is null, possibly due to loading error.");
     }
 
 

@@ -38,7 +38,7 @@ public abstract class DataConstants {
     protected static final String CATEGORY_WORDS = "words";
     protected static final String CATEGORY_WORD = "word";
     protected static final String NEW_CATEGORY = "category";
-    protected static final String USER_LANGUAGES = "courses"; 
+    protected static final String USER_COURSES = "courses"; 
     //Files for DataLoader - CATEGORY
     //Files for DataLoader - WORDS
     protected static final String WORD = "word";
