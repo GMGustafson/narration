@@ -1,4 +1,4 @@
-package com.language;
+package language;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -114,11 +114,8 @@ public class CategorySystemFacade {
      * @return phrase for the user to learn in diff language
      */
     public List<Phrase> getPhraseList(){
-        List<PhraseList> phraseList = new ArrayList<>();
-        if(phraseList != null)
-        {
-            phraseList.();
-        }
+        PhraseList phraselist = new PhraseList();
+        List<Phrase> phraseList = phraselist.hashMap.get(category);
         return phraseList;
     }
 
@@ -128,16 +125,17 @@ public class CategorySystemFacade {
      * @return
      */
     public List<Word> getWordList(){
-        List<WordList> wordList = new ArrayList<>();
-        return wordList;
+        WordList wordList = new WordList();
+        List<Word> words = wordList.hashMap.get(category);
+     return words;
     }
 
     /**
      * getLanguage method
      * @return languages
      */
-    public List<Language> getLanguageList(){
-        //fix this make it shorter
+    public ArrayList getLanguageList(){
+        return LanguageList.getInstance().getLanguages();
     }
 
     /**
@@ -159,16 +157,16 @@ public class CategorySystemFacade {
         MockConversations mockConversation = new MockConversations();
 
         String topic = mockConversation.getTopic();
-        System.out.println("Mock Conversation Topic: " + (topic != null ? topic: "No topic available."));
+        System.out.println("Mock Conversation Topic: " + topic);
 
         String script = mockConversation.getScript();
-        System.out.println("Conversation Script: " + (script != null ? script : "No script available."));
+        System.out.println("Conversation Script: " + script);
 
         String roles = mockConversation.getRoles();
-        System.out.println("Conversation Roles: " + (roles != null ? roles : "No roles available."));
+        System.out.println("Mock Conversation Roles: " + roles);
 
         String answers = mockConversation.getAnswers();
-        System.out.println("Possible Answers: " + (answers != null ? answers : "No answers available."));
+        System.out.println("Possible Answers: " + answers);
 
     }
 
