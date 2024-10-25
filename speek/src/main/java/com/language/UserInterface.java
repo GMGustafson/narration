@@ -144,8 +144,6 @@ private String sentenceStructure;
             chooseCourse();
             chooseCategory();
 
-            //progress = new Progress(5, 4, currentCategory, currentCourse, 0, 0, currentLanguage);            System.out.println("Jim's Progress: " + progress.getProgress());
-
             //jim answers questions. gets 4/5
             String[] questions = {
                 "What is the Spanish word for red?", // right
