@@ -3,9 +3,9 @@ import java.util.UUID;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.json.simple.JSONArray;
-import java.util.List;
-import java.util.Scanner;
+// import org.json.simple.JSONArray;
+// import java.util.List;
+// import java.util.Scanner;
 
 public class Course {
     /**
@@ -58,14 +58,30 @@ public class Course {
         return phrases;
     }
 
-    public ArrayList<Phrase> getPhrasesByCategory(String category){
-        return phrases.get(category);
+    public ArrayList<Phrase> getPhrasesByCategory(String category) {
+        return phrases.getOrDefault(category, new ArrayList<>());
     }
 
     public String getCategory(){
         return category;
     }
 
+    public HashMap<String, ArrayList<Word>> getWords(){
+        return words;
+    }
+
+    public ArrayList<Word> getWordsByCategory(String category) {
+        return words.getOrDefault(category, new ArrayList<>());
+    }
+
+    public HashMap<String, Story> getStories() {
+        return stories;
+    }
+
+    public Story getStoriesByCategory(String category) {
+        return stories.get(category);
+    }
+    
     public void setCategory(String category){
         this.category = category;
     }
