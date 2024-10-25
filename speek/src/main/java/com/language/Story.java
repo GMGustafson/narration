@@ -10,7 +10,7 @@ public class Story {
     private String title;
     private ArrayList<String> pictures;
     private ArrayList<String> text;
-    private boolean read;
+    private boolean read; //for done reading
 
     public Story(String title2, String text2, String storyTranslation) {
 		//TODO Auto-generated constructor stub

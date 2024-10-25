@@ -53,8 +53,11 @@ public class MockConversations extends Question{
     }
 
     public String getOptions(){
-        // what did we want this to do
-        return null;
+        String options = "Choose an option:";
+        for (int i = 0; i < answers.size(); i++) {
+            options += (i + 1) + ": " + answers.get(i);
+        }
+        return options; 
     }
 
     public String toString(){
