@@ -8,15 +8,15 @@ import java.util.HashMap;
     */
 public class WordList {
     
-    private Category category;
-    private ArrayList<Word> words;
+    private ArrayList<Course> category;
+    private ArrayList<Course> words;
     HashMap<Category, ArrayList<Word>> hashMap = new HashMap<>();
 
 
     public WordList()
     { 
-        words = DataLoader.getWords(); 
-        category = DataLoader.getCategory();
+        words = DataLoader.getCourse(); 
+        category = DataLoader.getCourse();
         hashMap = new HashMap<>();
         hashMap.put(category, words); 
     }
@@ -27,7 +27,6 @@ public class WordList {
     }
 
 
-    //hashmap category to arraylistwords 
 
 
 }
