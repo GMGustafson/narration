@@ -2,8 +2,8 @@
 {
         "userID" : "85e9d2cb-9847-4934-970c-442d081fffa4",
         "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
-        "currentCategory" : "numbers",
-        "languageName": "Spanish",
+        "category" : "numbers",
+        "language": "Spanish",
         "story" : [{
             "title" : "Let's go grocery shopping!",
             "text" : [

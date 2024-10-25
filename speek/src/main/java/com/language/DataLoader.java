@@ -132,6 +132,39 @@ return null;
 }
 
 
+public static ArrayList<Story> getStory() {
+    try {
+        FileReader reader = new FileReader(FILE_NAME_STORY);
+        JSONParser parser = new JSONParser();
+        JSONArray StoryJSON = (JSONArray)new JSONParser().parse(reader);
+
+        for (int i=0; i <StoryJSON.size(); i++) {
+            JSONObject CourseJSON = (JSONObject)StoryJSON.get(i);
+            UUID userID = UUID.fromString(String.valueOf(CourseJSON.get(USER_ID)));
+            UUID courseID = UUID.fromString(String.valueOf(CourseJSON.get(COURSE_ID)));
+            String category = (String)CourseJSON.get(CURRENT_CATEGORY_TITLE);
+            String language = (String)CourseJSON.get(LANGUAGE);
+
+            JSONArray story = (JSONArray)new JSONParser().parse(reader);
+            for (int j=0; j < story.size(); j++) 
+            {
+                    String title = (String)CourseJSON.get(TITLE);
+                    String text = (String)CourseJSON.get(TEXT);
+                    String storyTranslation = (String)CourseJSON.get(STORY_TRANSLATION);
+                    
+                    Story newStory = new Story(title,text,storyTranslation);
+                    Story.add(newStory); 
+            }
+        
+            // return Story;
+        }
+    }
+    catch (Exception e) {
+    e.printStackTrace();
+    }
+return null;
+}
+
 // Main method to test getUsers
 
 public static void main(String[] args) {

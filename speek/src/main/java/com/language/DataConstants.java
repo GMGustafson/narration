@@ -7,6 +7,7 @@ public abstract class DataConstants {
     protected static final String FILE_NAME_PHRASES = "Courses.json"; 
     protected static final String FILE_NAME_COURSES = "Courses.json";
     protected static final String FILE_NAME_WORDS = "Courses.json";
+    protected static final String FILE_NAME_STORY = "Story.json";
     //Files for DataLoader - USER
     protected static final String FILE_NAME_USER = "PixelChicksProject/json/User.json";
     protected static final String USER_ID = "userID";
@@ -52,8 +53,11 @@ public abstract class DataConstants {
     protected static final String PHRASE_CATEGORY = "category";
     protected static final String PHRASE_TRANSLATION = "translation";
     protected static final String PHRASE_WORDS = "words<>";
-    //Files for DataLoader - FLASHCARDS
-    //Files for DataLoader - FLASHCARDS
+    //Files for DataLoader - STORY
+    protected static final String TITLE = "title"; 
+    protected static final String TEXT = "text"; 
+    protected static final String STORY_TRANSLATION = "storyTranslation"; 
+
 
 
 }
