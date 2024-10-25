@@ -94,11 +94,11 @@ public static ArrayList<Course> getCourse() {
             
 
             JSONArray categories = (JSONArray)new JSONParser().parse(reader);
-            for (int j=0; i < categories.size(); j++) 
+            for (int j=0; j < categories.size(); j++) 
             {
                 String title = (String)CourseJSON.get(CATEGORY_TITLE); 
                 JSONArray words = (JSONArray)CourseJSON.get(WORDS); 
-                   for (int w=0; i < words.size(); w++) 
+                   for (int w=0; w < words.size(); w++) 
                     {
                         String word = (String)CourseJSON.get(WORD);
                         String pronunciation = (String)CourseJSON.get(WORD_PRONUNCIATION);
@@ -111,7 +111,7 @@ public static ArrayList<Course> getCourse() {
 
                 
                 JSONArray phrases = (JSONArray)CourseJSON.get(PHRASES); 
-                    for (int w=0; i < phrases.size(); w++) 
+                    for (int w=0; w < phrases.size(); w++) 
                     {
                         String translation = (String)CourseJSON.get(WORD_TRANSLATION);
                         String phrasewords = (String)CourseJSON.get(WORDS);

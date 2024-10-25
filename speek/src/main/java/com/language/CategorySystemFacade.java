@@ -1,4 +1,4 @@
-package language;
+package com.language;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,9 +77,9 @@ public class CategorySystemFacade {
      */
     public List<String> getCategory(){
         List<String> categoryNames = new ArrayList<>();
-        List<Language> languages = (List<Language>) LanguageList.getInstance().getLanguages();
-        for (Language language : languages) {
-                for (Category category : language.getCategories()) { 
+        List<Course> languages = (List<Course>) LanguageList.getInstance().getLanguages();
+        for (Course language : languages) {
+                for (String category : language.getCategories()) { 
             if (category != null) {
                 categoryNames.add(category.toString());
             }
