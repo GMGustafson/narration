@@ -8,15 +8,15 @@ import java.util.HashMap;
     */
 public class PhraseList {
     
-    private Category category;
-    private ArrayList<Phrase> phrases;
+    private ArrayList<Course> category;
+    private ArrayList<Course> phrases;
     HashMap<Category, ArrayList<Phrase>> hashMap = new HashMap<>();
 
 
     public PhraseList()
     { 
-        phrases = DataLoader.getPhrases(); 
-        category = DataLoader.getCategory();
+        phrases = DataLoader.getCourse(); 
+        category = DataLoader.getCourse();
         hashMap = new HashMap<>();
         hashMap.put(category, phrases); 
     }
