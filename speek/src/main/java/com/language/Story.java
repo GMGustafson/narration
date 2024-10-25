@@ -11,7 +11,11 @@ public class Story {
     private ArrayList<String> pictures;
     private ArrayList<String> text;
 
-    public void start(){
+    public Story(String title2, String text2, String storyTranslation) {
+		//TODO Auto-generated constructor stub
+	}
+
+	public void start(){
 
     }
 
@@ -26,5 +30,10 @@ public class Story {
 
     public double getTimeSpent(){
         return 0;
+    }
+
+    public static void add(Story newStory) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 }
