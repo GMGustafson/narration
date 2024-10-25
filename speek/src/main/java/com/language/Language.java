@@ -12,9 +12,6 @@ public class Language {
         this.languageID = UUID.randomUUID();
         this.categories = new ArrayList<>();
     }
-    public Language(UUID userID, UUID courseID, String language2, String question) {
-        //TODO Auto-generated constructor stub
-    }
     //language ID is a random UUID
     public UUID getLanguageID() 
     {

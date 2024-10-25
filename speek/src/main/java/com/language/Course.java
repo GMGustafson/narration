@@ -11,7 +11,6 @@ public class Course {
     /**
      * attributes to match courses.json
      */
-    private UUID userID; 
     private UUID courseID;
     private String course;
     private String language;
@@ -20,8 +19,7 @@ public class Course {
     private String category;
     private HashMap<String, Story> stories;
 
-    public Course(UUID userID, UUID courseID, String course, String language, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
-        this.userID = userID;
+    public Course(UUID courseID, String course, String language, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
         this.courseID = courseID;
         this.course = course;
         this.language = language;
@@ -31,18 +29,6 @@ public class Course {
         this.stories = stories;
     }
 
-    // public Course(UUID userID, UUID courseID2, String course2, String language2, String category2,
-    //         JSONArray categories2) {
-    //     //TODO Auto-generated constructor stub
-    // }
-
-    public UUID getID(){
-        return userID;
-    }
-
-    public void setId(UUID ID){
-        this.userID = ID;
-    }
     
     public UUID getCourseID(){
         return courseID;

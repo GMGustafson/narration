@@ -15,8 +15,8 @@ public abstract class DataConstants {
     protected static final String USER_PHONE_NUMBER = "phoneNumber";
     protected static final String USER_DATE_OF_BIRTH = "dateOfBirth";
     protected static final String USER_PASSWORD = "password";
-    protected static final String USER_LANGUAGES = "courses";
-    protected static final String PROGRESS = "progress";
+    protected static final String COURSES = "courses";
+    protected static final String PROGRESS = "Progress";
     protected static final String USER_STREAK = "streak";
     //Files for DataLoader - LANGUAGE
     protected static final String LANGUAGE_ID = "courseID";
@@ -38,6 +38,7 @@ public abstract class DataConstants {
     protected static final String CATEGORY_WORDS = "words";
     protected static final String CATEGORY_WORD = "word";
     protected static final String NEW_CATEGORY = "category";
+    protected static final String USER_LANGUAGES = "courses"; 
     //Files for DataLoader - CATEGORY
     //Files for DataLoader - WORDS
     protected static final String WORD = "word";

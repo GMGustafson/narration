@@ -44,21 +44,22 @@ public class DataLoader extends DataConstants{
             String username = (String)userJSON.get(USER_USERNAME);
             String password = (String)userJSON.get(USER_PASSWORD);
             
-            JSONArray courseJSON = (JSONArray) userJSON.get(USER_LANGUAGES);
-            for (int j = 0; j < courseJSON.size(); j++) {
-                JSONObject courses = (JSONObject) courseJSON.get(j);
-                UUID courseID = UUID.fromString(String.valueOf(courses.get(LANGUAGE_ID)));
+        
+            JSONObject UserJSON = (JSONObject) User.get(USER_LANGUAGES);
+            for (int j = 0; j < UserJSON.size(); j++) {
+                JSONObject user = (JSONObject) UserJSON.get(j);
+                UUID courseID = UUID.fromString(String.valueOf(user.get(LANGUAGE_ID)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
 
-                JSONObject progressJSON = (JSONObject)courses.get(PROGRESS);
+                JSONObject progressJSON = (JSONObject)User.get(PROGRESS);
                 int totalQuestionsAnswered = ((Long) progressJSON.get(TOT_QUESTIONS_ANSWERED)).intValue();
                 int numCorrectAnswers = ((Long) progressJSON.get(NUM_CORRECT_ANSWERS)).intValue();
                 String currentCategory = (String)progressJSON.get(CURRENT_CATEGORY);
                 int progressInCategory = ((Long) progressJSON.get(PROGRESS_IN_CATEGORY)).intValue();
                 int streak = ((Long) progressJSON.get(USER_STREAK)).intValue();
-                JSONArray missedWordsJSON = (JSONArray)courses.get(MISSED_WORDS);
+                JSONArray missedWordsJSON = (JSONArray)user.get(MISSED_WORDS);
                 ArrayList<String> missedWords = new ArrayList<>();
                 for (Object word : missedWordsJSON) {
                     missedWords.add((String) word);
@@ -86,7 +87,6 @@ public static ArrayList<Course> getCourse() {
 
         for (int i=0; i < CoursesJSON.size(); i++) {
             JSONObject CourseJSON = (JSONObject)CoursesJSON.get(i);
-            UUID userID = UUID.fromString(String.valueOf(CourseJSON.get(USER_ID)));
             UUID courseID = UUID.fromString(String.valueOf(CourseJSON.get(COURSE_ID)));
             String course = (String)CourseJSON.get(COURSE);
             String language = (String)CourseJSON.get(LANGUAGE);
@@ -95,7 +95,7 @@ public static ArrayList<Course> getCourse() {
             HashMap<String, ArrayList<Word>> catWords = new HashMap<>();
             HashMap<String, Story> catStories = new HashMap<>();
 
-            JSONArray categories = (JSONArray)new JSONParser().parse(reader);
+            JSONArray categories = (JSONArray) parser.parse(reader); 
             for (int j=0; j < categories.size(); j++) 
             {
                 String title = (String)CourseJSON.get(CATEGORY_TITLE); 
@@ -123,7 +123,7 @@ public static ArrayList<Course> getCourse() {
                 Story story = getStory(storyJSON);
                 catStories.put(category, story);
             }
-            Course newCourse = new Course(userID, courseID, course, language, catPhrases, catWords, category, catStories);
+            Course newCourse = new Course(courseID, course, language, catPhrases, catWords, category, catStories);
             courseList.add(newCourse);
         }
         return courseList;
@@ -166,10 +166,10 @@ public static Story getStory(JSONObject storyJSON) {
 // Main method to test getUsers
 
 public static void main(String[] args) {
-    ArrayList<User> users = getUsers();
-    ArrayList<Course> courses = getCourse();
+   // ArrayList<User> Users = getUsers();
+    ArrayList<Course> courseList = getCourse();
 
-    for (Course course : courses) 
+    for (Course course : courseList) 
     { 
         System.out.println(course);
     }
