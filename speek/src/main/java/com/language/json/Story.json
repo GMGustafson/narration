@@ -3,7 +3,6 @@
 "id" : 1,
 "languageID" : 1,
 "currentCategory" : "numbers",
-"question" : "Would you like to read a fun story or play a cool game?",
 "story" : [{
     "title" : "Let's go grocery shopping!",
     "text" : [
@@ -25,7 +24,6 @@
 "id" : 2,
 "languageID" : 2,
 "currentCategory" : "colors",
-"question" : "Would you like to read a fun story or play a cool game?",
 "story" : [{
     "title" : "Let's decorate a cake!",
     "text" : [

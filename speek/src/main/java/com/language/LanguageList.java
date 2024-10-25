@@ -7,13 +7,13 @@ import java.util.ArrayList;
 **/
 
 public class LanguageList {
-    private ArrayList<Language> languages; 
+    private ArrayList<Course> languages; 
     private static LanguageList languageList;
 
     //load content from json
     private LanguageList()
     { 
-        languages = DataLoader.getLanguages(); 
+        languages = DataLoader.getCourse(); 
     }
 
     public static LanguageList getInstance()
@@ -25,7 +25,7 @@ public class LanguageList {
         return languageList;
     }
 
-    public ArrayList<Language> getLanguages() 
+    public ArrayList<Course> getLanguages() 
     { 
         return languages;
     }
