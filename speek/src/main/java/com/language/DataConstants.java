@@ -58,6 +58,7 @@ public abstract class DataConstants {
     protected static final String STORY = "story"; 
     protected static final String STORY_TRANSLATION = "storyTranslation"; 
     
+    
 
 
 }

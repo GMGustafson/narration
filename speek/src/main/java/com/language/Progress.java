@@ -13,30 +13,23 @@ public class Progress {
      */
     private int totalQuestionsAnswered;
     private int numCorrectAnswers;
-    private Category currentCategory;
-    private Course currentCourse;
+    private String currentCategory;
     private int progressInCategory;
-    private int progressInCourse;
     private int streak;
-    private LocalDate loginDate;
     private ArrayList<String> missedWords;
-    private Language language;
-    private String[] courses = {"Word" , "Phrase"};
-    private int courseIndex;
-    private int categoryIndex; 
-    private List<String> categories;
 
-    public Progress(int totalQuestionsAnswered, int numCorrectAnswers, Category currentCategory, 
-    Course currentCourse, int progressInCategory, int streak, Language language) {
+    public Progress() {
+        missedWords = new ArrayList<>();
+    }
+
+    public Progress(int totalQuestionsAnswered, int numCorrectAnswers, String currentCategory, 
+    int progressInCategory, int streak, ArrayList<String> missedWords) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
         this.numCorrectAnswers = numCorrectAnswers;
         this.currentCategory = currentCategory;
-        this.currentCourse = currentCourse;
         this.progressInCategory = progressInCategory;
         this.streak = streak;
-        this.missedWords = new ArrayList<>();
-        this.language = language;
-        this.categories = currentCourse.getAvailableCourse();
+        this.missedWords = missedWords;
     }
 
     public void resetCategoryProgress() {
@@ -65,24 +58,12 @@ public class Progress {
         this.numCorrectAnswers = numCorrectAnswers;
     }
 
-    public Category getCurrentCategory() {
-        return currentCategory;
-    }
-
-    public String getCurrentCourse() {
-        return courses[courseIndex];
+    public void setCurrentCategory(String currentCategory){
+        this.currentCategory = currentCategory;
     }
 
     public int getProgressInCategory() {
         return progressInCategory;
-    }
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
     }
 
     public int getStreak() {
@@ -91,6 +72,10 @@ public class Progress {
 
     public void setStreak(int streak) {
         this.streak = streak;
+    }
+
+    public void setProgressInCategory(int progressInCategory){
+        this.progressInCategory = progressInCategory;
     }
 
     public ArrayList<String> getMissedWords() {
@@ -121,25 +106,6 @@ public class Progress {
         //     Category currentCategory.setCurrentCategory();
         // }
         System.out.print("Tracking the progress of the lesson");
-    }
-
-    /**
-     * trackDaily method
-     * tracks the user's daily participation
-     */
-    public void trackDaily() {
-        LocalDate today = LocalDate.now();
-        if (loginDate != null) {
-            long daysSinceLogin = java.time.temporal.ChronoUnit.DAYS.between(loginDate, today);
-            if (daysSinceLogin == 1) {
-                streak++;
-            }
-            else if (daysSinceLogin > 1 ) {
-                streak = 0;
-            }
-        }
-        loginDate = today;
-        System.out.print("Tracking the user's daily progress. Current streak: streak");
     }
     
 
@@ -186,66 +152,13 @@ public class Progress {
 
     public void goToNextCategory() {
         progressInCategory++;
+        if (progressInCategory == 1){
 
-        // Check if current category is complete
-        if (progressInCategory >= currentCourse.getPhrasesByCategory(currentCategory.label).size()) {
-            categoryIndex++;
-            progressInCategory = 0; // Reset category progress
-
-            // Check if all categories in the current course are completed
-            if (categoryIndex >= categories.size()) {
-                categoryIndex = 0; // Reset to the first category
-                switchToNextCourse(); // Switch to the next course after completing all categories
-            } else {
-                currentCategory = Category.values()[categoryIndex];
-                //currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
-                System.out.println("Advanced to the next category: " + currentCategory.label);
-            }
         }
-    }
+        
+        
+}
 
-    
-    
-    
-
-    /**
-     * currentCategory method
-     * tracks the currentCategory the user is learning
-     */
-
-    public void setCurrentCategory(Category currentCategory){
-        this.currentCategory = currentCategory;
-    }
-
-    public void setCurrentCourse(Course currentCourse) {
-        this.currentCourse = currentCourse;
-    }
-
-
-    public void setProgressInCategory(int progressInCategory){
-        this.progressInCategory = progressInCategory;
-    }
-
-     //the progress in the category keeps going up//
-    //  public void progressInCourse() {  
-    //     // how many catergories they complete 
-    //     //progressInCourse++; 
-
-    //     if (progressInCourse < 5) {
-    //         progressInCourse++;
-    //     }
-    //     else if (progressInCourse >= 5) {
-    //         if (currentCourse.equals("Phrase")) {
-    //             currentCourse.setCourse("Word");
-    //         }
-    //         if (currentCourse.equals("Word")) {
-    //             currentCourse.setCourse("Phrase");
-    //         }
-    //     }
-    //     else {
-    //         progressInCourse = 0;
-    //     }
-    //  }
 
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
@@ -259,7 +172,7 @@ public class Progress {
         HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
         HashMap<String, Story> stories = currentCourse.getStories();
-        currentCourse = new Course(null, availableCourses[nextIndex], language.toString(), phrases, words, null, stories);        
+        currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
         System.out.println("Switched to the next course: " + currentCourse.getCourse());
      }
 

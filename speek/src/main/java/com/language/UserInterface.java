@@ -23,11 +23,13 @@ public class UserInterface {
  */
     private Category currentCategory;
     private Course currentCourse;
-    private Language currentLanguage;
     private Progress progress;
     private User currentUser;
     private ArrayList<User> userList; 
     private DataWriter dataWriter;
+    private DataLoader dataLoader;
+    private Flashcard flashcards;
+    private Story story;
 
     /**
      * Constructor for UI
@@ -35,6 +37,7 @@ public class UserInterface {
     public UserInterface() {
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
+        this.dataLoader = new DataLoader();
     }
 
     /**
@@ -92,6 +95,20 @@ public class UserInterface {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
+
+    public void chooseLearning() {
+        int answerLearning = 0;
+        if (answerLearning == 1) {
+            for (int i = 0; i < 5; i++) {
+                flashcards.showFlashcard();
+            }
+        }
+        if (answerLearning == 2) {
+            story.start();
+            
+        }
+        answerLearning = 1;
+    }
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -118,6 +135,7 @@ public class UserInterface {
             chooseLangauage();
             chooseCourse();
             chooseCategory();
+            chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
@@ -138,7 +156,7 @@ public class UserInterface {
                     correctAnswers1++;
                 }
             }
-            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0, currentLanguage);            
+            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0);            
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
@@ -162,7 +180,7 @@ public class UserInterface {
                     correctAnswers2++;
                 }
             }
-            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0, currentLanguage);            
+            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0);            
             progress.addMissedWords("azul");
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
@@ -181,7 +199,7 @@ public class UserInterface {
                     System.out.println(question);
                     correctAnswers1++;
                 }
-                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0, currentLanguage);            
+                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0);            
                 System.out.println("Jim's Progress: " + progress.getProgress());
                 progress.trackPercentCorrect();
                 Narriator.playSound("You scored a hundred percent on second attempt");
