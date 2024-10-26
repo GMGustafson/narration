@@ -1,6 +1,7 @@
 package com.language;
+import java.io.FileReader;
 /*
- * @author Gracie
+ * @author Gracie and zaniah
  */
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,9 +11,14 @@ import java.util.Scanner;
 import java.util.Scanner;
 import java.util.UUID;
 
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+
+import com.narration.Narriator;
+
 public class UserInterface {
 
-/*
+    /*
  * UI attributes
  */
     private Category currentCategory;
@@ -86,7 +92,6 @@ public class UserInterface {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -100,19 +105,13 @@ public class UserInterface {
         System.out.println("Scenario: Jim Smith");
         //Prior to this scenario, show that Jim Smith is not in the users.json
         //showUsers();
-        //Jim creates a new user account with his specified information.
-        String firstName = "Jim";
-        String lastName = "Smith";
-        String email = "jimsmith@gmail.com";
-        String phoneNumber = "643-917-1800";
-        LocalDate dateOfBirth = LocalDate.of(2005, 1, 1); 
         String username = "jimsmith44";
         String password = "smithj1";
-        createAccount(firstName, lastName, email, phoneNumber, dateOfBirth, username, password);
+        createAccount("Jim", "Smith", "jimsmith@gmail.com", "643-917-1800", LocalDate.of(2005, 1, 1), "jimsmith44", "smithj1");
         //Jim logs out of the system.
         logout();
         //Show the users.json -> illustrating that Jim is now in the file.
-        //showUsers(); Do we need a showUsers method in data writer??
+        //showUsers(); 
         // Now have Jim successfully login to the system
         if (login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
@@ -120,6 +119,7 @@ public class UserInterface {
             chooseCourse();
             chooseCategory();
 
+            Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
             String[] questions1 = {
                 "What is the number one in Spanish?",
@@ -142,7 +142,9 @@ public class UserInterface {
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
+            Narriator.playSound("You scored an eighty percent");
 
+            Narriator.playSound("Lesson Two: Colors");
             //jim answers questions. gets 3/5
             String[] questions2 = {
                 "What is the Spanish word for red?", 
@@ -165,6 +167,7 @@ public class UserInterface {
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
+            Narriator.playSound("You scored a sixty percent. You have to start over");
             logout();
             //showUser()
             if (login("jimsmith44", "smithj1")){
@@ -173,6 +176,15 @@ public class UserInterface {
                 chooseCourse();
                 chooseCategory();
                 System.out.println("You scored below 80% You have to restart the Numbers category");
+                progress.resetCategoryProgress();
+                for (String question : questions1) {
+                    System.out.println(question);
+                    correctAnswers1++;
+                }
+                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0, currentLanguage);            
+                System.out.println("Jim's Progress: " + progress.getProgress());
+                progress.trackPercentCorrect();
+                Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
     }
