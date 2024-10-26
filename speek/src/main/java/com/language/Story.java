@@ -23,28 +23,14 @@ public class Story {
         return title; 
     }
     
-	public void start(){
-        System.out.println("Let's read " + title);
+    public ArrayList<String> gettext() 
+    { 
+        return text; 
     }
-
-    public void end(){
-        read = true;
-        System.out.println("you finished reading " + title);
+	
+    public  ArrayList<String> gettexttranslation() 
+    { 
+        return texttranslation; 
     }
-
-    public boolean isFinished()
-    {
-        return read;
-    }
-
-    public double getTimeSpent(){
-        return 0;
-    }
-
-    public static void add(Story newStory) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
-
     
 }
