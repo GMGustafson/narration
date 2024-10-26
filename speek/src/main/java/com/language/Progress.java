@@ -13,30 +13,23 @@ public class Progress {
      */
     private int totalQuestionsAnswered;
     private int numCorrectAnswers;
-    private Category currentCategory;
-    private Course currentCourse;
+    private String currentCategory;
     private int progressInCategory;
-    private int progressInCourse;
     private int streak;
-    private LocalDate loginDate;
     private ArrayList<String> missedWords;
-    private Language language;
-    private String[] courses = {"Word" , "Phrase"};
-    private int courseIndex;
-    private int categoryIndex; 
-    private List<String> categories;
 
-    public Progress(int totalQuestionsAnswered, int numCorrectAnswers, Category currentCategory, 
-    Course currentCourse, int progressInCategory, int streak, Language language) {
+    public Progress() {
+        missedWords = new ArrayList<>();
+    }
+
+    public Progress(int totalQuestionsAnswered, int numCorrectAnswers, String currentCategory, 
+    int progressInCategory, int streak, ArrayList<String> missedWords) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
         this.numCorrectAnswers = numCorrectAnswers;
         this.currentCategory = currentCategory;
-        this.currentCourse = currentCourse;
         this.progressInCategory = progressInCategory;
         this.streak = streak;
-        this.missedWords = new ArrayList<>();
-        this.language = language;
-        this.categories = currentCourse.getAvailableCourse();
+        this.missedWords = missedWords;
     }
 
     public void resetCategoryProgress() {
@@ -65,24 +58,8 @@ public class Progress {
         this.numCorrectAnswers = numCorrectAnswers;
     }
 
-    public Category getCurrentCategory() {
-        return currentCategory;
-    }
-
-    public String getCurrentCourse() {
-        return courses[courseIndex];
-    }
-
     public int getProgressInCategory() {
         return progressInCategory;
-    }
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
     }
 
     public int getStreak() {
@@ -121,25 +98,6 @@ public class Progress {
         //     Category currentCategory.setCurrentCategory();
         // }
         System.out.print("Tracking the progress of the lesson");
-    }
-
-    /**
-     * trackDaily method
-     * tracks the user's daily participation
-     */
-    public void trackDaily() {
-        LocalDate today = LocalDate.now();
-        if (loginDate != null) {
-            long daysSinceLogin = java.time.temporal.ChronoUnit.DAYS.between(loginDate, today);
-            if (daysSinceLogin == 1) {
-                streak++;
-            }
-            else if (daysSinceLogin > 1 ) {
-                streak = 0;
-            }
-        }
-        loginDate = today;
-        System.out.print("Tracking the user's daily progress. Current streak: streak");
     }
     
 
