@@ -48,7 +48,8 @@ public class DataLoader extends DataConstants{
             JSONArray CourseJSON = (JSONArray) userJSON.get(USER_COURSES);
             for (int j = 0; j < CourseJSON.size(); j++) {
                 JSONObject user = (JSONObject) CourseJSON.get(j);
-                UUID course = UUID.fromString(String.valueOf(user.get(USER_ID)));
+                UUID userid = UUID.fromString(String.valueOf(user.get(USER_ID)));
+                //UUID courseid = UUID.fromString(String.valueOf(user.get(USER_ID)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
@@ -166,7 +167,7 @@ public static Story getStory(JSONObject storyJSON) {
 // Main method to test getUsers
 
 public static void main(String[] args) {
-    ArrayList<User> users = getUsers();
+    //ArrayList<User> users = getUsers();
     ArrayList<Course> courseList = getCourse();
 
     if (courseList != null) {
