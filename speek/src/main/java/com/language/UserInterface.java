@@ -162,7 +162,8 @@ public class UserInterface {
                     correctAnswers1++;
                 }
             }
-            //progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0);            
+            ArrayList<String> missedWord = new ArrayList<>();
+            progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);            
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
@@ -186,7 +187,8 @@ public class UserInterface {
                     correctAnswers2++;
                 }
             }
-            //progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0);            
+            ArrayList<String> missedWords = new ArrayList<>();
+            progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
             progress.addMissedWords("azul");
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
@@ -198,14 +200,14 @@ public class UserInterface {
                 System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
                 chooseLangauage();
                 chooseCourse();
-                chooseCategory();
+                //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
-                //progress.resetCategoryProgress();
-                for (String question : questions1) {
+                progress.resetCategoryProgress();
+                for (String question : questions2) {
                     System.out.println(question);
-                    correctAnswers1++;
+                    correctAnswers2++;
                 }
-                //progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0);            
+                progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
                 System.out.println("Jim's Progress: " + progress.getProgress());
                 progress.trackPercentCorrect();
                 Narriator.playSound("You scored a hundred percent on second attempt");
