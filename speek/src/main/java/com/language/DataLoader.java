@@ -45,27 +45,29 @@ public class DataLoader extends DataConstants{
             String password = (String)userJSON.get(USER_PASSWORD);
             
         
-            JSONArray CourseJSON = (JSONArray) userJSON.get(USER_COURSES);
-            for (int j = 0; j < CourseJSON.size(); j++) {
-                JSONObject user = (JSONObject) CourseJSON.get(j);
-                UUID userid = UUID.fromString(String.valueOf(user.get(USER_ID)));
-                //UUID courseid = UUID.fromString(String.valueOf(user.get(USER_ID)));
+            JSONArray CoursesJSON = (JSONArray) userJSON.get(USER_COURSES);
+            for (int j = 0; j < CoursesJSON.size(); j++) {
+                JSONObject courseJSON = (JSONObject) CoursesJSON.get(j);
+                UUID courseid = UUID.fromString((String)courseJSON.get(COURSE_ID));
 
                 //Language languageAt = new Language(languageID, language);
-                LanguageList languageAt = LanguageList.getInstance();
+                CourseList courseList = CourseList.getInstance();
+                Course course = courseList.getCourseByUUID(courseid);
 
                 JSONObject progressJSON = (JSONObject)User.get(PROGRESS);
+                
                 int totalQuestionsAnswered = ((Long) progressJSON.get(TOT_QUESTIONS_ANSWERED)).intValue();
                 int numCorrectAnswers = ((Long) progressJSON.get(NUM_CORRECT_ANSWERS)).intValue();
                 String currentCategory = (String)progressJSON.get(CURRENT_CATEGORY);
                 int progressInCategory = ((Long) progressJSON.get(PROGRESS_IN_CATEGORY)).intValue();
                 int streak = ((Long) progressJSON.get(USER_STREAK)).intValue();
-                JSONArray missedWordsJSON = (JSONArray)user.get(MISSED_WORDS);
+                JSONArray missedWordsJSON = (JSONArray)progressJSON.get(MISSED_WORDS);
                 ArrayList<String> missedWords = new ArrayList<>();
                 for (Object word : missedWordsJSON) {
                     missedWords.add((String) word);
                 }
-
+                Progress newprogress = new Progress(totalQuestionsAnswered, numCorrectAnswers,currentCategory,progressInCategory,streak,missedWords);
+                userList.add(newprogress); 
             }
             User newUser = new User(userID, firstName, lastName, email, phoneNumber, dateOfBirth, username, password);
             userList.add(newUser);

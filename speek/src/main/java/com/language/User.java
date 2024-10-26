@@ -23,7 +23,7 @@ public class User{
     private LocalDate dateOfBirth;
     private String username;
     private String password;
-    private HashMap<Language,Progress> languages;
+    private HashMap<Course,Progress> languages;
 
     public User(UUID id, String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, String username, String password){
         this.id = id;
