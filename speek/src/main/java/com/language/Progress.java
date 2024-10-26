@@ -152,7 +152,9 @@ public class Progress {
 
     public void goToNextCategory() {
         progressInCategory++;
-        if ()
+        if (progressInCategory == 1){
+
+        }
         
         
 }
@@ -170,7 +172,7 @@ public class Progress {
         HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
         HashMap<String, Story> stories = currentCourse.getStories();
-        currentCourse = new Course(null, availableCourses[nextIndex], language.toString(), phrases, words, null, stories);        
+        currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
         System.out.println("Switched to the next course: " + currentCourse.getCourse());
      }
 

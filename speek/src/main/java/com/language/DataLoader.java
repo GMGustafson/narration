@@ -45,7 +45,8 @@ public class DataLoader extends DataConstants{
             JSONArray CourseJSON = (JSONArray) userJSON.get(USER_COURSES);
             for (int j = 0; j < CourseJSON.size(); j++) {
                 JSONObject user = (JSONObject) CourseJSON.get(j);
-                UUID course = UUID.fromString(String.valueOf(user.get(USER_ID)));
+                UUID userid = UUID.fromString(String.valueOf(user.get(USER_ID)));
+                //UUID courseid = UUID.fromString(String.valueOf(user.get(USER_ID)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
@@ -92,21 +93,22 @@ public static ArrayList<Course> getCourse() {
             HashMap<String, ArrayList<Word>> catWords = new HashMap<>();
             HashMap<String, Story> catStories = new HashMap<>();
 
-          //  JSONArray categories = (JSONArray) parser.parse(reader); 
-            for (int j=0; j < CourseJSON.size(); j++) 
+            JSONArray categories = (JSONArray)CourseJSON.get(CATEGORIES);
+            for (int j=0; j < categories.size(); j++) 
             {
-                String title = (String)CourseJSON.get(CATEGORY_TITLE); 
+                JSONObject catJSON = (JSONObject)categories.get(j);
+                String title = (String)catJSON.get(CATEGORY_TITLE); 
                 ArrayList<Word> words = new ArrayList<>();
-                JSONArray wordsJSON = (JSONArray)CourseJSON.get(WORDS); 
+                JSONArray wordsJSON = (JSONArray)catJSON.get(WORDS); 
                    for (int w=0; w < wordsJSON.size(); w++) 
                     {
                         JSONObject wordJSON = (JSONObject)wordsJSON.get(w);
                         words.add(getWord(wordJSON));
                    }
-                catWords.put(category, words);
+                catWords.put(title, words);
 
                 
-                JSONArray phrasesJSON = (JSONArray)CourseJSON.get(PHRASES); 
+                JSONArray phrasesJSON = (JSONArray)catJSON.get(PHRASES); 
                 ArrayList<Phrase> phrases = new ArrayList<Phrase>();
                     for (int w=0; w < phrasesJSON.size(); w++) 
                     {
@@ -114,11 +116,11 @@ public static ArrayList<Course> getCourse() {
                         phrases.add(getPhrase(phraseJSON)); 
                     }
                 
-                    catPhrases.put(category, phrases);
+                    catPhrases.put(title, phrases);
 
-                JSONObject storyJSON = (JSONObject)CourseJSON.get(STORY);
+                JSONObject storyJSON = (JSONObject)catJSON.get(STORY);
                 Story story = getStory(storyJSON);
-                catStories.put(category, story);
+                catStories.put(title, story);
             }
             Course newCourse = new Course(courseID, course, language, catPhrases, catWords, category, catStories);
             courseList.add(newCourse);
@@ -152,10 +154,24 @@ public static Word getWord(JSONObject wordJSON) {
 
 public static Story getStory(JSONObject storyJSON) {
     String title = (String)storyJSON.get(TITLE);
-    String text = (String)storyJSON.get(TEXT);
-    String storyTranslation = (String)storyJSON.get(STORY_TRANSLATION);
+    JSONArray textListJSON = (JSONArray)storyJSON.get(TEXT);
+    JSONArray texttranslationsJSON = (JSONArray)storyJSON.get(STORY_TRANSLATION);
     
-    Story newStory = new Story(title,text,storyTranslation);
+    ArrayList<String> textList = new ArrayList<>();
+    ArrayList<String> textTranslations = new ArrayList<>(); 
+
+    for (int j=0; j < textListJSON.size(); j++) 
+    { 
+        String text = (String)textListJSON.get(j);
+        textList.add(text);  
+    }
+    for (int j=0; j < texttranslationsJSON.size(); j++) 
+    { 
+        String textTranslation = (String)texttranslationsJSON.get(j); 
+        textTranslations.add(textTranslation); 
+    }
+    
+    Story newStory = new Story(title,textList,textTranslations);
     return newStory;
 
 }
@@ -165,7 +181,7 @@ public static Story getStory(JSONObject storyJSON) {
 // Main method to test getUsers
 
 public static void main(String[] args) {
-    ArrayList<User> users = getUsers();
+    //ArrayList<User> users = getUsers();
     ArrayList<Course> courseList = getCourse();
 
     if (courseList != null) {
@@ -177,17 +193,17 @@ public static void main(String[] args) {
     }
 
 
-    if (users != null) {
-        if (users.isEmpty()) {
-            System.out.println("No users found in the data.");
-        } else {
-            for (User user : users) {
-                System.out.println("User: " + user.getFirstName() + " " + user.getLastName() + ", Email: " + user.getEmail() + " Date of Birth: " + user.getDateOfBirth());
-            }
-        }
-    } else {
-        System.out.println("Failed to load user data.");
-    }
+    // if (users != null) {
+    //     if (users.isEmpty()) {
+    //         System.out.println("No users found in the data.");
+    //     } else {
+    //         for (User user : users) {
+    //             System.out.println("User: " + user.getFirstName() + " " + user.getLastName() + ", Email: " + user.getEmail() + " Date of Birth: " + user.getDateOfBirth());
+    //         }
+    //     }
+    // } else {
+    //     System.out.println("Failed to load user data.");
+    // }
 }
 }
 

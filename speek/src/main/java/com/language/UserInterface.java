@@ -23,7 +23,6 @@ public class UserInterface {
  */
     private Category currentCategory;
     private Course currentCourse;
-    private Language currentLanguage;
     private Progress progress;
     private User currentUser;
     private ArrayList<User> userList; 
@@ -157,7 +156,7 @@ public class UserInterface {
                     correctAnswers1++;
                 }
             }
-            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0, currentLanguage);            
+            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0);            
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
@@ -181,7 +180,7 @@ public class UserInterface {
                     correctAnswers2++;
                 }
             }
-            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0, currentLanguage);            
+            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0);            
             progress.addMissedWords("azul");
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
@@ -200,7 +199,7 @@ public class UserInterface {
                     System.out.println(question);
                     correctAnswers1++;
                 }
-                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0, currentLanguage);            
+                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0);            
                 System.out.println("Jim's Progress: " + progress.getProgress());
                 progress.trackPercentCorrect();
                 Narriator.playSound("You scored a hundred percent on second attempt");

@@ -1,7 +1,7 @@
 [
     {
         "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
-        "language" : "Spanish",
+        "course" : "Spanish",
         "categories": [
             {
                 "title":"numbers", 
@@ -80,21 +80,21 @@
                 "phrases": [ 
                     {
                         "category": "numbers",
-                        "translation":["two", "plus", "seven", "equals", "nine"],
-                        "words<>":  ["Dos", "más", "siete", "es", "igual", "a", "nueve"]
+                        "translation":"Two plus seven equals nine",
+                        "words": "Dos más siete es igual a nueve"
                     },
                     {
                         "category": "numbers",
-                        "translation": ["ten", "minus", "four", "equals", "six"],
-                        "words<>":  ["diez", "menos", "cuatro", "es igual", "a seis"]
+                        "translation": "Ten minus four equals six",
+                        "words":  "Diez menos cuatro es igual a seis"
                     },
                     {
                         "category": "numbers",
-                        "translation": ["four", "times" ,"two", "equals" ,"eight"],
-                        "words<>": ["cuatro", "por", "dos", "es", "igual", "a ocho"]
+                        "translation": "Four times two equals eight",
+                        "words": "Cuatro por dos es igual a ocho"
                     }
                 ],
-                "story" : [{
+                "story" : {
                                 "title" : "Let's go grocery shopping!",
                                 "text" : [
                                     "At the store, Tom buys one red apple.",
@@ -107,7 +107,7 @@
                                     "Finalmente compra tres plátanos amarillos."
                                 ]
                             }
-                            ]
+                            
             },
             {
                 "title":"colors",
@@ -185,21 +185,21 @@
                 "phrases":[
                         {
                             "category": "colors",
-                            "translation": ["Strawberries" , "are", "red"],
-                            "words<>":  ["Las", "fresas", "son", "rojas"]
+                            "translation": "Strawberries are red",
+                            "words": "Las fresas son rojas"
                         },
                         {
                             "category": "colors",
-                            "translation":["School", "buses" , "are", "yellow"],
-                            "words<>": ["Los", " autobuses ", "escolares ", "son ", "amarillos"]
+                            "translation":"School buses are yellow",
+                            "words": "Los autobuses escolares son amarillos"
                         },
                         {
                             "category": "colors",
-                            "translation": ["Black", "and", "white", "make", "gray"],
-                            "words<>": ["El", "blanco", "y", "el", "negro", "hacen", "gris"]
+                            "translation": "Black and white make gray",
+                            "words": "El blanco y el negro hacen gris"
                         }
                 ],
-                "story" : [{
+                "story" : {
                             "title" : "Let's decorate a cake!",
                             "text" : [
                                 "Emily frosts the cake pink .",
@@ -212,7 +212,7 @@
                                 "Ella cubre el pastel con cinco velas verdes."
                             ]
                         }
-                        ]
+                        
                     
             },
             {
@@ -291,24 +291,9 @@
                     }
                 ],
                 "phrases": [
-                    {
-                        "category": "places", 
-                        "translation":  ["where", "is", "the", "libary"],
-                       "words<>": ["Donde", "esta", "la", "biblioteca?"]
-                       
-                    },
-                    {
-                        "category": "places", 
-                        "translation":["There", "are", "animals", "at", "the", "zoo"],
-                        "words<>":  ["Hay", "animales", "en", "el", "zoológico"]
-                    },
-                    {
-                        "category": "places", 
-                        "translation": ["I", "can", "not", "wait", "to", "get", "to", "the" ,"airport"],
-                        "words<>":["No", "puedo", "esperar", "a", "llegar", "al", "avión"]
-                    }
+                   
                 ],
-                "story" : [{
+                "story" : {
                             "title" : "Let's decorate a cake!",
                             "text" : [
                                 "Emily frosts the cake pink .",
@@ -321,7 +306,7 @@
                                 "Ella cubre el pastel con cinco velas verdes."
                             ]
                         }
-                        ]
+                        
         
             },
             {
@@ -400,23 +385,9 @@
                     }
                 ],
                 "phrases": [
-                    {
-                        "category": "weather", 
-                        "translation":  ["April", ", May", "June", "are", "la primavera", "months"],
-                        "words<>": ["Abril", "mayo", "y", "junio", "son", "las", "estaciones", "de", "primavera"]
-                    },
-                    {
-                        "category": "weather", 
-                        "translation":  ["No", "School", "tomorrow", "it", "has", "snowed"],
-                        "words<>":  ["No", "hay", "escuela", "mañana", "ha", "nevado"]
-                    },
-                    {
-                        "category": "weather", 
-                        "translation":  ["The", "weather", "is", "nice", "outside", "today"],
-                        "words<>": ["El", "clima", "es", "agradable", "afuera"]
-                    }
+                   
                 ],
-                "story" : [{
+                "story" : {
                             "title" : "Let's decorate a cake!",
                             "text" : [
                                 "Emily frosts the cake pink .",
@@ -429,7 +400,7 @@
                                 "Ella cubre el pastel con cinco velas verdes."
                             ]
                         }
-                        ]
+                        
 
             },
             {
@@ -507,24 +478,9 @@
                     }
                 ],
                 "phrases": [
-                    {
-                        "category": "people", 
-                        "translation":  ["When", "you", "are", "married", "you", "become", "husband", "and", "wife"],
-                        "words<>":  ["Cuando", "estás", "casado", "te", "conviertes", "en", "marido", "y", "mujer"]
-                    },
-
-                    {
-                        "category": "people", 
-                        "translation":  ["I", "have", "one", "abuela", "still", "alive"],
-                        "words<>":  ["Tengo", "una", "abuela", "que", "aún", "vive"]
-                    },
-                    {
-                        "category": "people", 
-                        "translation":  ["Mama", "is ", "a", "normal", "first", "word"],
-                        "words<>":  ["Mamá", "es", "una", "primera", "palabra", "normal"]
-                    }               
+                              
                 ],
-                "story" : [{
+                "story" : {
                             "title" : "Let's decorate a cake!",
                             "text" : [
                                 "Emily frosts the cake pink .",
@@ -537,10 +493,9 @@
                                 "Ella cubre el pastel con cinco velas verdes."
                             ]
                         }
-                        ]
+                        
             }
-        ],
-        "category":"numbers"
+        ]
     }
 
 ]

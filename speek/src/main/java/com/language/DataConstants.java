@@ -25,6 +25,7 @@ public abstract class DataConstants {
     protected static final String COURSE = "course";
     protected static final String CATEGORY_TITLE = "title";
     protected static final String CURRENT_CATEGORY_TITLE = "category";
+    protected static final String CATEGORIES = "categories";
     protected static final String CATEGORY_QUESTION = "question";
     protected static final String FILL_IN_THE_BLANK = "fillintheBlank";
     protected static final String SAMPLE_SENTENCE = "sampleSentence";

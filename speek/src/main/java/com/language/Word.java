@@ -52,4 +52,10 @@ public class Word {
     public ArrayList<Word> getAlternatives() {
         return new ArrayList<>(alternatives); 
     }
+
+    public String toString() {
+        String result = "";
+        result += word + "--" + pronunciation + "--" + translation +"--" + alternatives ;
+        return result;
+    }
 }
