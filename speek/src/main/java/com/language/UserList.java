@@ -24,6 +24,10 @@ public class UserList {
         this.id = UUID.randomUUID();
     }
 
+    public ArrayList<User> getUsers(){
+        return users;
+    }
+
     /**
      * getnstance method (singleton design pat.)
      * creates one instance of the user list
