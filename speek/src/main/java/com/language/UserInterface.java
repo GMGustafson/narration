@@ -100,8 +100,9 @@ public class UserInterface {
     public void chooseLearning() {
         int answerLearning = 0;
         if (answerLearning == 1) {
-            dataLoader.getFlashCard(flashcards);
-            flashcards.showFlashcard();
+            for (int i = 0; i < 5; i++) {
+                flashcards.showFlashcard();
+            }
         }
         if (answerLearning == 2) {
             story.start();
