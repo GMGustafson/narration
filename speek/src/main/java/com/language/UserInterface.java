@@ -28,6 +28,8 @@ public class UserInterface {
     private User currentUser;
     private ArrayList<User> userList; 
     private DataWriter dataWriter;
+    private Flashcard flashcards;
+    private Story story;
 
     /**
      * Constructor for UI
@@ -91,6 +93,17 @@ public class UserInterface {
     public void chooseCategory() {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
+    }
+
+    public void chooseLearning() {
+        int answerLearning = 0;
+        if (answerLearning == 1) {
+            flashcards.showFlashcard();
+        }
+        if (answerLearning == 2) {
+            story.start();
+            
+        }
     }
        /**
      * progressLearning method 
