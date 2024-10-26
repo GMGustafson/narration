@@ -19,9 +19,6 @@ import org.json.simple.parser.JSONParser;
  * It parses the JSON data and converts it into a list of objects.
  */
 public class DataLoader extends DataConstants{
-
-
-
     // Loads the lists of Users
     public static ArrayList<User> getUsers() {
         ArrayList<User> userList = new ArrayList<User>();
@@ -162,6 +159,8 @@ public static Story getStory(JSONObject storyJSON) {
     return newStory;
 
 }
+
+
 
 // Main method to test getUsers
 

@@ -28,6 +28,7 @@ public class UserInterface {
     private User currentUser;
     private ArrayList<User> userList; 
     private DataWriter dataWriter;
+    private DataLoader dataLoader;
     private Flashcard flashcards;
     private Story story;
 
@@ -37,6 +38,7 @@ public class UserInterface {
     public UserInterface() {
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
+        this.dataLoader = new DataLoader();
     }
 
     /**
@@ -98,12 +100,14 @@ public class UserInterface {
     public void chooseLearning() {
         int answerLearning = 0;
         if (answerLearning == 1) {
+            dataLoader.getFlashCard(flashcards);
             flashcards.showFlashcard();
         }
         if (answerLearning == 2) {
             story.start();
             
         }
+        answerLearning = 1;
     }
        /**
      * progressLearning method 
@@ -131,6 +135,7 @@ public class UserInterface {
             chooseLangauage();
             chooseCourse();
             chooseCategory();
+            chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
