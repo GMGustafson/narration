@@ -4,12 +4,9 @@ package com.language;
 public abstract class DataConstants {
  
     protected static final String FILE_NAME_USER_INTERFACE = "user.json"; 
-    protected static final String FILE_NAME_PHRASES = "Courses.json"; 
-    protected static final String FILE_NAME_COURSES = "Courses.json";
-    protected static final String FILE_NAME_WORDS = "Courses.json";
-    protected static final String FILE_NAME_STORY = "Story.json";
+    protected static final String FILE_NAME_COURSES = "speek/src/main/java/com/language/json/Courses.json";
     //Files for DataLoader - USER
-    protected static final String FILE_NAME_USER = "PixelChicksProject/json/User.json";
+    protected static final String FILE_NAME_USER = "speek/src/main/java/com/language/json/User.json";
     protected static final String USER_ID = "userID";
     protected static final String USER_FIRST_NAME = "firstName";
     protected static final String USER_LAST_NAME = "lastName";
@@ -18,11 +15,11 @@ public abstract class DataConstants {
     protected static final String USER_PHONE_NUMBER = "phoneNumber";
     protected static final String USER_DATE_OF_BIRTH = "dateOfBirth";
     protected static final String USER_PASSWORD = "password";
-    protected static final String USER_LANGUAGES = "languages";
-    protected static final String PROGRESS = "progress";
+    protected static final String COURSES = "courses";
+    protected static final String PROGRESS = "Progress";
     protected static final String USER_STREAK = "streak";
     //Files for DataLoader - LANGUAGE
-    protected static final String LANGUAGE_ID = "languageID";
+    protected static final String LANGUAGE_ID = "courseID";
     protected static final String COURSE_ID = "courseID";
     protected static final String LANGUAGE = "language";
     protected static final String COURSE = "course";
@@ -41,6 +38,7 @@ public abstract class DataConstants {
     protected static final String CATEGORY_WORDS = "words";
     protected static final String CATEGORY_WORD = "word";
     protected static final String NEW_CATEGORY = "category";
+    protected static final String USER_COURSES = "courses"; 
     //Files for DataLoader - CATEGORY
     //Files for DataLoader - WORDS
     protected static final String WORD = "word";
@@ -56,6 +54,7 @@ public abstract class DataConstants {
     //Files for DataLoader - STORY
     protected static final String TITLE = "title"; 
     protected static final String TEXT = "text"; 
+    protected static final String STORY = "story"; 
     protected static final String STORY_TRANSLATION = "storyTranslation"; 
 
 

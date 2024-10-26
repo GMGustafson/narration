@@ -1,18 +1,18 @@
 package com.language;
 
 import java.io.FileReader;
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+//import java.util.List;
 import java.util.UUID;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+//import java.time.format.DateTimeParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import org.json.simple.parser.ParseException;
 
 /**
  * The DataLoader class is responsible for loading data from the JSON files.
@@ -27,7 +27,7 @@ public class DataLoader extends DataConstants{
         ArrayList<User> userList = new ArrayList<User>();
     try {
         FileReader reader = new FileReader(FILE_NAME_USER);
-        JSONParser parser = new JSONParser();
+        //JSONParser parser = new JSONParser();
         JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -44,21 +44,22 @@ public class DataLoader extends DataConstants{
             String username = (String)userJSON.get(USER_USERNAME);
             String password = (String)userJSON.get(USER_PASSWORD);
             
-            JSONArray course = (JSONArray) userJSON.get(USER_LANGUAGES);
-            for (int j = 0; j < course.size(); j++) {
-                JSONObject courses = (JSONObject) course.get(j);
-                UUID courseID = UUID.fromString(String.valueOf(courses.get(LANGUAGE_ID)));
+        
+            JSONArray CourseJSON = (JSONArray) userJSON.get(USER_COURSES);
+            for (int j = 0; j < CourseJSON.size(); j++) {
+                JSONObject user = (JSONObject) CourseJSON.get(j);
+                UUID course = UUID.fromString(String.valueOf(user.get(USER_ID)));
 
                 //Language languageAt = new Language(languageID, language);
                 LanguageList languageAt = LanguageList.getInstance();
 
-                JSONObject progressJSON = (JSONObject)courses.get(PROGRESS);
+                JSONObject progressJSON = (JSONObject)User.get(PROGRESS);
                 int totalQuestionsAnswered = ((Long) progressJSON.get(TOT_QUESTIONS_ANSWERED)).intValue();
                 int numCorrectAnswers = ((Long) progressJSON.get(NUM_CORRECT_ANSWERS)).intValue();
                 String currentCategory = (String)progressJSON.get(CURRENT_CATEGORY);
                 int progressInCategory = ((Long) progressJSON.get(PROGRESS_IN_CATEGORY)).intValue();
                 int streak = ((Long) progressJSON.get(USER_STREAK)).intValue();
-                JSONArray missedWordsJSON = (JSONArray)courses.get(MISSED_WORDS);
+                JSONArray missedWordsJSON = (JSONArray)user.get(MISSED_WORDS);
                 ArrayList<String> missedWords = new ArrayList<>();
                 for (Object word : missedWordsJSON) {
                     missedWords.add((String) word);
@@ -86,41 +87,43 @@ public static ArrayList<Course> getCourse() {
 
         for (int i=0; i < CoursesJSON.size(); i++) {
             JSONObject CourseJSON = (JSONObject)CoursesJSON.get(i);
-            UUID userID = UUID.fromString(String.valueOf(CourseJSON.get(USER_ID)));
             UUID courseID = UUID.fromString(String.valueOf(CourseJSON.get(COURSE_ID)));
             String course = (String)CourseJSON.get(COURSE);
             String language = (String)CourseJSON.get(LANGUAGE);
             String category = (String)CourseJSON.get(CURRENT_CATEGORY_TITLE);
-            
+            HashMap<String, ArrayList<Phrase>> catPhrases = new HashMap<>();
+            HashMap<String, ArrayList<Word>> catWords = new HashMap<>();
+            HashMap<String, Story> catStories = new HashMap<>();
 
-            JSONArray categories = (JSONArray)new JSONParser().parse(reader);
-            for (int j=0; j < categories.size(); j++) 
+          //  JSONArray categories = (JSONArray) parser.parse(reader); 
+            for (int j=0; j < CourseJSON.size(); j++) 
             {
                 String title = (String)CourseJSON.get(CATEGORY_TITLE); 
-                JSONArray words = (JSONArray)CourseJSON.get(WORDS); 
-                   for (int w=0; w < words.size(); w++) 
+                ArrayList<Word> words = new ArrayList<>();
+                JSONArray wordsJSON = (JSONArray)CourseJSON.get(WORDS); 
+                   for (int w=0; w < wordsJSON.size(); w++) 
                     {
-                        String word = (String)CourseJSON.get(WORD);
-                        String pronunciation = (String)CourseJSON.get(WORD_PRONUNCIATION);
-                        String translation = (String)CourseJSON.get(WORD_TRANSLATION);
-                        String alternatives = (String)CourseJSON.get(WORD_ALTERNATIVES);
-
-                        Word newWord = new Word(word,pronunciation,translation,alternatives);
-                        WordList.add(newWord); 
+                        JSONObject wordJSON = (JSONObject)wordsJSON.get(w);
+                        words.add(getWord(wordJSON));
                    }
+                catWords.put(category, words);
 
                 
-                JSONArray phrases = (JSONArray)CourseJSON.get(PHRASES); 
-                    for (int w=0; w < phrases.size(); w++) 
+                JSONArray phrasesJSON = (JSONArray)CourseJSON.get(PHRASES); 
+                ArrayList<Phrase> phrases = new ArrayList<Phrase>();
+                    for (int w=0; w < phrasesJSON.size(); w++) 
                     {
-                        String translation = (String)CourseJSON.get(WORD_TRANSLATION);
-                        String phrasewords = (String)CourseJSON.get(WORDS);
-
-                        Phrase newPhrase = new Phrase (translation, phrasewords);
-                        PhraseList.add(newPhrase); 
+                        JSONObject phraseJSON = (JSONObject)phrasesJSON.get(w);
+                        phrases.add(getPhrase(phraseJSON)); 
                     }
+                
+                    catPhrases.put(category, phrases);
+
+                JSONObject storyJSON = (JSONObject)CourseJSON.get(STORY);
+                Story story = getStory(storyJSON);
+                catStories.put(category, story);
             }
-            Course newCourse = new Course(userID, courseID, course, language, categories, category);
+            Course newCourse = new Course(courseID, course, language, catPhrases, catWords, category, catStories);
             courseList.add(newCourse);
         }
         return courseList;
@@ -131,44 +134,50 @@ public static ArrayList<Course> getCourse() {
 return null;
 }
 
+public static Phrase getPhrase(JSONObject phraseJSON) {
+    String translation = (String)phraseJSON.get(WORD_TRANSLATION);
+    String phrasewords = (String)phraseJSON.get(WORDS);
 
-public static ArrayList<Story> getStory() {
-    try {
-        FileReader reader = new FileReader(FILE_NAME_STORY);
-        JSONParser parser = new JSONParser();
-        JSONArray StoryJSON = (JSONArray)new JSONParser().parse(reader);
+    Phrase newPhrase = new Phrase (translation, phrasewords);
+    return newPhrase;
+}
 
-        for (int i=0; i <StoryJSON.size(); i++) {
-            JSONObject CourseJSON = (JSONObject)StoryJSON.get(i);
-            UUID userID = UUID.fromString(String.valueOf(CourseJSON.get(USER_ID)));
-            UUID courseID = UUID.fromString(String.valueOf(CourseJSON.get(COURSE_ID)));
-            String category = (String)CourseJSON.get(CURRENT_CATEGORY_TITLE);
-            String language = (String)CourseJSON.get(LANGUAGE);
+public static Word getWord(JSONObject wordJSON) {
+    String word = (String)wordJSON.get(WORD);
+    String pronunciation = (String)wordJSON.get(WORD_PRONUNCIATION);
+    String translation = (String)wordJSON.get(WORD_TRANSLATION);
+    String alternatives = (String)wordJSON.get(WORD_ALTERNATIVES);
 
-            JSONArray story = (JSONArray)new JSONParser().parse(reader);
-            for (int j=0; j < story.size(); j++) 
-            {
-                    String title = (String)CourseJSON.get(TITLE);
-                    String text = (String)CourseJSON.get(TEXT);
-                    String storyTranslation = (String)CourseJSON.get(STORY_TRANSLATION);
-                    
-                    Story newStory = new Story(title,text,storyTranslation);
-                    Story.add(newStory); 
-            }
-        
-            // return Story;
-        }
-    }
-    catch (Exception e) {
-    e.printStackTrace();
-    }
-return null;
+    Word newWord = new Word(word,pronunciation,translation,alternatives); 
+    return newWord;  
+}
+
+
+public static Story getStory(JSONObject storyJSON) {
+    String title = (String)storyJSON.get(TITLE);
+    String text = (String)storyJSON.get(TEXT);
+    String storyTranslation = (String)storyJSON.get(STORY_TRANSLATION);
+    
+    Story newStory = new Story(title,text,storyTranslation);
+    return newStory;
+
 }
 
 // Main method to test getUsers
 
 public static void main(String[] args) {
     ArrayList<User> users = getUsers();
+    ArrayList<Course> courseList = getCourse();
+
+    if (courseList != null) {
+        for (Course course : courseList) {
+            System.out.println(course);
+        }
+    } else {
+        System.out.println("Course list is null, possibly due to loading error.");
+    }
+
+
     if (users != null) {
         if (users.isEmpty()) {
             System.out.println("No users found in the data.");
@@ -181,5 +190,6 @@ public static void main(String[] args) {
         System.out.println("Failed to load user data.");
     }
 }
-
 }
+
+
