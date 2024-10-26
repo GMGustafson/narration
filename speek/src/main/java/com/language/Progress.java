@@ -1,6 +1,7 @@
 package com.language;
     
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 /**
@@ -35,9 +36,16 @@ public class Progress {
         this.streak = streak;
         this.missedWords = new ArrayList<>();
         this.language = language;
-        this.categories = currentCourse.getCategories();
+        this.categories = currentCourse.getAvailableCourse();
     }
 
+    public void resetCategoryProgress() {
+        this.totalQuestionsAnswered = 0;
+        this.numCorrectAnswers = 0;
+        this.progressInCategory = 0;
+        this.missedWords.clear();
+        System.out.println("Category progress has been reset.");
+    }
 
 
     public int getTotalQuestionsAnswered() {    
@@ -159,7 +167,7 @@ public class Progress {
         System.out.println("Percentage of correct answers: " + percentCorrect + "%");
 
         if (percentCorrect >= 80) {
-            System.out.println("Moving to next Course!");
+            System.out.println("Moving to next Category!");
             goToNextCategory();
         } else {
             System.out.println("Score too low to advance. Must achieve at least 80%.");
@@ -180,7 +188,7 @@ public class Progress {
         progressInCategory++;
 
         // Check if current category is complete
-        if (progressInCategory >= currentCategory.getQuestions().size()) {
+        if (progressInCategory >= currentCourse.getPhrasesByCategory(currentCategory.label).size()) {
             categoryIndex++;
             progressInCategory = 0; // Reset category progress
 
@@ -189,12 +197,14 @@ public class Progress {
                 categoryIndex = 0; // Reset to the first category
                 switchToNextCourse(); // Switch to the next course after completing all categories
             } else {
-                currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
-                System.out.println("Advanced to the next category: " + categories.get(categoryIndex));
+                currentCategory = Category.values()[categoryIndex];
+                //currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
+                System.out.println("Advanced to the next category: " + currentCategory.label);
             }
         }
     }
 
+    
     
     
 
@@ -237,7 +247,7 @@ public class Progress {
     //     }
     //  }
 
-     @SuppressWarnings("static-access")
+     //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
         // courseIndex = (courseIndex == 0) ? 1 : 0;
         // currentCourse = new Course(null, null, courses[courseIndex],language.toString(), categories, categories.get(courseIndex));
@@ -246,7 +256,10 @@ public class Progress {
         // System.out.print("Switched to the the otherCourse: "+ getCurrentCourse());
         String[] availableCourses = {"Words", "Phrases"};
         int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
-        currentCourse = new Course(null, null, availableCourses[nextIndex], language.Spanish, categories, null);
+        HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
+        HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
+        HashMap<String, Story> stories = currentCourse.getStories();
+        currentCourse = new Course(null, availableCourses[nextIndex], language.toString(), phrases, words, null, stories);        
         System.out.println("Switched to the next course: " + currentCourse.getCourse());
      }
 
