@@ -37,7 +37,7 @@ public class User{
         this.courses = new HashMap <>();
     }
 
-    public User(UUID id, String firstName, String lastName, String email, String username, LocalDate dateOfBirth, String password, HashMap<Course,Progress> courses) {
+    public User(UUID id, String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, String username, String password, HashMap<Course,Progress> courses) {
         this(id, firstName, lastName, email, "", dateOfBirth, username, password);
     }
 
@@ -143,10 +143,11 @@ public class User{
         }
     }
 
-    public static JSONObject get(String progress) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
-    }
+    public String toString() {
+        String result = "";
+        result += id + "--" + firstName + "--" + lastName +"--" + email +"--" + phoneNumber + "--" + dateOfBirth +"--" + username + "--" + password + "--" + courses.toString() ;
+        return result; 
+}
 }
 
 
