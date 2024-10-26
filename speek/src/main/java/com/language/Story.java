@@ -8,14 +8,21 @@ public class Story {
      * attributes for story class
     */
     private String title;
-    private ArrayList<String> pictures;
     private ArrayList<String> text;
-    private boolean read; //for done reading
+    private ArrayList<String> texttranslation;
 
-    public Story(String title2, String text2, String storyTranslation) {
-		//TODO Auto-generated constructor stub
-	}
+    public Story (String title, ArrayList<String> text, ArrayList<String> texttranslation) 
+    { 
+        this.title = title; 
+        this.text = text; 
+        this.texttranslation = texttranslation; 
+    }
 
+    public String getTitle() 
+    { 
+        return title; 
+    }
+    
 	public void start(){
         System.out.println("Let's read " + title);
     }
@@ -38,4 +45,6 @@ public class Story {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
+
+    
 }

@@ -2,6 +2,7 @@ package com.language;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 // import org.json.simple.JSONArray;
 // import java.util.List;
@@ -121,4 +122,20 @@ public class Course {
     //     return selectedCourse;
      }
 
+     public String toString() {
+        String result = "";
+
+        result += "title: " + course + "\n";
+
+        result += "Phrases:\n";
+
+        for (Map.Entry<String, ArrayList<Phrase>> entry : phrases.entrySet()) {
+            result += entry.getKey() + " = " ;
+            for(Phrase phrase : entry.getValue()){
+                result += phrase.toString() + "\n";
+            }
+            }
+
+        return result;
+     }
 }
