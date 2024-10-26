@@ -23,12 +23,12 @@ public class Story {
         return title; 
     }
     
-    public ArrayList<String> gettext() 
+    public ArrayList<String> getText() 
     { 
         return text; 
     }
 	
-    public  ArrayList<String> gettexttranslation() 
+    public  ArrayList<String> getTextTranslation() 
     { 
         return texttranslation; 
     }
