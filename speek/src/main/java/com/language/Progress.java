@@ -39,6 +39,13 @@ public class Progress {
         this.categories = currentCourse.getAvailableCourse();
     }
 
+    public void resetCategoryProgress() {
+        this.totalQuestionsAnswered = 0;
+        this.numCorrectAnswers = 0;
+        this.progressInCategory = 0;
+        this.missedWords.clear();
+        System.out.println("Category progress has been reset.");
+    }
 
 
     public int getTotalQuestionsAnswered() {    
@@ -160,7 +167,7 @@ public class Progress {
         System.out.println("Percentage of correct answers: " + percentCorrect + "%");
 
         if (percentCorrect >= 80) {
-            System.out.println("Moving to next Course!");
+            System.out.println("Moving to next Category!");
             goToNextCategory();
         } else {
             System.out.println("Score too low to advance. Must achieve at least 80%.");
