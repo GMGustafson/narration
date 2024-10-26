@@ -167,7 +167,7 @@ public class UserInterface {
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
-            Narriator.playSound("You scored a sixty percent");
+            Narriator.playSound("You scored a sixty percent. You have to start over");
             logout();
             //showUser()
             if (login("jimsmith44", "smithj1")){
@@ -184,6 +184,7 @@ public class UserInterface {
                 progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0, currentLanguage);            
                 System.out.println("Jim's Progress: " + progress.getProgress());
                 progress.trackPercentCorrect();
+                Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
     }
