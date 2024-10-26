@@ -10,6 +10,8 @@ import java.util.Scanner;
 import java.util.Scanner;
 import java.util.UUID;
 
+import com.narration.Narriator;
+
 public class UserInterface {
 
 /*
@@ -120,6 +122,7 @@ public class UserInterface {
             chooseCourse();
             chooseCategory();
 
+            Narriator.playSound("Module One: Numbers");
             //jim answers questions. gets 4/5
             String[] questions1 = {
                 "What is the number one in Spanish?",
@@ -138,11 +141,13 @@ public class UserInterface {
                     correctAnswers1++;
                 }
             }
+            Narriator.playSound("You scored an eighty percent");
             progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0, currentLanguage);            
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
 
+            Narriator.playSound("Module Two: Colors");
             //jim answers questions. gets 3/5
             String[] questions2 = {
                 "What is the Spanish word for red?", 
@@ -165,6 +170,7 @@ public class UserInterface {
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
+            Narriator.playSound("You scored a sixty percent");
             logout();
             //showUser()
             if (login("jimsmith44", "smithj1")){
