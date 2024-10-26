@@ -15,19 +15,10 @@ public class UserInterface {
 /*
  * UI attributes
  */
-private String sentenceStructure;
     private Category currentCategory;
     private Course currentCourse;
     private Language currentLanguage;
     private Progress progress;
-    private int missedWords;
-    private int progressInLanguage;
-    private HashMap<Word, String> translation;
-    private ArrayList<Category> categories;
-    private ArrayList<String> languages;
-    private ArrayList<Word> wordList;
-    private ArrayList<Phrase> phraseList;
-    private int languageID;
     private User currentUser;
     private ArrayList<User> userList; 
     private DataWriter dataWriter;
@@ -36,8 +27,6 @@ private String sentenceStructure;
      * Constructor for UI
      */
     public UserInterface() {
-        this.languages = new ArrayList<>();
-        this.categories = new ArrayList<>();
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
     }
@@ -58,9 +47,8 @@ private String sentenceStructure;
         }
         System.out.println("Incorrect username or password!");
         return false;
-
-
     }
+
     public void logout ()
     { 
         if (currentUser != null) {
@@ -83,7 +71,6 @@ private String sentenceStructure;
         userList.add(newUser);
         System.out.println("Account has been successfully created for: " + username);
         dataWriter.writeUsers(userList); 
-
     }
     
     public void chooseLangauage(){
@@ -92,23 +79,12 @@ private String sentenceStructure;
 
     public void chooseCourse(){
         currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
-        System.out.println("You have chosen the 'Words' course in Spanish.");        
-        //  Course course = new Course(UUID.randomUUID(), UUID.randomUUID(), null, null, null, null);
-        //  ArrayList<String> availableCourses = course.getAvailableCourse();
-        //  String chosenCourse= course.chooseCourse(availableCourses);
-        //  currentCourse = new Course(UUID.randomUUID(), UUID.randomUUID(), chosenCourse, "Spanish", new ArrayList<>(), "Numbers");
-        //  System.out.println("you have chosen the " + chosenCourse + " course");
+        System.out.println("You have chosen the 'Words' course.");        
     }
 
-
     public void chooseCategory() {
-        currentCategory = Category.COLORS;
-        System.out.println("You have chosen the 'Colors' category.");
-        // Category category = new Category("", new ArrayList<>());
-        // ArrayList<String> availableCategories = category.getAvailableCategory();
-        // String chosenCategory = category.chooseCategory(availableCategories);
-        // currentCategory = new Category(chosenCategory, new ArrayList<Question>());
-        // System.out.println("You have chosen the " + chosenCategory + " category");
+        currentCategory = Category.NUMBERS;
+        System.out.println("You have chosen the 'Numbers' category.");
     }
 
        /**
@@ -119,7 +95,7 @@ private String sentenceStructure;
         System.out.print("Tracking the progress of what the user has learned.");
     }
 
-    // Scenario 2: create account
+    // Scenario 
     public void scenarioJim() {
         System.out.println("Scenario: Jim Smith");
         //Prior to this scenario, show that Jim Smith is not in the users.json
@@ -145,42 +121,70 @@ private String sentenceStructure;
             chooseCategory();
 
             //jim answers questions. gets 4/5
-            String[] questions = {
-                "What is the Spanish word for red?", // right
-                "What is the Spanish word for blue?", // right
-                "What is the Spanish word for green?", // right
-                "What is the Spanish word for yellow?", // right
-                "What is the Spanish word for orange?" // wrong
+            String[] questions1 = {
+                "What is the number one in Spanish?",
+                "What is the number two in Spanish?",
+                "What is the number three in Spanish?",
+                "What is the number four in Spanish?",
+                "What is the number five in Spanish?" 
             };
-            String[] answers = {"rojo", "azul", "verde", "amarillo", "naranja"};
             
-            int correctAnswers = 0;
+            int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
-            for (int i = 0; i < questions.length; i++) {
-                System.out.println(questions[i]);
+            for (int i = 0; i < questions1.length; i++) {
+                System.out.println(questions1[i]);
                 if (i != 4) { 
-                    correctAnswers++;
+                    correctAnswers1++;
                 }
             }
-            progress = new Progress(5, 4, currentCategory, currentCourse, 0, 0, currentLanguage);            System.out.println("Jim's Progress: " + progress.getProgress());
+            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0, currentLanguage);            
+            progress.addMissedWords("cinco");
+            System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
 
+            //jim answers questions. gets 3/5
+            String[] questions2 = {
+                "What is the Spanish word for red?", 
+                "What is the Spanish word for blue?", 
+                "What is the Spanish word for green?", 
+                "What is the Spanish word for yellow?", 
+                "What is the Spanish word for orange?"  
+            };            
+            int correctAnswers2 = 0;
+
+            //jim got 3 right and 2 wrong
+            for (int i = 0; i < questions2.length; i++) {
+                System.out.println(questions2[i]);
+                if (i != 3) { 
+                    correctAnswers2++;
+                }
+            }
+            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0, currentLanguage);            
+            progress.addMissedWords("azul");
+            progress.addMissedWords("amarillo");
+            System.out.println("Jim's Progress: " + progress.getProgress());
+            progress.trackPercentCorrect();
+            logout();
+            //showUser()
+            if (login("jimsmith44", "smithj1")){
+                System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
+                chooseLangauage();
+                chooseCourse();
+                chooseCategory();
+                System.out.println("You scored below 80% You have to restart the Numbers category");
+            }
         }
     }
-        
-
      // Main method to test the scenarios
      public static void main(String[] args) {
         UserInterface langUI = new UserInterface();
-
         langUI.userList.add(new User(UUID.randomUUID(), "Jane", "Smith", "jsmith@gmail.com", "817-902-3201", LocalDate.of(1998, 10, 7), "janesmith10", "IlovemyCat"));
         langUI.userList.add(new User(UUID.randomUUID(), "John", "Doe", "johndoe@gmail.com", "627-917-2739", LocalDate.of(2005, 1, 1), "johndoe73", "IlovemyCat"));
 
         // run scenarios
         System.out.println("Testing scenarios.");
-        //langUI.scenario1(); // login scenario
-        langUI.scenarioJim(); // create account
+        langUI.scenarioJim(); 
     }
 
 }

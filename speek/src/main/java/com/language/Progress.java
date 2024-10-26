@@ -192,7 +192,7 @@ public class Progress {
             } else {
                 currentCategory = Category.values()[categoryIndex];
                 //currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
-                System.out.println("Advanced to the next category: " + categories.get(categoryIndex));
+                System.out.println("Advanced to the next category: " + currentCategory.label);
             }
         }
     }
