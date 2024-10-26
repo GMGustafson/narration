@@ -58,7 +58,7 @@ public class Word {
         result += word + "--" + pronunciation + "--" + translation;
         for (int j = 0; j < alternatives.size(); j++) 
         {
-            result += alternatives.get(j); 
+            result += alternatives.get(j) + " "; 
         }
         return result;
 

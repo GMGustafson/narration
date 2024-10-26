@@ -14,16 +14,14 @@ public class Course {
      */
     private UUID courseID;
     private String course;
-    private String language;
     private HashMap<String, ArrayList<Phrase>> phrases = new HashMap<>();
     private HashMap<String, ArrayList<Word>> words = new HashMap<>();
     private String category;
     private HashMap<String, Story> stories;
 
-    public Course(UUID courseID, String course, String language, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
+    public Course(UUID courseID, String course, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
         this.courseID = courseID;
         this.course = course;
-        this.language = language;
         this.phrases = phrases;
         this.category = category;
         this.words = words;
@@ -45,14 +43,6 @@ public class Course {
 
     public void setCourse(String course){
         this.course = course;
-    }
-
-    public String getLanguage(){
-        return language;
-    }
-
-    public void setLanguage(String language){
-        this.language = language;
     }
 
     public HashMap<String, ArrayList<Phrase>> getPhrases(){
@@ -97,30 +87,7 @@ public class Course {
     public String chooseCourse(ArrayList<String> courseNames){
         String selectedCourse = "Phrases";
         return selectedCourse;
-
-        //     Scanner scanner = new Scanner(System.in);
-    //     System.out.println("Choose a course");
-    //     for(int i = 0; i < courseNames.size(); i++){
-    //         System.out.println((i + 1) + ". " + courseNames.get(i));
-    //     }
-    //     int choice = 0;
-    //     while (choice < 1 || choice > courseNames.size()) {
-    //         System.out.print("You have chosen 1.) Phrases");
-    //         if (scanner.hasNextInt()) {
-    //             choice = scanner.nextInt();
-    //             if (choice < 1 || choice > courseNames.size()) {
-    //                 System.out.println("Invalid choice. Please select a valid category number.");
-    //             }
-    //         } else {
-    //             System.out.println("Please enter a number.");
-    //             scanner.next(); 
-    //         }
-    //     }
-    //     // show which category the user chose
-    //     String selectedCourse = courseNames.get(choice - 1);
-    //     System.out.println("Current Course: " + selectedCourse);
-    //     return selectedCourse;
-     }
+    }
 
      public String toString() {
         String result = "";
@@ -141,7 +108,7 @@ public class Course {
         for (Map.Entry<String, ArrayList<Word>> entry : words.entrySet()) {
             result += entry.getKey() + " = " ;
             for(Word Word : entry.getValue()){
-                result += Word.toString() + "\n";
+                result += words.toString() + "\n";
             }
             }
 
