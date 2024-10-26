@@ -9,13 +9,13 @@ public class Story {
     */
     private String title;
     private ArrayList<String> text;
-    private ArrayList<String> texttranslation;
+    private ArrayList<String> textTranslation;
 
-    public Story (String title, ArrayList<String> text, ArrayList<String> texttranslation) 
+    public Story (String title, ArrayList<String> text, ArrayList<String> textTranslation) 
     { 
         this.title = title; 
         this.text = text; 
-        this.texttranslation = texttranslation; 
+        this.textTranslation = textTranslation; 
     }
 
     public String getTitle() 
@@ -30,7 +30,7 @@ public class Story {
 	
     public  ArrayList<String> getTextTranslation() 
     { 
-        return texttranslation; 
+        return textTranslation; 
     }
     
 }
