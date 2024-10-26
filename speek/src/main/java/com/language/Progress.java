@@ -20,14 +20,13 @@ public class Progress {
     private int streak;
     private LocalDate loginDate;
     private ArrayList<String> missedWords;
-    private Language language;
     private String[] courses = {"Word" , "Phrase"};
     private int courseIndex;
     private int categoryIndex; 
     private List<String> categories;
 
     public Progress(int totalQuestionsAnswered, int numCorrectAnswers, Category currentCategory, 
-    Course currentCourse, int progressInCategory, int streak, Language language) {
+    Course currentCourse, int progressInCategory, int streak) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
         this.numCorrectAnswers = numCorrectAnswers;
         this.currentCategory = currentCategory;
@@ -35,7 +34,6 @@ public class Progress {
         this.progressInCategory = progressInCategory;
         this.streak = streak;
         this.missedWords = new ArrayList<>();
-        this.language = language;
         this.categories = currentCourse.getAvailableCourse();
     }
 
@@ -77,13 +75,6 @@ public class Progress {
         return progressInCategory;
     }
 
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
 
     public int getStreak() {
         return streak;
@@ -259,7 +250,7 @@ public class Progress {
         HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
         HashMap<String, Story> stories = currentCourse.getStories();
-        currentCourse = new Course(null, availableCourses[nextIndex], language.toString(), phrases, words, null, stories);        
+        currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
         System.out.println("Switched to the next course: " + currentCourse.getCourse());
      }
 
