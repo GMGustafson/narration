@@ -62,14 +62,14 @@ public class DataWriter extends DataConstants {
 		userDetails.put(USER_PHONE_NUMBER, user.getPhoneNumber());
         userDetails.put(USER_DATE_OF_BIRTH, user.getDateOfBirth());
         userDetails.put(USER_PASSWORD, user.getPassword());
-        JSONArray languagesJSON = new JSONArray();
-        HashMap<Language, Progress> languages = user.getLanguages();
-        for (Language language : languages.keySet()) {
-            JSONObject languageJSON = new JSONObject();
-            languageJSON.put(LANGUAGE_ID, language.getLanguageID().toString());
-            languageJSON.put(LANGUAGE, language.getLanguage());
+        JSONArray coursesJSON = new JSONArray();
+        HashMap<Course, Progress> courses = user.getCourses();
+        for (Course course : courses.keySet()) {
+            JSONObject courseJSON = new JSONObject();
+            courseJSON.put(COURSE_ID, course.getCourseID().toString());
+            courseJSON.put(COURSE, course.getCourse());
 
-            Progress progress = languages.get(language);
+            Progress progress = courses.get(course);
             JSONObject progressJSON = new JSONObject();
             progressJSON.put(TOT_QUESTIONS_ANSWERED, progress.getTotalQuestionsAnswered());
             progressJSON.put(NUM_CORRECT_ANSWERS, progress.getNumCorrectAnswers());
@@ -84,11 +84,11 @@ public class DataWriter extends DataConstants {
             }
             progressJSON.put(MISSED_WORDS, missedWordsJSON);
 
-            languageJSON.put(PROGRESS, progressJSON);
-            languagesJSON.add(languageJSON);
+            courseJSON.put(PROGRESS, progressJSON);
+            coursesJSON.add(courseJSON);
         }
 
-        userDetails.put(USER_LANGUAGES,languagesJSON);
+        userDetails.put(USER_COURSES,coursesJSON);
         return userDetails;
     }
 

@@ -58,6 +58,10 @@ public class Progress {
         this.numCorrectAnswers = numCorrectAnswers;
     }
 
+    public String getCurrentCategory() {
+        return currentCategory;
+    }
+
     public void setCurrentCategory(String currentCategory){
         this.currentCategory = currentCategory;
     }
@@ -153,27 +157,38 @@ public class Progress {
     public void goToNextCategory() {
         progressInCategory++;
         if (progressInCategory == 1){
-
+            currentCategory = "numbers";
         }
-        
+        if (progressInCategory == 2){
+            currentCategory = "colors";
+        }
+        if (progressInCategory == 3){
+            currentCategory = "places";
+        }
+        if (progressInCategory == 4) {
+            currentCategory = "weather";
+        }
+        if (progressInCategory == 5) {
+            currentCategory = "people";
+        }
+        if (progressInCategory == 6) {
+            switchToNextCourse();
+        }
         
 }
 
 
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
-        // courseIndex = (courseIndex == 0) ? 1 : 0;
-        // currentCourse = new Course(null, null, courses[courseIndex],language.toString(), categories, categories.get(courseIndex));
-        // categories = currentCourse.getCategories();
-        // currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
-        // System.out.print("Switched to the the otherCourse: "+ getCurrentCourse());
         String[] availableCourses = {"Words", "Phrases"};
-        int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
-        HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
-        HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
-        HashMap<String, Story> stories = currentCourse.getStories();
-        currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
-        System.out.println("Switched to the next course: " + currentCourse.getCourse());
+        if (available)
+        // int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
+        // HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
+        // HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
+        // HashMap<String, Story> stories = currentCourse.getStories();
+        // currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
+        // System.out.println("Switched to the next course: " + currentCourse.getCourse());
+        // resetCategoryProgress();
      }
 
 
