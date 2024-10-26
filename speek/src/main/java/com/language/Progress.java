@@ -58,6 +58,10 @@ public class Progress {
         this.numCorrectAnswers = numCorrectAnswers;
     }
 
+    public void setCurrentCategory(String currentCategory){
+        this.currentCategory = currentCategory;
+    }
+
     public int getProgressInCategory() {
         return progressInCategory;
     }
@@ -68,6 +72,10 @@ public class Progress {
 
     public void setStreak(int streak) {
         this.streak = streak;
+    }
+
+    public void setProgressInCategory(int progressInCategory){
+        this.progressInCategory = progressInCategory;
     }
 
     public ArrayList<String> getMissedWords() {
@@ -144,66 +152,11 @@ public class Progress {
 
     public void goToNextCategory() {
         progressInCategory++;
+        if ()
+        
+        
+}
 
-        // Check if current category is complete
-        if (progressInCategory >= currentCourse.getPhrasesByCategory(currentCategory.label).size()) {
-            categoryIndex++;
-            progressInCategory = 0; // Reset category progress
-
-            // Check if all categories in the current course are completed
-            if (categoryIndex >= categories.size()) {
-                categoryIndex = 0; // Reset to the first category
-                switchToNextCourse(); // Switch to the next course after completing all categories
-            } else {
-                currentCategory = Category.values()[categoryIndex];
-                //currentCategory = new Category(categories.get(categoryIndex), new ArrayList<>());
-                System.out.println("Advanced to the next category: " + currentCategory.label);
-            }
-        }
-    }
-
-    
-    
-    
-
-    /**
-     * currentCategory method
-     * tracks the currentCategory the user is learning
-     */
-
-    public void setCurrentCategory(Category currentCategory){
-        this.currentCategory = currentCategory;
-    }
-
-    public void setCurrentCourse(Course currentCourse) {
-        this.currentCourse = currentCourse;
-    }
-
-
-    public void setProgressInCategory(int progressInCategory){
-        this.progressInCategory = progressInCategory;
-    }
-
-     //the progress in the category keeps going up//
-    //  public void progressInCourse() {  
-    //     // how many catergories they complete 
-    //     //progressInCourse++; 
-
-    //     if (progressInCourse < 5) {
-    //         progressInCourse++;
-    //     }
-    //     else if (progressInCourse >= 5) {
-    //         if (currentCourse.equals("Phrase")) {
-    //             currentCourse.setCourse("Word");
-    //         }
-    //         if (currentCourse.equals("Word")) {
-    //             currentCourse.setCourse("Phrase");
-    //         }
-    //     }
-    //     else {
-    //         progressInCourse = 0;
-    //     }
-    //  }
 
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
