@@ -139,7 +139,6 @@ public class UserInterface{
         //showUsers(); 
         // Now have Jim successfully login to the system
         if (login(username, password)) {
-            DataLoader.getUsers();
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
