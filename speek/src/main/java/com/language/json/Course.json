@@ -11,70 +11,70 @@
                         "word": "uno",
                         "pronunciation": "oo-no",
                         "translation": "one",
-                    "alternatives": [ "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": [ "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "dos",
                         "pronunciation": "dose",
                         "translation": "two",
-                    "alternatives": ["uno", "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "tres",
                         "pronunciation": "trace",
                         "translation": "three",
-                    "alternatives": ["uno", "dos" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "cuatro",
                         "pronunciation": "kwat-ro",
                         "translation": "four",
-                    "alternatives": ["uno", "dos" , "tres" , "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cinco", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "cinco",
                         "pronunciation": "sink-o",
                         "translation": "five",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "seis" , "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "seis",
                         "pronunciation": "saze",
                         "translation": "six",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "siete" ,"ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "siete" ,"ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "siete",
                         "pronunciation": "see-yet-eh",
                         "translation": "seven",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "ocho", "nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "ocho", "nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "ocho",
                         "pronunciation": "och-o",
                         "translation": "eight",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"nueve" ,"diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"nueve" ,"diez"]
                     },
                     {
                         "category": "numbers",
                         "word": "nueve",
                         "pronunciation": "new-eh-veh",
                         "translation": "nine",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho","diez"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho","diez"]
                     },
                     {
                         "category": "numbers", 
                         "word": "diez",
                         "pronunciation": "dee-ace",
                         "translation": "ten",
-                    "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve"]
+                        "alternatives": ["uno", "dos" , "tres" , "cuatro", "cinco", "seis" , "siete" ,"ocho", "nueve"]
                     }
                 ],
                 "phrases": [ 
@@ -102,7 +102,7 @@
                                     "He finally buys three yellow bananas."
                                 ],
                                 "storyTranslation" : [
-                                "En la tienda, Tom compra una manzana roja.",
+                                    "En la tienda, Tom compra una manzana roja.",
                                     "También busca dos naranjas maduras.",
                                     "Finalmente compra tres plátanos amarillos."
                                 ]
@@ -117,70 +117,70 @@
                         "word": "rojo",
                         "pronunciation": "roh-ho",
                         "translation": "red",
-                       "alternatives": ["azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"] 
+                        "alternatives": ["azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"] 
                     },
                     {
                         "category": "colors",
                         "word": "azul",
                         "pronunciation": "ah-sool" , 
                         "translation": "blue",
-                       "alternatives": ["rojo", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "amarillo",
                         "pronunciation": "ah-mah-ree-yo",
                         "translation": "yellow",
-                       "alternatives": ["rojo", "azul", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "blanco", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "blanco",
                         "pronunciation": "bahn-co",
                         "translation": "white",
-                       "alternatives": ["rojo", "azul", "amarillo", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "gris", "morado" ,"naranja", "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "gris",
                         "pronunciation": "greece",
                         "translation": "gray",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "morado" ,"naranja", "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "morado" ,"naranja", "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "morado",
                         "pronunciation": "moh-rah-do",
                         "translation": "purple",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "naranja", "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "naranja", "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "naranja",
                         "pronunciation": "nah-rahn-ha",
                         "translation": "orange",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" , "rosa", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" , "rosa", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "rosa",
                         "pronunciation": "roh-sa",
                         "translation": "pink",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "verde", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "verde", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "verde",
                         "pronunciation": "ver-deh",
                         "translation": "green",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "negro"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "negro"]
                     },
                     {
                         "category": "colors",
                         "word": "negro",
                         "pronunciation": "new-eh-veh",
                         "translation": "black",
-                       "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde"]
+                        "alternatives": ["rojo", "azul", "amarillo", "blanco", "gris", "morado" ,"naranja", "rosa", "verde"]
                     }],
                 "phrases":[
                         {
@@ -291,7 +291,22 @@
                     }
                 ],
                 "phrases": [ 
-                   
+                    {
+                        "category": "places", 
+                        "translation":  "Where is the libary",
+                        "words": "Donde esta la biblioteca?"
+                       
+                    },
+                    {
+                        "category": "places", 
+                        "translation":"There are animals at the zoo",
+                        "words":  "Hay animales en el zoológico"
+                    },
+                    {
+                        "category": "places", 
+                        "translation": "I can not wait to get to the airport",
+                        "words": "No puedo esperar a llegar al avión"
+                    }
                 ],
                 "story" : {
                             "title" : "Let's decorate a cake!",
@@ -385,7 +400,21 @@
                     }
                 ],
                 "phrases": [
-                   
+                    {
+                        "category": "weather", 
+                        "translation":  "April May June are summer months",
+                        "words": "Abril mayo y junio son las estaciones de primavera"
+                    },
+                    {
+                        "category": "weather", 
+                        "translation":  "No school tomorrow it has snowed",
+                        "words":  "No hay escuela mañana ha nevado"
+                    },
+                    {
+                        "category": "weather", 
+                        "translation":  "The weather is nice outside today",
+                        "words": "El clima es agradable afuera"
+                    } 
                 ],
                 "story" : {
                             "title" : "Let's decorate a cake!",
@@ -411,73 +440,89 @@
                         "word": "Mama", 
                         "pronunciation": "mah-mah",
                         "translation": "mom", 
-                       "alternatives": ["Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Papa", 
                         "pronunciation": "pah-pah",
                         "translation": "dad", 
-                       "alternatives": ["Mama", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Mama", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Hijo", 
                         "pronunciation": "ee-hoh",
                         "translation": "son", 
-                       "alternatives": ["Mama","Papa", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Mama","Papa", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Hija", 
                         "pronunciation": "ee-hah",
                         "translation": "daughter", 
-                       "alternatives": ["Mama","Papa", "Hijo", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Mama","Papa", "Hijo", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Hermano", 
                         "pronunciation": "ehr-mah-noh",
                         "translation": "Brother", 
-                       "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermana", "Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Hermana", 
                         "pronunciation": "ehr-mah-nah",
                         "translation": "Sister", 
-                       "alternatives":["Mama","Papa", "Hijo", "Hija", "Hermano","Esposo", "Esposa", "abuelo", "abuela" ]
+                        "alternatives":["Mama","Papa", "Hijo", "Hija", "Hermano","Esposo", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Esposo", 
                         "pronunciation": "ehs-poh-soh",
                         "translation": "Husband", 
-                       "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposa", "abuelo", "abuela" ]
+                        "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposa", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "Esposa", 
                         "pronunciation": "ehs-poh-sah",
                         "translation": "wife", 
-                       "alternatives":["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "abuelo", "abuela" ]
+                        "alternatives":["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "abuelo", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "abuelo", 
                         "pronunciation": "ah-bweh-loh", 
                         "translation": "grandfather", 
-                       "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuela" ]
+                        "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuela" ]
                     },
                     {
                         "category": "people", 
                         "word": "abuela", 
                         "pronunciation": "ah-bweh-lah",
                         "translation": "grandmother", 
-                       "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo"]
+                        "alternatives": ["Mama","Papa", "Hijo", "Hija", "Hermano", "Hermana", "Esposo", "Esposa", "abuelo"]
                     }
                 ],
                 "phrases": [
+                    {
+                        "category": "people", 
+                        "translation":  "When you are married you become husband and  wife",
+                        "words":  "Cuando estás casado te conviertes en marido y mujer"
+                    },
+
+                    {
+                        "category": "people", 
+                        "translation":  "I have one abuela still alive",
+                        "words":  "Tengo una abuela que aún vive"
+                    },
+                    {
+                        "category": "people", 
+                        "translation":  "Mama is  a normal first word",
+                        "words":  "Mamá es una primera palabra normal"
+                    } 
                               
                 ],
                 "story" : {

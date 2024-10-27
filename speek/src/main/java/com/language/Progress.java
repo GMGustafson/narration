@@ -29,7 +29,7 @@ public class Progress {
         this.currentCategory = currentCategory;
         this.progressInCategory = progressInCategory;
         this.streak = streak;
-        this.missedWords = missedWords;
+        this. missedWords = missedWords;
     }
 
     public void resetCategoryProgress() {
@@ -181,7 +181,11 @@ public class Progress {
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
         String[] availableCourses = {"Words", "Phrases"};
+<<<<<<< HEAD
         // if (availableCourses)
+=======
+        //if (available)
+>>>>>>> 6c5b3363886213e46fdf1181ed25dddd7e5507eb
         // int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
         // HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         // HashMap<String, ArrayList<Word>> words = currentCourse.getWords();

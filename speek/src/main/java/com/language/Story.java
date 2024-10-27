@@ -32,6 +32,12 @@ public class Story {
     { 
         return textTranslation; 
     }
+
+    public String toString() {
+        String result = "";
+        result += title + "--" + text + "--" + texttranslation;
+        return result;
+    }
     
     
 }

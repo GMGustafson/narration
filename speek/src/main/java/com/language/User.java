@@ -145,8 +145,11 @@ public class User{
 
     public String toString() {
         String result = "";
-        result += id + "--" + firstName + "--" + lastName +"--" + email +"--" + phoneNumber + "--" + dateOfBirth +"--" + username + "--" + password + "--" + courses.toString() ;
+        result += id + "--" + firstName + "--" + lastName +"--" + email +"--" + phoneNumber + 
+        "--" + dateOfBirth +"--" + username + "--" + password + "--" + courses; 
+
         return result; 
+    
 }
 }
 

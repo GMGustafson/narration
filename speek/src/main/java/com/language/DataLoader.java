@@ -1,18 +1,14 @@
 package com.language;
 
 import java.io.FileReader;
-//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-//import java.util.List;
 import java.util.UUID;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-//import java.time.format.DateTimeParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-//import org.json.simple.parser.ParseException;
 
 /**
  * The DataLoader class is responsible for loading data from the JSON files.
@@ -24,7 +20,6 @@ public class DataLoader extends DataConstants{
         ArrayList<User> userList = new ArrayList<User>();
     try {
         FileReader reader = new FileReader(FILE_NAME_USER);
-        //JSONParser parser = new JSONParser();
         JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -45,11 +40,10 @@ public class DataLoader extends DataConstants{
             JSONArray CoursesJSON = (JSONArray) userJSON.get(USER_COURSES);
             for (int j = 0; j < CoursesJSON.size(); j++) {
                 JSONObject courseJSON = (JSONObject) CoursesJSON.get(j);
-                UUID courseid = UUID.fromString((String)courseJSON.get(COURSE_ID));
+                UUID courseID = UUID.fromString((String)courseJSON.get(COURSE_ID));
 
-                //Language languageAt = new Language(languageID, language);
                 CourseList courseList = CourseList.getInstance();
-                Course course = courseList.getCourseByUUID(courseid);
+                Course course = courseList.getCourseByUUID(courseID);
 
                 JSONObject progressJSON = (JSONObject)courseJSON.get(PROGRESS);
                 
@@ -83,14 +77,13 @@ public static ArrayList<Course> getCourse() {
     ArrayList<Course> courseList = new ArrayList<Course>();
     try {
         FileReader reader = new FileReader(FILE_NAME_COURSES);
-        JSONParser parser = new JSONParser();
+        //JSONParser parser = new JSONParser();
         JSONArray CoursesJSON = (JSONArray)new JSONParser().parse(reader);
 
         for (int i=0; i < CoursesJSON.size(); i++) {
             JSONObject CourseJSON = (JSONObject)CoursesJSON.get(i);
             UUID courseID = UUID.fromString(String.valueOf(CourseJSON.get(COURSE_ID)));
             String course = (String)CourseJSON.get(COURSE);
-            String language = (String)CourseJSON.get(LANGUAGE);
             String category = (String)CourseJSON.get(CURRENT_CATEGORY_TITLE);
             HashMap<String, ArrayList<Phrase>> catPhrases = new HashMap<>();
             HashMap<String, ArrayList<Word>> catWords = new HashMap<>();
@@ -125,7 +118,7 @@ public static ArrayList<Course> getCourse() {
                 Story story = getStory(storyJSON);
                 catStories.put(title, story);
             }
-            Course newCourse = new Course(courseID, course, language, catPhrases, catWords, category, catStories);
+            Course newCourse = new Course(courseID, course, catPhrases, catWords, category, catStories);
             courseList.add(newCourse);
         }
         return courseList;
@@ -138,9 +131,9 @@ return null;
 
 public static Phrase getPhrase(JSONObject phraseJSON) {
     String translation = (String)phraseJSON.get(WORD_TRANSLATION);
-    String phrasewords = (String)phraseJSON.get(WORDS);
+    String phraseWords = (String)phraseJSON.get(WORDS);
 
-    Phrase newPhrase = new Phrase (translation, phrasewords);
+    Phrase newPhrase = new Phrase (translation, phraseWords);
     return newPhrase;
 }
 
@@ -163,7 +156,7 @@ public static Word getWord(JSONObject wordJSON) {
 public static Story getStory(JSONObject storyJSON) {
     String title = (String)storyJSON.get(TITLE);
     JSONArray textListJSON = (JSONArray)storyJSON.get(TEXT);
-    JSONArray texttranslationsJSON = (JSONArray)storyJSON.get(STORY_TRANSLATION);
+    JSONArray textTranslationsJSON = (JSONArray)storyJSON.get(STORY_TRANSLATION);
     
     ArrayList<String> textList = new ArrayList<>();
     ArrayList<String> textTranslations = new ArrayList<>(); 
@@ -173,9 +166,9 @@ public static Story getStory(JSONObject storyJSON) {
         String text = (String)textListJSON.get(j);
         textList.add(text);  
     }
-    for (int j=0; j < texttranslationsJSON.size(); j++) 
+    for (int j=0; j < textTranslationsJSON.size(); j++) 
     { 
-        String textTranslation = (String)texttranslationsJSON.get(j); 
+        String textTranslation = (String)textTranslationsJSON.get(j); 
         textTranslations.add(textTranslation); 
     }
     
@@ -186,11 +179,12 @@ public static Story getStory(JSONObject storyJSON) {
 
 
 
-// Main method to test getUsers
+// Main method to test getUsers and getCourse and getStory 
 
 public static void main(String[] args) {
     ArrayList<Course> courseList = getCourse();
     ArrayList<User> users = getUsers();
+    //Story story = getStory();
     
     if (courseList != null) {
         for (Course course : courseList) {
@@ -207,6 +201,12 @@ public static void main(String[] args) {
     } else {
         System.out.println("Course list is null, possibly due to loading error.");
     }
+
+    // if (story != null) {
+    //     System.out.println(story);
+    // } else {
+    //     System.out.println("Story is null, possibly due to loading error.");
+    // }
 
     
 }
