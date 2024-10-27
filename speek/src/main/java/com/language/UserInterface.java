@@ -87,7 +87,8 @@ public class UserInterface {
     }
 
     public void chooseCourse(){
-        currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
+        currentCourse = new Course(UUID.randomUUID(), "words", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
+        //currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         System.out.println("You have chosen the 'Words' course.");        
     }
 

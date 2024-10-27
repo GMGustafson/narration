@@ -162,7 +162,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
             userList.add(userDetails);
         }
 
-        try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
+        try (FileWriter file = new FileWriter(FILE_NAME_USER)) {
             file.write(userList.toJSONString());
             file.flush();
         } catch (IOException e) {
