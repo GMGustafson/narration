@@ -24,6 +24,11 @@ public class Word {
     }
 
     
+    public Word() {
+        //TODO Auto-generated constructor stub
+    }
+
+
     /**
      * getword method
      * @return the letters in the word

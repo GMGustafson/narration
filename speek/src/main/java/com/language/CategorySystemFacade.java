@@ -79,7 +79,7 @@ public class CategorySystemFacade {
         List<String> categoryNames = new ArrayList<>();
         List<Course> languages = (List<Course>) LanguageList.getInstance().getLanguages();
         for (Course language : languages) {
-                for (String category : language.getCategories()) { 
+                for (Course course : course) { 
             if (category != null) {
                 categoryNames.add(category.toString());
             }
@@ -124,10 +124,10 @@ public class CategorySystemFacade {
      * a list of words for the user to learn/study
      * @return
      */
-    public List<Word> getWordList(){
-        WordList wordList = new WordList();
-        List<Word> words = wordList.hashMap.get(category);
-     return words;
+    public List<Word> getWord(){
+        Word wordList = new Word();
+        List<Word> wordlist = wordlist. ();
+        return wordlist;
     }
 
     /**
