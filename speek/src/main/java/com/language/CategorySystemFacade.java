@@ -40,6 +40,10 @@ public class CategorySystemFacade {
         this.progress = progress;
     }
 
+    public CategorySystemFacade() {
+        //TODO Auto-generated constructor stub
+    }
+
     /**
      * addUser method
      * add user to the system
