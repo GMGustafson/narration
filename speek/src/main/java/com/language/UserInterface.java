@@ -29,7 +29,7 @@ public class UserInterface{
     private DataLoader dataLoader;
     private Flashcard flashcards;
     private Story story;
-    private CategorySystemFacade categoryFacade;
+    private CategorySystemFacade facade;
 
     /**
      * Constructor for UI
@@ -38,7 +38,7 @@ public class UserInterface{
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
         this.dataLoader = new DataLoader();
-        categoryFacade = CategorySystemFacade.getFacadeInstance();
+        facade = CategorySystemFacade.getFacadeInstance();
         }
 
     /**
