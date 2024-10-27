@@ -9,13 +9,13 @@ public class Story {
     */
     private String title;
     private ArrayList<String> text;
-    private ArrayList<String> textTranslation;
+    private ArrayList<String> storyTranslation;
 
-    public Story (String title, ArrayList<String> text, ArrayList<String> textTranslation) 
+    public Story (String title, ArrayList<String> text, ArrayList<String> storyTranslation) 
     { 
         this.title = title; 
         this.text = text; 
-        this.textTranslation = textTranslation; 
+        this.storyTranslation = storyTranslation; 
     }
 
     public String getTitle() 
@@ -28,14 +28,14 @@ public class Story {
         return text; 
     }
 	
-    public  ArrayList<String> getTextTranslation() 
+    public  ArrayList<String> getStoryTranslation() 
     { 
-        return textTranslation; 
+        return storyTranslation; 
     }
 
     public String toString() {
         String result = "";
-        result += title + "--" + text + "--" + textTranslation;
+        result += title + "--" + text + "--" + storyTranslation;
         return result;
     }
     
