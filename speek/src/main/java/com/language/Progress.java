@@ -35,6 +35,10 @@ public class Progress {
         this. missedWords = missedWords;
     }
 
+    /**
+    * resetCategoryProgress method
+    * resets progres in category to 0
+    */
     public void resetCategoryProgress() {
         this.totalQuestionsAnswered = 0;
         this.numCorrectAnswers = 0;
@@ -43,52 +47,104 @@ public class Progress {
         System.out.println("Category progress has been reset.");
     }
 
-
+    /**
+    * getTotalQuestionsAnswered method
+    * gets totalQuestionsAnswered
+    * @return  totalQuestionsAnswered
+    */
     public int getTotalQuestionsAnswered() {    
         return totalQuestionsAnswered;
     }
 
+    /**
+    * setTotalQuestionsAnswered method
+    * sets totalQuestionsAnswered
+    */
     public void setTotalQuestionsAnswered(int totalQuestionsAnswered) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
 
     }
 
+    /**
+    * getNumCorrectAnswers method
+    * gets numCorrectAnswers
+    * @return  numCorrectAnswers
+    */
     public int getNumCorrectAnswers() {
         return numCorrectAnswers;
     }
 
+    /**
+    * setNumCorrectAnswers method
+    * sets numCorrectAnswers
+    */
     public void setNumCorrectAnswers(int numCorrectAnswers){
         this.numCorrectAnswers = numCorrectAnswers;
     }
 
+    /**
+    * getCurrentCategorymethod
+    * get currentCategory
+    * @return currentCategory
+    */
     public String getCurrentCategory() {
         return currentCategory;
     }
 
+    /**
+    * setCurrentCategory method
+    * sets currentCategory
+    */
     public void setCurrentCategory(String currentCategory){
         this.currentCategory = currentCategory;
     }
 
+    /**
+    * getProgressInCategory method
+    * gets progressInCategory
+    */
     public int getProgressInCategory() {
         return progressInCategory;
     }
 
+    /**
+    * getStreak method
+    * gets streak
+    * @return streak
+    */
     public int getStreak() {
         return streak;
     }
 
+    /**
+    * setStreak method
+    * sets streak
+    */
     public void setStreak(int streak) {
         this.streak = streak;
     }
 
+    /**
+    * setProgressInCategory method
+    * sets progressInCategory
+    */
     public void setProgressInCategory(int progressInCategory){
         this.progressInCategory = progressInCategory;
     }
 
+    /**
+    * getMissedWords method
+    * adds missed words to the missedWords list
+    * @return missedWords
+    */
     public ArrayList<String> getMissedWords() {
         return missedWords;
     }
 
+    /**
+    * addMissedWords method
+    * adds missed words to the missedWords list
+    */
     public void addMissedWords(String word) {
         missedWords.add(word);
     }
@@ -121,15 +177,6 @@ public class Progress {
      * tracks the percentage of correct answers out of the total answers
      */
     public void trackPercentCorrect() {
-        // if (totalQuestionsAnswered == 0) {
-        //     System.out.print("The user has not answered any questions yet.");
-        // }
-        // double perCorrect = (numCorrectAnswers / totalQuestionsAnswered) * 100;
-        // if (perCorrect >= 80) {
-        //     trackLesson();
-        //     progressInCourse();
-        // }
-        // System.out.print("Tracking the percentage of correct answers. : The percentage of correct answers is: " + perCorrect + "%");
 
         if (totalQuestionsAnswered == 0) {
             System.out.println("No questions have been answered yet.");
@@ -157,6 +204,10 @@ public class Progress {
         System.out.print("Tracking the number of correct answers. Total correct answers: " + numCorrectAnswers);
     }
 
+    /**
+    * goToNextCategory method
+    * switches the user to the next possible category once the user has passed it
+    */
     public void goToNextCategory() {
         // progressInCategory++;
         // if (progressInCategory == 1){
@@ -183,22 +234,14 @@ public class Progress {
         } 
         else {
             switchToNextCourse();
-        }
+        }    
+    }
 
-        
-}
-
-
-     //@SuppressWarnings("static-access")
+    /**
+    * switchToNextCourse method
+    * switches the user to the next possible course once the categories are finished
+    */
     public void switchToNextCourse() {
-        //String[] availableCourses = {"Words", "Phrases"};
-        //if (available)
-        // int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
-        // HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
-        // HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
-        // HashMap<String, Story> stories = currentCourse.getStories();
-        // currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
-        // System.out.println("Switched to the next course: " + currentCourse.getCourse());
         CourseList courseList = CourseList.getInstance();
         ArrayList<Course> courses = courseList.getCourses();
         int courseIndex = courses.indexOf(currentCategory);
@@ -210,9 +253,11 @@ public class Progress {
 
      }
 
-
-  
-
+     /**
+     * getProgress method
+     * a list of attributes about the user's progress
+     * @return progressInfo
+     */
     public ArrayList<String> getProgress() {
         ArrayList<String> progressInfo = new ArrayList<>();
         progressInfo.add("Total Questions Answered: " + totalQuestionsAnswered);

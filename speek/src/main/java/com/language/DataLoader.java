@@ -179,13 +179,12 @@ public static Story getStory(JSONObject storyJSON) {
 
 
 
-// Main method to test getUsers and getCourse and getStory 
+// Main method to test getUsers and getCourse  
 
 public static void main(String[] args) {
     ArrayList<Course> courseList = getCourse();
     ArrayList<User> users = getUsers();
-    //Story story = getStory();
-    
+
     if (courseList != null) {
         for (Course course : courseList) {
             System.out.println(course);
@@ -202,11 +201,7 @@ public static void main(String[] args) {
         System.out.println("Course list is null, possibly due to loading error.");
     }
 
-    // if (story != null) {
-    //     System.out.println(story);
-    // } else {
-    //     System.out.println("Story is null, possibly due to loading error.");
-    // }
+    
 
     
 }

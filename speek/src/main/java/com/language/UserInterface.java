@@ -1,5 +1,5 @@
 package com.language;
-import java.io.FileReader;
+// import java.io.FileReader;
 /*
  * @author Gracie and zaniah
  */
@@ -12,12 +12,12 @@ import java.util.UUID;
 import javax.swing.*;
 import java.awt.event.*;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
+// import org.json.simple.JSONArray;
+// import org.json.simple.parser.JSONParser;
 
 import com.narration.Narriator;
 
-public class UserInterface {
+public class UserInterface{
 
     /*
  * UI attributes
@@ -139,6 +139,7 @@ public class UserInterface {
         //showUsers(); 
         // Now have Jim successfully login to the system
         if (login(username, password)) {
+            DataLoader.getUsers();
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
@@ -152,7 +153,8 @@ public class UserInterface {
                 "What is the number two in Spanish?",
                 "What is the number three in Spanish?",
                 "What is the number four in Spanish?",
-                "What is the number five in Spanish?" 
+                "What is the number five in Spanish?"
+                
             };
             
             int correctAnswers1 = 0;

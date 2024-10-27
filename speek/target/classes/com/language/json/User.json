@@ -1,5 +1,50 @@
-<<<<<<< HEAD
-[{"firstName":"Jane","lastName":"Smith","password":"IlovemyCat","phoneNumber":"817-902-3201","dateOfBirth":"1998-10-07","id":"c1958c73-da82-43ad-af69-4cfb45ab35fc","email":"jsmith@gmail.com","username":"janesmith10"},{"firstName":"John","lastName":"Doe","password":"IlovemyCat","phoneNumber":"627-917-2739","dateOfBirth":"2005-01-01","id":"348d5a0a-d623-4723-9620-9b0a5a031c23","email":"johndoe@gmail.com","username":"johndoe73"},{"firstName":"Jim","lastName":"Smith","password":"smithj1","phoneNumber":"643-917-1800","dateOfBirth":"2005-01-01","id":"43277de5-9f5b-4369-9e67-e132c4fbb76d","email":"jimsmith@gmail.com","username":"jimsmith44"}]
-=======
-[{"firstName":"Jane","lastName":"Smith","password":"IlovemyCat","phoneNumber":"817-902-3201","dateOfBirth":"1998-10-07","id":"fb7b0659-0d22-475d-9103-45addd665ce6","email":"jsmith@gmail.com","username":"janesmith10"},{"firstName":"John","lastName":"Doe","password":"IlovemyCat","phoneNumber":"627-917-2739","dateOfBirth":"2005-01-01","id":"6f7dd90b-35bd-44e3-85ad-a4e1dcc7ba25","email":"johndoe@gmail.com","username":"johndoe73"},{"firstName":"Jim","lastName":"Smith","password":"smithj1","phoneNumber":"643-917-1800","dateOfBirth":"2005-01-01","id":"d1150748-9ba6-4379-9f58-3f1ddc2ceb01","email":"jimsmith@gmail.com","username":"jimsmith44"}]
->>>>>>> 921d33802b566a968b03cf04a94c54dfbe1cbb13
+[
+    {
+        "userID" : "85e9d2cb-9847-4934-970c-442d081fffa4",
+        "firstName" : "John" ,
+        "lastName" : "Doe",
+        "email" : "johndoe@gmail.com",
+        "phoneNumber" : "627-917-2739",
+        "dateOfBirth" : "01/05/2001",
+        "username" : "johndoe73",
+        "password" : "IlovemyCat",
+        "courses" : {
+            "course" : {
+                "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
+                "Progress" : {
+                    "totalQuestionsAnswered" : 10,
+                    "numCorrectAnswers" : 7,
+                    "currentCategory" : "numbers",
+                    "progressInCategory" : 7,
+                    "streak" : 3,
+                    "missedWords" : ["tres", "cinco", "ocho"]
+                }
+            }
+        }
+    },
+
+    {
+        "userid": "9dfc6cef-6cd2-45e7-8a78-c24b0bfa1063", 
+        "firstName": "Jane", 
+        "lastName": "Smith", 
+        "email": "jsmith@gmail.com",
+        "phoneNumber":"817-902-3201",
+        "dateOfBirth": "10/07/2004", 
+        "userName": "janesmith10",
+        "password": "IlovemyCat",
+        "courses" : {
+            "course" : {
+                "courseID" : "36ae4839-6711-4b3c-a15b-b0aa2d8c5c5e",
+                "languageName" : "Spanish",
+                "Progress" : {
+                    "totalQuestionsAnswered" : 5,
+                    "numCorrectAnswers" : 2,
+                    "currentCategory" : "colors",
+                    "progressInCategory" : 3,
+                    "streak" : 1,
+                    "missedWords" : ["amarillo", "azule", "verde"]
+                }
+            }
+        }
+    }
+]
