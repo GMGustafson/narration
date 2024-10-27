@@ -1,24 +1,21 @@
 package com.language;
 
 import java.util.ArrayList;
-
 /**
- * @author zaniah, sri, gracie, and grace
+ * @author zaniah and grace 
  */
 
+ //what is the difference by changing String to word
+
 public class Word {
+    /**
+     * attributes for word class
+     */
     private String word;
     private String pronunciation;
     private String translation;
     private ArrayList<String> alternatives; 
 
-    /**
-     * Constructor for Word
-     * @param word
-     * @param pronunciation
-     * @param translation
-     * @param alternatives
-     */
     public Word(String word, String pronunciation, String translation, ArrayList<String> alternatives) {
        this.word = word;
        this.pronunciation = pronunciation;
@@ -26,10 +23,10 @@ public class Word {
         this.alternatives =alternatives;
     }
 
+
     /**
      * getword method
-     * Returns the letters in the word
-     * @return word
+     * @return the letters in the word
      */
     public String getWord(){
         return word;
@@ -37,8 +34,7 @@ public class Word {
 
     /**
      * getPronunciation method
-     * Returns pronunciation of the word
-     * @return pronunciation
+     * @return pronunciation of the word
      */
     public String getPronunciation(){
 
@@ -47,27 +43,16 @@ public class Word {
 
     /**
      * getTranslation method
-     * Returns the translation of the word
-     * @return translation
+     * @return translation of the word
      */
     public String getTranslation(){
         return translation;
     }
 
-    /**
-     * getAlternatives method
-     * Returns new list of alternatives for a word
-     * @return alternatives
-     */
     public ArrayList<String> getAlternatives() {
         return new ArrayList<>(alternatives); 
     }
 
-    /**
-     * toString method
-     * Returns attributes of words in a toString format
-     * @return result
-     */
     public String toString() {
         String result = "";
         result += word + "--" + pronunciation + "--" + translation;
