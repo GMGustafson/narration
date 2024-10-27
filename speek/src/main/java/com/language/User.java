@@ -122,33 +122,11 @@ public class User{
         this.email = email;
     }
 
-<<<<<<< HEAD
-    public String getPhoneNumber(){
-        if (phoneNumber != null && phoneNumber.length() == 10) {
-            return phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6);
-        }
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-=======
     /**
      * getUsername method
      * Returns user's username
      * @return username
      */
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
     public String getUsername(){
         return username;
     }
@@ -216,15 +194,6 @@ public class User{
         this.username = username;
     }
 
-<<<<<<< HEAD
-    public void forgotPassword(String newPassword){
-        String defaultPassword = "LanguageLearner123@";
-        if (newPassword.length() <= 8 || newPassword.length() > 20 || !newPassword.matches(".*[!@#$%^&*()].*")) {
-            System.out.print("Password must be 8-20 characters and contain at least one special character. Now setting the default password.");
-            this.password = defaultPassword;
-        } else {
-            this.password = newPassword;
-=======
     /**
      * getPhoneNumber method
      * Returns user's phone numer if it is in a valid format
@@ -233,12 +202,10 @@ public class User{
     public String getPhoneNumber(){
         if (phoneNumber != null && phoneNumber.length() == 10) {
             return phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6);
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
         }
+        return phoneNumber; 
     }
 
-<<<<<<< HEAD
-=======
     /**
      * setPhoneNumber method
      * Sets user's phone number
@@ -265,7 +232,6 @@ public class User{
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
 
     /**
      * getFormattedDateOfBirth method
@@ -286,21 +252,15 @@ public class User{
         return courses;
     }
 
-<<<<<<< HEAD
-=======
     /**
      * setCourses method
      * Sets courses HashMap
      * @param courses
      */
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
     public void setCourses(HashMap<Course, Progress> courses) {
         this.courses = courses;
     }
 
-<<<<<<< HEAD
-    
-=======
      /**
      * forgotPassword method
      * Sets password to default if the user is not valid
@@ -315,7 +275,6 @@ public class User{
             this.password = newPassword;
         }
     }
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
 
     /** 
     * toString method

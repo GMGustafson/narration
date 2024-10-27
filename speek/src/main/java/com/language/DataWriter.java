@@ -92,8 +92,6 @@ public class DataWriter extends DataConstants {
     }
 
    
-<<<<<<< HEAD
-=======
    /**
     * Writes a list of flashcards to the JSON file specified in FILE_PATH.
     * This method converts each Flashcard object into a JSON representation and writes
@@ -113,7 +111,6 @@ public class DataWriter extends DataConstants {
        // writeFlashcards(cards);
     }
    
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
 
    @SuppressWarnings("unchecked")
    public static void writeUsers(List<User> users) {

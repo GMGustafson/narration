@@ -5,28 +5,17 @@ package com.language;
  */
 
 public class Phrase {
-<<<<<<< HEAD
-    /**
-     * attributes for phrase class
-     */
+
     private String phraseWords;
-    private String translation;
-
-   public Phrase(String translation, String phraseWords) {
-    this.phraseWords = phraseWords;  // Initialize the words list
-=======
-
-    private String phrasewords;
     private String translation;
 
     /**
      * Constructor of Phrase
      * @param translation
-     * @param phrasewords
+     * @param phraseWords
      */
-   public Phrase(String translation, String phrasewords) {
-    this.phrasewords = phrasewords;
->>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
+   public Phrase(String translation, String phraseWords) {
+    this.phraseWords = phraseWords;
     this.translation = translation;
     }
 
