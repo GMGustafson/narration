@@ -154,7 +154,7 @@ public class UserInterface{
         //Show the users.json -> illustrating that Jim is now in the file.
         //showUsers(); 
         // Now have Jim successfully login to the system
-        if (login(username, password)) {
+        if (facade.login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
@@ -169,7 +169,6 @@ public class UserInterface{
                 "What is the number three in Spanish?",
                 "What is the number four in Spanish?",
                 "What is the number five in Spanish?"
-                
             };
             
             int correctAnswers1 = 0;
