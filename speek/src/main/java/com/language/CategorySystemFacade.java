@@ -172,7 +172,7 @@ public class CategorySystemFacade {
      * a way for the user to study by answering fill in the blank questions
      */
     public void getFillintheBlank(){
-        FillInTheBlank fillInBlank = new FillInTheBlank(null, phrases, null);
+        FillInTheBlank fillInBlank = new FillInTheBlank(null, phrases, null,null );
 
         String sentence = fillInBlank.getSampleSentence();
         String missingWord = fillInBlank.getMissingWord();

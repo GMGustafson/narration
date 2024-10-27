@@ -26,9 +26,7 @@ public class DataWriter extends DataConstants {
        /**
     * Writes a list of users to the JSON file specified in FILE_PATH.
     * This method converts each User object into a JSON representation and writes
-    * the entire list of users as a JSON array to the file.
-    *
-    * @param flashcards The list of Flashcard objects to be written to the file.
+    * the entire list of users as a JSON array to the file
     */
 
    @SuppressWarnings("unchecked")

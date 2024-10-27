@@ -203,7 +203,7 @@ public class User{
         if (phoneNumber != null && phoneNumber.length() == 10) {
             return phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6);
         }
-        return phoneNumber;
+        return phoneNumber; 
     }
 
     /**

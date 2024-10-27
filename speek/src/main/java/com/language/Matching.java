@@ -7,6 +7,13 @@ import java.util.ArrayList;
  */
 
 public class Matching extends Question{
+<<<<<<< HEAD
+
+
+    private static ArrayList<String> imageList;
+    private static ArrayList<String> wordList;  
+    
+=======
     private static ArrayList<String> imageList;
     private static ArrayList<String> wordList;  
     
@@ -14,16 +21,21 @@ public class Matching extends Question{
      *  Constructor for matching
      * @param question
      */
+>>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
     public Matching(String question) {
         super(question);
         //TODO Auto-generated constructor stub
             }
 
+<<<<<<< HEAD
+
+=======
     /**
      * getImageList method
      * Returns list of "images"
      * @return imageList
      */
+>>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
     public static ArrayList<String> getImageList(){
         return imageList;
     }

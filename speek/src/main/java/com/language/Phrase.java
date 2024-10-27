@@ -6,16 +6,16 @@ package com.language;
 
 public class Phrase {
 
-    private String phrasewords;
+    private String phraseWords;
     private String translation;
 
     /**
      * Constructor of Phrase
      * @param translation
-     * @param phrasewords
+     * @param phraseWords
      */
-   public Phrase(String translation, String phrasewords) {
-    this.phrasewords = phrasewords;
+   public Phrase(String translation, String phraseWords) {
+    this.phraseWords = phraseWords;
     this.translation = translation;
     }
 
@@ -26,7 +26,7 @@ public class Phrase {
      */
     public String getWords(){
         //return "words";
-        return phrasewords;
+        return phraseWords;
     }
 
     /**
@@ -45,7 +45,7 @@ public class Phrase {
      */
     public String toString() {
         String result = "";
-        result += phrasewords + ": " + translation;
+        result += phraseWords + ": " + translation;
         return result;
     }
 }
