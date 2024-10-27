@@ -154,7 +154,6 @@ public class UserInterface{
                 "What is the number three in Spanish?",
                 "What is the number four in Spanish?",
                 "What is the number five in Spanish?"
-                
             };
             
             int correctAnswers1 = 0;
