@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.UUID;
-import javax.swing.*;
-import java.awt.event.*;
 
 // import org.json.simple.JSONArray;
 // import org.json.simple.parser.JSONParser;
@@ -31,6 +29,7 @@ public class UserInterface{
     private DataLoader dataLoader;
     private Flashcard flashcards;
     private Story story;
+    private CategorySystemFacade categoryFacade;
 
     /**
      * Constructor for UI
@@ -39,6 +38,7 @@ public class UserInterface{
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
         this.dataLoader = new DataLoader();
+        categoryFacade = CategorySystemFacade.getFacadeInstance();
         }
 
     /**
