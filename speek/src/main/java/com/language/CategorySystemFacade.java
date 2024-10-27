@@ -16,6 +16,7 @@ public class CategorySystemFacade {
     private Phrase phrases;
     private Word words;
     private Progress progress;
+    private static CategorySystemFacade facade;
 
     /**
      * constructor 
@@ -41,6 +42,13 @@ public class CategorySystemFacade {
 
     public CategorySystemFacade() {
         //TODO Auto-generated constructor stub
+    }
+
+    public static CategorySystemFacade getFacadeInstance(){
+        if(facade == null){
+            facade = new CategorySystemFacade();
+        }
+        return facade;
     }
 
     /**
