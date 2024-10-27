@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  * The DataWriter class is responsible for writing flashcard data to a JSON file.
@@ -20,8 +20,6 @@ public class DataWriter extends DataConstants {
    /** 
     * Path to the JSON file where user data will be written.
     */
-
-
        /**
     * Writes a list of users to the JSON file specified in FILE_PATH.
     * This method converts each User object into a JSON representation and writes
@@ -102,37 +100,40 @@ public class DataWriter extends DataConstants {
     */
 
   /* */
+  
+  //DO WE NEED THIS????
+
 // (@SuppressWarnings("unchecked")) to get rid of the warnings.
-@SuppressWarnings("unchecked")
-public static void writeFlashcards(List<Flashcard> flashcards) {
-        // Create a JSON array to hold flashcard data
-        JSONArray flashcardList = new JSONArray();
+// @SuppressWarnings("unchecked")
+// public static void writeFlashcards(List<Flashcard> flashcards) {
+//         // Create a JSON array to hold flashcard data
+//         JSONArray flashcardList = new JSONArray();
 
-        // Convert each Flashcard object to a JSON object
-        for (Flashcard flashcard : flashcards) {
+//         // Convert each Flashcard object to a JSON object
+//         for (Flashcard flashcard : flashcards) {
             
-            // Add the flashcard JSON object to the array
-            flashcardList.add(getFlashcard(flashcard));
-        }
+//             // Add the flashcard JSON object to the array
+//             flashcardList.add(getFlashcard(flashcard));
+//         }
 
-        // Write the JSON array to the file
-        try (FileWriter file = new FileWriter(FILE_NAME_FLASHCARDS)) {
-            file.write(flashcardList.toJSONString());  // Write JSON data to file
-            file.flush();  // Ensure all data is written
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle errors in writing to the file
-        }
-    }
+//         // Write the JSON array to the file
+//         try (FileWriter file = new FileWriter(FILE_NAME_FLASHCARDS)) {
+//             file.write(flashcardList.toJSONString());  // Write JSON data to file
+//             file.flush();  // Ensure all data is written
+//         } catch (IOException e) {
+//             e.printStackTrace();  // Handle errors in writing to the file
+//         }
+//     }
 
-    public static JSONObject getFlashcard(Flashcard card){
-        JSONObject flashcardDetails = new JSONObject();
+    // public static JSONObject getFlashcard(Flashcard card){
+    //     JSONObject flashcardDetails = new JSONObject();
 
-        flashcardDetails.put("word", card.getWord());
-        flashcardDetails.put("translation", card.getTranslation());
-        flashcardDetails.put("phrase", card.getPhrase());
+    //     flashcardDetails.put("word", card.getWord());
+    //     flashcardDetails.put("translation", card.getTranslation());
+    //     flashcardDetails.put("phrase", card.getPhrase());
 
-        return flashcardDetails;
-    }
+    //     return flashcardDetails;
+    // }
 
     public static void main(String[] args) {
         Flashcard flashcard1 = new Flashcard("Bonjour", "Hello", "Bonjour! Je m'appelle Pierre.");
@@ -142,7 +143,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
         cards.add(flashcard1);
         cards.add(flashcard2);
 
-        writeFlashcards(cards);
+       // writeFlashcards(cards);
     }
    
 
@@ -162,7 +163,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
             userList.add(userDetails);
         }
 
-        try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
+        try (FileWriter file = new FileWriter(FILE_NAME_USER)) {
             file.write(userList.toJSONString());
             file.flush();
         } catch (IOException e) {
@@ -179,7 +180,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
        progressDetails.put(CURRENT_CATEGORY, progress.getCurrentCategory().toString());
        progressDetails.put(PROGRESS_IN_CATEGORY, progress.getProgressInCategory());
        progressDetails.put(USER_STREAK, progress.getStreak());
-       progressDetails.put(LANGUAGE, progress.getLanguage().toString());
+       //progressDetails.put(LANGUAGE, progress.getLanguage().toString());
 
        JSONArray missedWordsArray = new JSONArray();
        for (String word : progress.getMissedWords()) {
@@ -187,7 +188,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
        }
        progressDetails.put(MISSED_WORDS, missedWordsArray);
 
-       try (FileWriter file = new FileWriter(FILE_NAME_PROGRESS)) {
+       try (FileWriter file = new FileWriter(PROGRESS)) {
            file.write(progressDetails.toJSONString());
            file.flush();
        } catch (IOException e) {
