@@ -35,7 +35,7 @@ public class Story {
 
     public String toString() {
         String result = "";
-        result += title + "--" + text + "--" + texttranslation;
+        result += title + "--" + text + "--" + textTranslation;
         return result;
     }
     
