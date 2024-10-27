@@ -105,14 +105,6 @@ public class CategorySystemFacade {
     }
 
     /**
-     * getLanguage method
-     * @return the language the user wants to study
-     */
-    //public Language getLanguage(){
-    //    return this.language;
-    //}
-
-    /**
      * getPhrase method
      * list of phrases for the user to learn/study
      * @return phrase for the user to learn in diff language
@@ -131,14 +123,6 @@ public class CategorySystemFacade {
         String category = course.getCategory();
         return course.getWordsByCategory(category);
     }
-
-    /**
-     * getLanguage method
-     * @return languages
-     */
-    //public ArrayList getLanguageList(){
-    //    return LanguageList.getInstance().getLanguages();
-    //}
 
     /**
      * getQuestion method
