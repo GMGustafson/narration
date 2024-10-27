@@ -69,6 +69,25 @@ public class User{
         this.email = email;
     }
 
+    public String getPhoneNumber(){
+        if (phoneNumber != null && phoneNumber.length() == 10) {
+            return phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6);
+        }
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     public String getUsername(){
         return username;
     }
@@ -101,24 +120,16 @@ public class User{
         this.username = username;
     }
 
-    public String getPhoneNumber(){
-        if (phoneNumber != null && phoneNumber.length() == 10) {
-            return phoneNumber.substring(0, 3) + "-" + phoneNumber.substring(3, 6) + "-" + phoneNumber.substring(6);
+    public void forgotPassword(String newPassword){
+        String defaultPassword = "LanguageLearner123@";
+        if (newPassword.length() <= 8 || newPassword.length() > 20 || !newPassword.matches(".*[!@#$%^&*()].*")) {
+            System.out.print("Password must be 8-20 characters and contain at least one special character. Now setting the default password.");
+            this.password = defaultPassword;
+        } else {
+            this.password = newPassword;
         }
-        return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
     public String getFormattedDateOfBirth() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
@@ -129,19 +140,11 @@ public class User{
         return courses;
     }
 
-    public void setLanguages(HashMap<Course, Progress> courses) {
+    public void setCourses(HashMap<Course, Progress> courses) {
         this.courses = courses;
     }
 
-    public void forgotPassword(String newPassword){
-        String defaultPassword = "LanguageLearner123@";
-        if (newPassword.length() <= 8 || newPassword.length() > 20 || !newPassword.matches(".*[!@#$%^&*()].*")) {
-            System.out.print("Password must be 8-20 characters and contain at least one special character. Now setting the default password.");
-            this.password = defaultPassword;
-        } else {
-            this.password = newPassword;
-        }
-    }
+    
 
     public String toString() {
         String result = "";

@@ -12,7 +12,7 @@ public class FillInTheBlank extends Question{
   private ArrayList<String> wordBank;
   private String userInput;
 
-  public FillInTheBlank(String question, Phrase sampleSentence, ArrayList<String> wordBank) {
+  public FillInTheBlank(String question, Phrase sampleSentence, ArrayList<String> wordBank, String userInput) {
       //TODO Auto-generated constructor stub
       super(question);
       this.sampleSentence = sampleSentence;

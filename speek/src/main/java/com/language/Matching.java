@@ -5,14 +5,15 @@ import java.util.List;
 
 public class Matching extends Question{
 
+
+    private static ArrayList<String> imageList;
+    private static ArrayList<String> wordList;  
+    
     public Matching(String question) {
         super(question);
         //TODO Auto-generated constructor stub
             }
 
-    private static ArrayList<String> imageList;
-    private static ArrayList<String> wordList;  
-    
 
     public static ArrayList<String> getImageList(){
         return imageList;

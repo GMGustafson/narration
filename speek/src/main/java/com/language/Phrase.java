@@ -7,11 +7,11 @@ public class Phrase {
     /**
      * attributes for phrase class
      */
-    private String phrasewords;
+    private String phraseWords;
     private String translation;
 
-   public Phrase(String translation, String phrasewords) {
-    this.phrasewords = phrasewords;  // Initialize the words list
+   public Phrase(String translation, String phraseWords) {
+    this.phraseWords = phraseWords;  // Initialize the words list
     this.translation = translation;
 }
 
@@ -22,7 +22,7 @@ public class Phrase {
      */
     public String getWords(){
         //return "words";
-        return phrasewords;
+        return phraseWords;
     }
 
     /**
@@ -36,7 +36,7 @@ public class Phrase {
 
     public String toString() {
         String result = "";
-        result += phrasewords + ": " + translation;
+        result += phraseWords + ": " + translation;
         return result;
     }
 }
