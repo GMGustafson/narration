@@ -12,10 +12,10 @@ public class CategorySystemFacade {
      */
     private User user;
     private Category category;
+    private Course course;
     private Question question;
     private Phrase phrases;
     private Word words;
-    private Language language;
     private Progress progress;
 
     /**
@@ -28,15 +28,15 @@ public class CategorySystemFacade {
      * @param language the language the user is studying
      * @param progress how far along the user is in their studies/how active they are
      */
-    public CategorySystemFacade(User user, Category category, Question question, Phrase phrases, 
-    Word words, Language language, Progress progress){
+    public CategorySystemFacade(User user, Course course, Category category, Question question, Phrase phrases, 
+    Word words, Progress progress){
 
         this.user = user;
+        this.course = course;
         this.category = category;
         this.question = question;
         this.phrases = phrases;
         this.words = words;
-        this.language = language;
         this.progress = progress;
     }
 
@@ -70,22 +70,26 @@ public class CategorySystemFacade {
         return false; 
     }
 
+    public List<String> getCourse(){
+        List<String> courseTitles = new ArrayList<>();
+        CourseList courseList = CourseList.getInstance();
+        for (Course course : courseList.getCourses()) {
+            courseTitles.add(course.getCourse());
+        }
+        return courseTitles;
+    }
+    
     /**
      * getCategory method 
      * list of categories for the user to choose from
      * @return the category that the user chose
      */
     public List<String> getCategory(){
-        List<String> categoryNames = new ArrayList<>();
-        List<Course> languages = (List<Course>) LanguageList.getInstance().getLanguages();
-        for (Course language : languages) {
-                for (Course course : course) { 
-            if (category != null) {
-                categoryNames.add(category.toString());
-            }
+        List<String> categories = new ArrayList<>();
+        for (Category category : Category.values()) {
+            categories.add(category.label);
         }
-        }
-        return categoryNames;
+        return categories;
     }
 
     /**
@@ -104,19 +108,18 @@ public class CategorySystemFacade {
      * getLanguage method
      * @return the language the user wants to study
      */
-    public Language getLanguage(){
-        return this.language;
-    }
+    //public Language getLanguage(){
+    //    return this.language;
+    //}
 
     /**
      * getPhrase method
      * list of phrases for the user to learn/study
      * @return phrase for the user to learn in diff language
      */
-    public List<Phrase> getPhraseList(){
-        PhraseList phraselist = new PhraseList();
-        List<Phrase> phraseList = phraselist.hashMap.get(category);
-        return phraseList;
+    public List<Phrase> getPhrase(){
+        String category = course.getCategory();
+        return course.getPhrasesByCategory(category);
     }
 
     /**
@@ -125,18 +128,17 @@ public class CategorySystemFacade {
      * @return
      */
     public List<Word> getWord(){
-        Word wordList = new Word();
-        List<Word> wordlist = wordlist. ();
-        return wordlist;
+        String category = course.getCategory();
+        return course.getWordsByCategory(category);
     }
 
     /**
      * getLanguage method
      * @return languages
      */
-    public ArrayList getLanguageList(){
-        return LanguageList.getInstance().getLanguages();
-    }
+    //public ArrayList getLanguageList(){
+    //    return LanguageList.getInstance().getLanguages();
+    //}
 
     /**
      * getQuestion method
@@ -189,10 +191,16 @@ public class CategorySystemFacade {
      * a way for the user to study with flashcards
      */
     public List<Flashcard> getFlashcards(){
-
-        //need help here- load data from flashcard ask user question
-        Category currentCategory = progress.getCurrentCategory();
         List<Flashcard> flashcards = new ArrayList<>();
+        String category = course.getCategory();
+        List<Word> words = course.getWordsByCategory(category);
+        for (Word word : words) {
+            String wordText = word.getWord();
+            String translation = word.getTranslation();
+            String examplePhrase = wordText; 
+            Flashcard flashcard = new Flashcard(wordText, translation, examplePhrase);
+            flashcards.add(flashcard);
+        }
         return flashcards;
     }
 
@@ -201,8 +209,7 @@ public class CategorySystemFacade {
      * a way for the user to study by matching words with an image
      */
     public void getMatching(){
-        //fix the static/nonstatic in mathcing class
-        List<String> wordList = Matching.getImageList(); //how do i fix this
+        List<String> wordList = Matching.getImageList(); 
         List<String> imageList = Matching.getWordList(); 
 
         System.out.println("Match the words correctly with the corresponding images:");
