@@ -100,27 +100,30 @@ public class DataWriter extends DataConstants {
     */
 
   /* */
+  
+  //DO WE NEED THIS????
+
 // (@SuppressWarnings("unchecked")) to get rid of the warnings.
-@SuppressWarnings("unchecked")
-public static void writeFlashcards(List<Flashcard> flashcards) {
-        // Create a JSON array to hold flashcard data
-        JSONArray flashcardList = new JSONArray();
+// @SuppressWarnings("unchecked")
+// public static void writeFlashcards(List<Flashcard> flashcards) {
+//         // Create a JSON array to hold flashcard data
+//         JSONArray flashcardList = new JSONArray();
 
-        // Convert each Flashcard object to a JSON object
-        for (Flashcard flashcard : flashcards) {
+//         // Convert each Flashcard object to a JSON object
+//         for (Flashcard flashcard : flashcards) {
             
-            // Add the flashcard JSON object to the array
-            flashcardList.add(getFlashcard(flashcard));
-        }
+//             // Add the flashcard JSON object to the array
+//             flashcardList.add(getFlashcard(flashcard));
+//         }
 
-        // Write the JSON array to the file
-        try (FileWriter file = new FileWriter(FILE_NAME_FLASHCARDS)) {
-            file.write(flashcardList.toJSONString());  // Write JSON data to file
-            file.flush();  // Ensure all data is written
-        } catch (IOException e) {
-            e.printStackTrace();  // Handle errors in writing to the file
-        }
-    }
+//         // Write the JSON array to the file
+//         try (FileWriter file = new FileWriter(FILE_NAME_FLASHCARDS)) {
+//             file.write(flashcardList.toJSONString());  // Write JSON data to file
+//             file.flush();  // Ensure all data is written
+//         } catch (IOException e) {
+//             e.printStackTrace();  // Handle errors in writing to the file
+//         }
+//     }
 
     // public static JSONObject getFlashcard(Flashcard card){
     //     JSONObject flashcardDetails = new JSONObject();
@@ -140,7 +143,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
         cards.add(flashcard1);
         cards.add(flashcard2);
 
-        writeFlashcards(cards);
+       // writeFlashcards(cards);
     }
    
 
@@ -185,7 +188,7 @@ public static void writeFlashcards(List<Flashcard> flashcards) {
        }
        progressDetails.put(MISSED_WORDS, missedWordsArray);
 
-       try (FileWriter file = new FileWriter(FILE_NAME_PROGRESS)) {
+       try (FileWriter file = new FileWriter(PROGRESS)) {
            file.write(progressDetails.toJSONString());
            file.flush();
        } catch (IOException e) {
