@@ -3,7 +3,7 @@ package com.language;
 public abstract class DataConstants {
  
     //JSON FILES
-    protected static final String FILE_NAME_USER_INTERFACE = "user.json";
+    protected static final String FILE_NAME_USER_INTERFACE = "narration/user.json";
     protected static final String FILE_NAME_COURSES = "speek/src/main/java/com/language/json/Course.json";
     protected static final String FILE_NAME_USER = "speek/src/main/java/com/language/json/User.json";
     

@@ -139,7 +139,6 @@ public class UserInterface{
         //showUsers(); 
         // Now have Jim successfully login to the system
         if (login(username, password)) {
-            DataLoader.getUsers();
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
@@ -167,8 +166,9 @@ public class UserInterface{
                 }
             }
             ArrayList<String> missedWord = new ArrayList<>();
-            progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);            
+            progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
             progress.addMissedWords("cinco");
+            Narriator.playSound("Missed word: Cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored an eighty percent");
@@ -195,6 +195,7 @@ public class UserInterface{
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
             progress.addMissedWords("azul");
             progress.addMissedWords("amarillo");
+            Narriator.playSound("Missed words: Azul and Amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored a sixty percent. You have to start over");
