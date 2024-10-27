@@ -11,14 +11,8 @@ package com.language;
  */
 
 public class Flashcard extends Question{
-
-    /** The word or term on the flashcard in the target language. */
     private String word;
-
-    /** The translation of the word in the learner's native language. */
     private String translation;
-
-    /** An example phrase that uses the word, for contextual learning. */
     private String phrase;
 
     /**
@@ -34,8 +28,6 @@ public class Flashcard extends Question{
         this.translation = translation;
         this.phrase = phrase;
     }
-
-    // Getters and setters
 
     /**
      * Returns the word or term in the target language.

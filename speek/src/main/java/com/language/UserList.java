@@ -8,10 +8,6 @@ import java.util.UUID;
  */
 
 public class UserList {
-    /**
-     * attributes for userlist
-     */
-   // private static UserList userList;
     private static UserList userList;
     private ArrayList<User> users;
     private UUID id;
@@ -20,18 +16,21 @@ public class UserList {
      * private constructor
      */
    private UserList(){
-        //this.users = new ArrayList<>();
-        //users = DataLoader.getUserList();
         users = DataLoader.getUsers();
         this.id = UUID.randomUUID();
     }
 
+    /**
+     * getUsers method
+     * Returns list of users
+     * @return users
+     */
     public ArrayList<User> getUsers(){
         return users;
     }
 
     /**
-     * getnstance method (singleton design pat.)
+     * getInstance method (singleton design pat.)
      * creates one instance of the user list
      * @return a single instance of the list
      */

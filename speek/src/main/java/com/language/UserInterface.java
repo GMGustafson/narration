@@ -17,10 +17,9 @@ import com.narration.Narriator;
  */
 
 public class UserInterface{
-
-    /*
- * UI attributes
- */
+    /**
+    * UI attributes
+    */
     private Category currentCategory;
     private Course currentCourse;
     private Progress progress;
@@ -60,6 +59,10 @@ public class UserInterface{
         return false;
     }
 
+    /**
+     * Logout method
+     * logs the user out
+     */
     public void logout ()
     { 
         if (currentUser != null) {
@@ -84,16 +87,28 @@ public class UserInterface{
         dataWriter.writeUsers(userList); 
     }
     
+    /**
+     * chooseLanguage method
+     * chooses language
+     */
     public void chooseLangauage(){
         System.out.println("You have chosen to learn Spanish");
     }
 
+    /**
+     * chooseCourse method
+     * chooses course and informs the user
+     */
     public void chooseCourse(){
         currentCourse = new Course(UUID.randomUUID(), "words", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         //currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         System.out.println("You have chosen the 'Words' course.");        
     }
 
+    /**
+     * chooseCategory method
+     * chooses category and informs the user
+     */
     public void chooseCategory() {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
@@ -220,7 +235,10 @@ public class UserInterface{
             }
         }
     }
-     // Main method to test the scenarios
+     /**
+      * Main method to run Good Version
+      * @param args
+      */
      public static void main(String[] args) {
         UserInterface langUI = new UserInterface();
         langUI.userList.add(new User(UUID.randomUUID(), "Jane", "Smith", "jsmith@gmail.com", "817-902-3201", LocalDate.of(1998, 10, 7), "janesmith10", "IlovemyCat"));

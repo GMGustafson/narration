@@ -4,6 +4,9 @@ package com.language;
  * @author zaniah, sri, gracie, and grace
  */
 
+/**
+ *  Holds the constant attributes for the DataLoader and DataWriter
+ */
 public abstract class DataConstants {
  
     //JSON FILES

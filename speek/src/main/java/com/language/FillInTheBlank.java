@@ -9,12 +9,16 @@ import java.util.Random;
 
 public class FillInTheBlank extends Question{
 
-
-    // Attributes
   private Phrase sampleSentence;
   private ArrayList<String> wordBank;
   private String userInput;
 
+  /**
+   * Constructor for FillInTheBlank
+   * @param question
+   * @param sampleSentence
+   * @param wordBank
+   */
   public FillInTheBlank(String question, Phrase sampleSentence, ArrayList<String> wordBank) {
       //TODO Auto-generated constructor stub
       super(question);
@@ -22,6 +26,12 @@ public class FillInTheBlank extends Question{
       this.wordBank = wordBank;
   }
 
+  /**
+   * checkAnswer method
+   * Checks if the user response if correct
+   * @param userInput
+   * @return message + missingWord
+   */
   public String checkAnswer(String userInput) 
   {
     String missingWord = getMissingWord(); 
@@ -33,6 +43,11 @@ public class FillInTheBlank extends Question{
         }
   }
 
+  /**
+     * getMissingWord method
+     * Returns a missing word
+     * @return words[index]
+     */
   public String getMissingWord() 
   {
     String sentence = sampleSentence.getTranslation();
@@ -42,7 +57,11 @@ public class FillInTheBlank extends Question{
     return words[index];
   }
 
-    
+  /**
+     * getSampleSentence method
+     * Returns sentence with a missing word
+     * @return sentence
+     */
   public String getSampleSentence() {
     String sentence = sampleSentence.getTranslation();
     String missingWord = getMissingWord();

@@ -33,7 +33,11 @@ public class CourseList {
         return courseList;
     }
 
-
+    /**
+     * getCourses method
+     * retrieves the list of courses
+     * @return courses
+     */
     public ArrayList<Course> getCourses() 
     { 
         return courses;

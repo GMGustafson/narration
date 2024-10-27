@@ -6,9 +6,7 @@ package com.language;
 
 import java.util.ArrayList;
 public class Story {
-    /**
-     * attributes for story class
-    */
+    
     private String title;
     private ArrayList<String> text;
     private ArrayList<String> storyTranslation;

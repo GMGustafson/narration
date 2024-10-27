@@ -21,6 +21,12 @@ public class Course {
 
     /**
      * Course constructor
+     * @param courseID
+     * @param course
+     * @param phrases
+     * @param words
+     * @param category
+     * @param stories 
      */
     public Course(UUID courseID, String course, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
         this.courseID = courseID;
@@ -43,6 +49,7 @@ public class Course {
     /**
     * setCourseID method
     * sets courseID
+    * @param courseID
     */
     public void setCourseID(UUID courseID){
         this.courseID = courseID;
@@ -60,6 +67,7 @@ public class Course {
     /**
     * setCourse method
     * sets course
+    * @param course
     */
     public void setCourse(String course){
         this.course = course;
@@ -77,6 +85,7 @@ public class Course {
     /**
      * getPhrasesByCategory
      * gets phrases based on category
+     * @param category
      * @return phrases.getOrDefault(category, new ArrayList<>())
      */
     public ArrayList<Phrase> getPhrasesByCategory(String category) {
@@ -104,6 +113,7 @@ public class Course {
      /**
      * getWordsByCategory method
      * gets words based on category
+     * @param category2
      * @return words.getOrDefault(category2, new ArrayList<>())
      */
     public ArrayList<Word> getWordsByCategory(String category2) {
@@ -122,6 +132,7 @@ public class Course {
     /**
     * getStoriesByCategory method
     * gets stories based on category
+    * @param category
     * @return stories.get(category)
     */
     public Story getStoriesByCategory(String category) {
@@ -131,6 +142,7 @@ public class Course {
     /**
     * setCategory method
     * sets category
+    * @param category
     */
     public void setCategory(String category){
         this.category = category;
@@ -151,6 +163,8 @@ public class Course {
      /**
     * chooseCourse method
     * chooses course from list
+    * @param courseNames
+    * @return selectedCourse
     */
     public String chooseCourse(ArrayList<String> courseNames){
         String selectedCourse = "Phrases";
@@ -160,6 +174,7 @@ public class Course {
      /**
     * toString method
     * prints out phrases and words in courses
+    * @return result
     */
     public String toString() {
         String result = "";
@@ -183,14 +198,6 @@ public class Course {
                 result += words.toString() + "\n";
             }
             }
-        
-            // for (String category : stories.keySet()) {
-            //     Story story = stories.get(category);
-            //     System.out.println("Story Title: " + story.getTitle());
-            //     System.out.println("Story Text: " + story.getText());
-            //     System.out.println("Story Translations: " + story.getTextTranslation());
-            // }   
-
         return result;
      }
 }

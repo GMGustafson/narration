@@ -5,21 +5,24 @@ package com.language;
  */
 
 public class Phrase {
-    /**
-     * attributes for phrase class
-     */
+
     private String phrasewords;
     private String translation;
 
+    /**
+     * Constructor of Phrase
+     * @param translation
+     * @param phrasewords
+     */
    public Phrase(String translation, String phrasewords) {
-    this.phrasewords = phrasewords;  // Initialize the words list
+    this.phrasewords = phrasewords;
     this.translation = translation;
-}
+    }
 
-    
     /**
      * getWords method
-     * @return the words that will be in the phrase
+     * Returns words in phrase
+     * @return phraseWords
      */
     public String getWords(){
         //return "words";
@@ -28,13 +31,18 @@ public class Phrase {
 
     /**
      * getTranslation method
-     * @return the translation of the phrase in diff language
+     * Returns translation in the different language
+     * @return translation
      */
     public String getTranslation(){
-        //return "translation";
         return translation;
     }
 
+    /**
+     * toString method
+     * Returns phraseWords and translation in toString format
+     * @return result
+     */
     public String toString() {
         String result = "";
         result += phrasewords + ": " + translation;
