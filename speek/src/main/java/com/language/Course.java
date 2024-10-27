@@ -183,7 +183,14 @@ public class Course {
                 result += words.toString() + "\n";
             }
             }
+        
+            // for (String category : stories.keySet()) {
+            //     Story story = stories.get(category);
+            //     System.out.println("Story Title: " + story.getTitle());
+            //     System.out.println("Story Text: " + story.getText());
+            //     System.out.println("Story Translations: " + story.getTextTranslation());
+            // }   
 
         return result;
-    }
+     }
 }

@@ -39,7 +39,7 @@ public class DataWriter extends DataConstants {
             jsonUserList.add(getUserJSON(userList.get(i)));
         }
 
-       try (FileWriter file = new FileWriter(FILE_NAME_USER)) {
+       try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
            file.write(jsonUserList.toJSONString());
            file.flush();
        } catch (IOException e) {
