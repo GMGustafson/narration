@@ -7,11 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 // import java.util.Arrays;
 import java.util.HashMap;
-<<<<<<< HEAD
-// import java.util.Scanner;
-=======
 import java.util.Scanner;
->>>>>>> 0fa90b7984ee42dd5b6ce389ba977796aa7836a6
 import java.util.UUID;
 import javax.swing.*;
 import java.awt.event.*;
