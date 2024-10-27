@@ -11,6 +11,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
+ * @author zaniah, sri, gracie, and grace
+ */
+
+/**
  * The DataLoader class is responsible for loading data from the JSON files.
  * It parses the JSON data and converts it into a list of objects.
  */

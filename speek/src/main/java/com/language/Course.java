@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-// import org.json.simple.JSONArray;
-// import java.util.List;
-// import java.util.Scanner;
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
 
 public class Course {
     /**

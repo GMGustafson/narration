@@ -8,7 +8,10 @@ import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-//import java.util.ArrayList;
+
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
 
 /**
  * The DataWriter class is responsible for writing flashcard data to a JSON file.

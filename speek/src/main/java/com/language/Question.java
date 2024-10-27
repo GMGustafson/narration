@@ -1,7 +1,9 @@
 package com.language;
-    /**
-     * @author gracie
-     */
+    
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
+
 public class Question {
     /**
      * attributes for progress class

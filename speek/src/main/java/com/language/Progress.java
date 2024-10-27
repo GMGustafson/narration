@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
+
 /**
- * @author gracie
+ * @author zaniah, sri, gracie, and grace
  */
+
 public class Progress {
      /**
      * attributes for progress class
