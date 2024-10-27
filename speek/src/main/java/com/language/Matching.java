@@ -1,7 +1,10 @@
 package com.language;
-/* @author grace */
+
 import java.util.ArrayList;
-import java.util.List;
+
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
 
 public class Matching extends Question{
 

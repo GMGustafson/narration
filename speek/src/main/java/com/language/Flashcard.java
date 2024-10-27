@@ -1,8 +1,7 @@
 package com.language;
 
 /**
- * Name: Hardik Marlapudi
- * Date: 10/6/2024
+ * @author zaniah, sri, gracie, and grace
  */
 
 /**

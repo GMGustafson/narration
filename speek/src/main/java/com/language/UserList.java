@@ -2,9 +2,11 @@ package com.language;
 
 import java.util.ArrayList;
 import java.util.UUID;
+
 /**
- * @author zaniah
+ * @author zaniah, sri, gracie, and grace
  */
+
 public class UserList {
     /**
      * attributes for userlist

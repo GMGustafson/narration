@@ -1,7 +1,9 @@
 package com.language;
+
 /**
- * @author sri
+ * @author zaniah, sri, gracie, and grace
  */
+
 import java.util.ArrayList;
 public class Story {
     /**

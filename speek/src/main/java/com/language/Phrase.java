@@ -1,8 +1,9 @@
 package com.language;
 
 /**
- * @author zaniah and grace 
+ * @author zaniah, sri, gracie, and grace
  */
+
 public class Phrase {
     /**
      * attributes for phrase class

@@ -1,5 +1,9 @@
 package com.language;
 
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
+
 public abstract class DataConstants {
  
     //JSON FILES

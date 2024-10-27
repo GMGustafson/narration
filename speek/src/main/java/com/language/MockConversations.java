@@ -1,8 +1,11 @@
 package com.language;
-/*
- * @author sri
- */
+
 import java.util.ArrayList;
+
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
+
 public class MockConversations extends Question{
 
     public MockConversations(String question) {

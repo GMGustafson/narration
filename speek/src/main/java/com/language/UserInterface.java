@@ -1,8 +1,5 @@
 package com.language;
-// import java.io.FileReader;
-/*
- * @author Gracie and zaniah
- */
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +11,10 @@ import java.util.UUID;
 // import org.json.simple.parser.JSONParser;
 
 import com.narration.Narriator;
+
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
 
 public class UserInterface{
 

@@ -1,8 +1,9 @@
 package com.language;
 
 import java.util.ArrayList;
+
 /**
- * @author zaniah and grace 
+ * @author zaniah, sri, gracie, and grace
  */
 
  //what is the difference by changing String to word
@@ -22,12 +23,6 @@ public class Word {
        this.translation = translation;
         this.alternatives =alternatives;
     }
-
-    
-    public Word() {
-        //TODO Auto-generated constructor stub
-    }
-
 
     /**
      * getword method

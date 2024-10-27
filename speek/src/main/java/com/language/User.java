@@ -1,16 +1,13 @@
 package com.language;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-//import java.time.format.DateTimeParseException;
+import java.util.HashMap;
 import java.util.UUID;
 
-import org.json.simple.JSONObject;
-
-//import java.util.ArrayList;
-import java.util.HashMap;
 /**
- * @author sri
+ * @author zaniah, sri, gracie, and grace
  */
+
 public class User{
 /**
  * attributes for user class
