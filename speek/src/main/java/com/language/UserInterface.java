@@ -23,11 +23,13 @@ public class UserInterface {
  */
     private Category currentCategory;
     private Course currentCourse;
-    private Language currentLanguage;
     private Progress progress;
     private User currentUser;
     private ArrayList<User> userList; 
     private DataWriter dataWriter;
+    private DataLoader dataLoader;
+    private Flashcard flashcards;
+    private Story story;
 
     /**
      * Constructor for UI
@@ -35,6 +37,7 @@ public class UserInterface {
     public UserInterface() {
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
+        this.dataLoader = new DataLoader();
     }
 
     /**
@@ -84,13 +87,34 @@ public class UserInterface {
     }
 
     public void chooseCourse(){
-        currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
+        currentCourse = new Course(UUID.randomUUID(), "words", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
+        //currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         System.out.println("You have chosen the 'Words' course.");        
     }
 
     public void chooseCategory() {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
+    }
+    public void choseStory() {
+        story.getTitle();
+        story.getText();
+        story.getTextTranslation();
+
+    }
+
+    public void chooseLearning() {
+        int answerLearning = 2;
+        if (answerLearning == 1) {
+            for (int i = 0; i < 5; i++) {
+                flashcards.showFlashcard();
+            }
+        }
+        if (answerLearning == 2) {
+           // choseStory();
+            
+        }
+        // answerLearning = 2;
     }
        /**
      * progressLearning method 
@@ -118,6 +142,7 @@ public class UserInterface {
             chooseLangauage();
             chooseCourse();
             chooseCategory();
+            //chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
@@ -138,7 +163,8 @@ public class UserInterface {
                     correctAnswers1++;
                 }
             }
-            progress = new Progress(5, 4, currentCategory, currentCourse, 80, 0, currentLanguage);            
+            ArrayList<String> missedWord = new ArrayList<>();
+            progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);            
             progress.addMissedWords("cinco");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
@@ -162,7 +188,8 @@ public class UserInterface {
                     correctAnswers2++;
                 }
             }
-            progress = new Progress(5, 3, currentCategory, currentCourse, 60, 0, currentLanguage);            
+            ArrayList<String> missedWords = new ArrayList<>();
+            progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
             progress.addMissedWords("azul");
             progress.addMissedWords("amarillo");
             System.out.println("Jim's Progress: " + progress.getProgress());
@@ -174,14 +201,14 @@ public class UserInterface {
                 System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
                 chooseLangauage();
                 chooseCourse();
-                chooseCategory();
-                System.out.println("You scored below 80% You have to restart the Numbers category");
+                //chooseCategory();
+                //System.out.println("You scored below 80% You have to restart the Numbers category");
                 progress.resetCategoryProgress();
-                for (String question : questions1) {
+                for (String question : questions2) {
                     System.out.println(question);
-                    correctAnswers1++;
+                    correctAnswers2++;
                 }
-                progress = new Progress(5, 5, currentCategory, currentCourse, 100, 0, currentLanguage);            
+                progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
                 System.out.println("Jim's Progress: " + progress.getProgress());
                 progress.trackPercentCorrect();
                 Narriator.playSound("You scored a hundred percent on second attempt");

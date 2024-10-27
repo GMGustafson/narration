@@ -23,7 +23,7 @@ public class User{
     private LocalDate dateOfBirth;
     private String username;
     private String password;
-    private HashMap<Language,Progress> languages;
+    private HashMap<Course,Progress> courses;
 
     public User(UUID id, String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, String username, String password){
         this.id = id;
@@ -34,10 +34,10 @@ public class User{
         this.dateOfBirth = dateOfBirth;
         this.username = username;
         this.password = password;
-       // this.languages = new HashMap <>();
+        this.courses = new HashMap <>();
     }
 
-    public User(UUID id, String firstName, String lastName, String email, String username, LocalDate dateOfBirth, String password) {
+    public User(UUID id, String firstName, String lastName, String email, String phoneNumber, LocalDate dateOfBirth, String username, String password, HashMap<Course,Progress> courses) {
         this(id, firstName, lastName, email, "", dateOfBirth, username, password);
     }
 
@@ -125,12 +125,12 @@ public class User{
         return dateOfBirth.format(formatter);
     }
 
-    public HashMap<Language, Progress> getLanguages(){
-        return languages;
+    public HashMap<Course, Progress> getCourses(){
+        return courses;
     }
 
-    public void setLanguages(HashMap<Language, Progress> languages) {
-        this.languages = languages;
+    public void setLanguages(HashMap<Course, Progress> courses) {
+        this.courses = courses;
     }
 
     public void forgotPassword(String newPassword){
@@ -143,10 +143,14 @@ public class User{
         }
     }
 
-    public static JSONObject get(String progress) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
-    }
+    public String toString() {
+        String result = "";
+        result += id + "--" + firstName + "--" + lastName +"--" + email +"--" + phoneNumber + 
+        "--" + dateOfBirth +"--" + username + "--" + password + "--" + courses; 
+
+        return result; 
+    
+}
 }
 
 

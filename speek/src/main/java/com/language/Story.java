@@ -8,34 +8,36 @@ public class Story {
      * attributes for story class
     */
     private String title;
-    private ArrayList<String> pictures;
     private ArrayList<String> text;
-    private boolean read; //for done reading
+    private ArrayList<String> textTranslation;
 
-    public Story(String title2, String text2, String storyTranslation) {
-		//TODO Auto-generated constructor stub
-	}
-
-	public void start(){
-        System.out.println("Let's read " + title);
+    public Story (String title, ArrayList<String> text, ArrayList<String> textTranslation) 
+    { 
+        this.title = title; 
+        this.text = text; 
+        this.textTranslation = textTranslation; 
     }
 
-    public void end(){
-        read = true;
-        System.out.println("you finished reading " + title);
+    public String getTitle() 
+    { 
+        return title; 
+    }
+    
+    public ArrayList<String> getText() 
+    { 
+        return text; 
+    }
+	
+    public  ArrayList<String> getTextTranslation() 
+    { 
+        return textTranslation; 
     }
 
-    public boolean isFinished()
-    {
-        return read;
+    public String toString() {
+        String result = "";
+        result += title + "--" + text + "--" + textTranslation;
+        return result;
     }
-
-    public double getTimeSpent(){
-        return 0;
-    }
-
-    public static void add(Story newStory) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
+    
+    
 }

@@ -14,13 +14,13 @@ public class Word {
     private String word;
     private String pronunciation;
     private String translation;
-    private ArrayList<Word> alternatives; 
+    private ArrayList<String> alternatives; 
 
-    public Word(String word, String pronunciation, String translation, String translation2) {
+    public Word(String word, String pronunciation, String translation, ArrayList<String> alternatives) {
        this.word = word;
        this.pronunciation = pronunciation;
        this.translation = translation;
-        this.alternatives = new ArrayList<>();
+        this.alternatives =alternatives;
     }
 
     
@@ -54,7 +54,18 @@ public class Word {
         return translation;
     }
 
-    public ArrayList<Word> getAlternatives() {
+    public ArrayList<String> getAlternatives() {
         return new ArrayList<>(alternatives); 
     }
+
+    public String toString() {
+        String result = "";
+        result += word + "--" + pronunciation + "--" + translation;
+        for (int j = 0; j < alternatives.size(); j++) 
+        {
+            result += alternatives.get(j) + " "; 
+        }
+        return result;
+
+}
 }

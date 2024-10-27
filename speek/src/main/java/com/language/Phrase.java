@@ -1,5 +1,5 @@
 package com.language;
-import java.util.ArrayList;
+
 /**
  * @author zaniah and grace 
  */
@@ -7,11 +7,11 @@ public class Phrase {
     /**
      * attributes for phrase class
      */
-    private ArrayList<Word> phrasewords;
+    private String phrasewords;
     private String translation;
 
    public Phrase(String translation, String phrasewords) {
-    this.phrasewords = new ArrayList<>();  // Initialize the words list
+    this.phrasewords = phrasewords;  // Initialize the words list
     this.translation = translation;
 }
 
@@ -20,7 +20,7 @@ public class Phrase {
      * getWords method
      * @return the words that will be in the phrase
      */
-    public ArrayList<Word> getWords(){
+    public String getWords(){
         //return "words";
         return phrasewords;
     }
@@ -32,5 +32,11 @@ public class Phrase {
     public String getTranslation(){
         //return "translation";
         return translation;
+    }
+
+    public String toString() {
+        String result = "";
+        result += phrasewords + ": " + translation;
+        return result;
     }
 }
