@@ -18,6 +18,9 @@ public class Progress {
     private int streak;
     private ArrayList<String> missedWords;
 
+    private static final String[] categories = {"numbers", "colors", "places", "weather", "people"};
+
+
     public Progress() {
         missedWords = new ArrayList<>();
     }
@@ -155,44 +158,56 @@ public class Progress {
     }
 
     public void goToNextCategory() {
-        progressInCategory++;
-        if (progressInCategory == 1){
-            currentCategory = "numbers";
-        }
-        if (progressInCategory == 2){
-            currentCategory = "colors";
-        }
-        if (progressInCategory == 3){
-            currentCategory = "places";
-        }
-        if (progressInCategory == 4) {
-            currentCategory = "weather";
-        }
-        if (progressInCategory == 5) {
-            currentCategory = "people";
-        }
-        if (progressInCategory == 6) {
+        // progressInCategory++;
+        // if (progressInCategory == 1){
+        //     currentCategory = "numbers";
+        // }
+        // if (progressInCategory == 2){
+        //     currentCategory = "colors";
+        // }
+        // if (progressInCategory == 3){
+        //     currentCategory = "places";
+        // }
+        // if (progressInCategory == 4) {
+        //     currentCategory = "weather";
+        // }
+        // if (progressInCategory == 5) {
+        //     currentCategory = "people";
+        // }
+        // if (progressInCategory == 6) {
+        //     switchToNextCourse();
+        // }
+        if (progressInCategory < categories.length) {
+            currentCategory = categories[progressInCategory];
+            trackLesson();
+        } 
+        else {
             switchToNextCourse();
         }
+
         
 }
 
 
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
-        String[] availableCourses = {"Words", "Phrases"};
-<<<<<<< HEAD
-        // if (availableCourses)
-=======
+        //String[] availableCourses = {"Words", "Phrases"};
         //if (available)
->>>>>>> 6c5b3363886213e46fdf1181ed25dddd7e5507eb
         // int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
         // HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         // HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
         // HashMap<String, Story> stories = currentCourse.getStories();
         // currentCourse = new Course(null, availableCourses[nextIndex], null, phrases, words, null, stories);        
         // System.out.println("Switched to the next course: " + currentCourse.getCourse());
-        // resetCategoryProgress();
+        CourseList courseList = CourseList.getInstance();
+        ArrayList<Course> courses = courseList.getCourses();
+        int courseIndex = courses.indexOf(currentCategory);
+        int nextIndex = (courseIndex + 1) % courses.size();
+        Course nextCourse = courses.get(nextIndex);
+
+        System.out.println("Switched to the next course: " + nextCourse.getCourse());
+        resetCategoryProgress();
+
      }
 
 
