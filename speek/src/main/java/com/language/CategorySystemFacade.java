@@ -184,8 +184,8 @@ public class CategorySystemFacade {
         for (Word word : words) {
             String wordText = word.getWord();
             String translation = word.getTranslation();
-            String examplePhrase = wordText; 
-            Flashcard flashcard = new Flashcard(wordText, translation, examplePhrase);
+            String phrase = wordText; 
+            Flashcard flashcard = new Flashcard(wordText, translation, phrase);
             flashcards.add(flashcard);
         }
         return flashcards;
