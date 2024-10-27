@@ -1,7 +1,6 @@
 package com.language;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 /**
  * @author zaniah and sri
@@ -38,6 +37,10 @@ public class CategorySystemFacade {
         this.phrases = phrases;
         this.words = words;
         this.progress = progress;
+    }
+
+    public CategorySystemFacade() {
+        //TODO Auto-generated constructor stub
     }
 
     /**
@@ -181,8 +184,8 @@ public class CategorySystemFacade {
         for (Word word : words) {
             String wordText = word.getWord();
             String translation = word.getTranslation();
-            String examplePhrase = wordText; 
-            Flashcard flashcard = new Flashcard(wordText, translation, examplePhrase);
+            String phrase = wordText; 
+            Flashcard flashcard = new Flashcard(wordText, translation, phrase);
             flashcards.add(flashcard);
         }
         return flashcards;
