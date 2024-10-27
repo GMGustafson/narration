@@ -41,7 +41,7 @@ public class DataLoader extends DataConstants{
             String username = (String)userJSON.get(USER_USERNAME);
             String password = (String)userJSON.get(USER_PASSWORD);
             
-        
+            HashMap<Course, Progress> courseProgresses = new HashMap<>();
             JSONArray CoursesJSON = (JSONArray) userJSON.get(USER_COURSES);
             for (int j = 0; j < CoursesJSON.size(); j++) {
                 JSONObject courseJSON = (JSONObject) CoursesJSON.get(j);
@@ -51,7 +51,7 @@ public class DataLoader extends DataConstants{
                 CourseList courseList = CourseList.getInstance();
                 Course course = courseList.getCourseByUUID(courseid);
 
-                JSONObject progressJSON = (JSONObject)User.get(PROGRESS);
+                JSONObject progressJSON = (JSONObject)courseJSON.get(PROGRESS);
                 
                 int totalQuestionsAnswered = ((Long) progressJSON.get(TOT_QUESTIONS_ANSWERED)).intValue();
                 int numCorrectAnswers = ((Long) progressJSON.get(NUM_CORRECT_ANSWERS)).intValue();
@@ -63,10 +63,11 @@ public class DataLoader extends DataConstants{
                 for (Object word : missedWordsJSON) {
                     missedWords.add((String) word);
                 }
-                Progress newprogress = new Progress(totalQuestionsAnswered, numCorrectAnswers,currentCategory,progressInCategory,streak,missedWords);
-                userList.add(newprogress); 
+                Progress progress = new Progress(totalQuestionsAnswered, numCorrectAnswers,currentCategory,progressInCategory,streak,missedWords);
+                courseProgresses.put(course, progress);
             }
-            User newUser = new User(userID, firstName, lastName, email, phoneNumber, dateOfBirth, username, password);
+            User newUser = new User(userID, firstName, lastName, email, phoneNumber, dateOfBirth, username, password, courseProgresses);
+            
             userList.add(newUser);
         }
             return userList;
@@ -147,8 +148,13 @@ public static Word getWord(JSONObject wordJSON) {
     String word = (String)wordJSON.get(WORD);
     String pronunciation = (String)wordJSON.get(WORD_PRONUNCIATION);
     String translation = (String)wordJSON.get(WORD_TRANSLATION);
-    String alternatives = (String)wordJSON.get(WORD_ALTERNATIVES);
-
+    JSONArray alternativesJSON = (JSONArray)wordJSON.get(WORD_ALTERNATIVES);
+        ArrayList<String> alternatives = new ArrayList<String>();
+            for (int w=0; w < alternativesJSON.size(); w++) 
+            {
+                String alternative = (String)alternativesJSON.get(w);
+                alternatives.add(alternative); 
+            }
     Word newWord = new Word(word,pronunciation,translation,alternatives); 
     return newWord;  
 }
@@ -183,9 +189,9 @@ public static Story getStory(JSONObject storyJSON) {
 // Main method to test getUsers
 
 public static void main(String[] args) {
-    //ArrayList<User> users = getUsers();
     ArrayList<Course> courseList = getCourse();
-
+    ArrayList<User> users = getUsers();
+    
     if (courseList != null) {
         for (Course course : courseList) {
             System.out.println(course);
@@ -194,18 +200,15 @@ public static void main(String[] args) {
         System.out.println("Course list is null, possibly due to loading error.");
     }
 
+    if (users != null) {
+        for (User user : users) {
+            System.out.println(user);
+        }
+    } else {
+        System.out.println("Course list is null, possibly due to loading error.");
+    }
 
-    // if (users != null) {
-    //     if (users.isEmpty()) {
-    //         System.out.println("No users found in the data.");
-    //     } else {
-    //         for (User user : users) {
-    //             System.out.println("User: " + user.getFirstName() + " " + user.getLastName() + ", Email: " + user.getEmail() + " Date of Birth: " + user.getDateOfBirth());
-    //         }
-    //     }
-    // } else {
-    //     System.out.println("Failed to load user data.");
-    // }
+    
 }
 }
 

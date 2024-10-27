@@ -135,6 +135,15 @@ public class Course {
                 result += phrase.toString() + "\n";
             }
             }
+        
+        result += "Words:\n";
+
+        for (Map.Entry<String, ArrayList<Word>> entry : words.entrySet()) {
+            result += entry.getKey() + " = " ;
+            for(Word Word : entry.getValue()){
+                result += Word.toString() + "\n";
+            }
+            }
 
         return result;
      }

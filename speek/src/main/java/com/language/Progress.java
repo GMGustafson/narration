@@ -181,7 +181,7 @@ public class Progress {
      //@SuppressWarnings("static-access")
     public void switchToNextCourse() {
         String[] availableCourses = {"Words", "Phrases"};
-        if (available)
+        // if (availableCourses)
         // int nextIndex = (currentCourse.getCourse().equals("Words")) ? 1 : 0;
         // HashMap<String, ArrayList<Phrase>> phrases = currentCourse.getPhrases();
         // HashMap<String, ArrayList<Word>> words = currentCourse.getWords();
