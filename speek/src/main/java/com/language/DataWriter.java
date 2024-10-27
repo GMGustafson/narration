@@ -163,7 +163,7 @@ public class DataWriter extends DataConstants {
             userList.add(userDetails);
         }
 
-        try (FileWriter file = new FileWriter(FILE_NAME_USER)) {
+        try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
             file.write(userList.toJSONString());
             file.flush();
         } catch (IOException e) {
