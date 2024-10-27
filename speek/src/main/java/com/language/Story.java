@@ -1,12 +1,12 @@
 package com.language;
+
 /**
- * @author sri
+ * @author zaniah, sri, gracie, and grace
  */
+
 import java.util.ArrayList;
 public class Story {
-    /**
-     * attributes for story class
-    */
+    
     private String title;
     private ArrayList<String> text;
     private ArrayList<String> storyTranslation;

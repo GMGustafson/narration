@@ -1,27 +1,25 @@
 package com.language;
-// import java.io.FileReader;
-/*
- * @author Gracie and zaniah
- */
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.UUID;
-import javax.swing.*;
-import java.awt.event.*;
 
 // import org.json.simple.JSONArray;
 // import org.json.simple.parser.JSONParser;
 
 import com.narration.Narriator;
 
-public class UserInterface{
-
-    /*
- * UI attributes
+/**
+ * @author zaniah, sri, gracie, and grace
  */
+
+public class UserInterface{
+    /**
+    * UI attributes
+    */
     private Category currentCategory;
     private Course currentCourse;
     private Progress progress;
@@ -31,6 +29,7 @@ public class UserInterface{
     private DataLoader dataLoader;
     private Flashcard flashcards;
     private Story story;
+    private CategorySystemFacade facade;
 
     /**
      * Constructor for UI
@@ -39,6 +38,7 @@ public class UserInterface{
         this.userList = new ArrayList<>();
         this.dataWriter = new DataWriter();
         this.dataLoader = new DataLoader();
+        facade = CategorySystemFacade.getFacadeInstance();
         }
 
     /**
@@ -59,6 +59,10 @@ public class UserInterface{
         return false;
     }
 
+    /**
+     * Logout method
+     * logs the user out
+     */
     public void logout ()
     { 
         if (currentUser != null) {
@@ -83,16 +87,28 @@ public class UserInterface{
         dataWriter.writeUsers(userList); 
     }
     
+    /**
+     * chooseLanguage method
+     * chooses language
+     */
     public void chooseLangauage(){
         System.out.println("You have chosen to learn Spanish");
     }
 
+    /**
+     * chooseCourse method
+     * chooses course and informs the user
+     */
     public void chooseCourse(){
         currentCourse = new Course(UUID.randomUUID(), "words", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         //currentCourse = new Course(UUID.randomUUID(), "Words", "Spanish", new HashMap<>(), new HashMap<>(), Category.COLORS.label, new HashMap<>());
         System.out.println("You have chosen the 'Words' course.");        
     }
 
+    /**
+     * chooseCategory method
+     * chooses category and informs the user
+     */
     public void chooseCategory() {
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
@@ -138,7 +154,7 @@ public class UserInterface{
         //Show the users.json -> illustrating that Jim is now in the file.
         //showUsers(); 
         // Now have Jim successfully login to the system
-        if (login(username, password)) {
+        if (facade.login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
@@ -153,7 +169,6 @@ public class UserInterface{
                 "What is the number three in Spanish?",
                 "What is the number four in Spanish?",
                 "What is the number five in Spanish?"
-                
             };
             
             int correctAnswers1 = 0;
@@ -219,7 +234,10 @@ public class UserInterface{
             }
         }
     }
-     // Main method to test the scenarios
+     /**
+      * Main method to run Good Version
+      * @param args
+      */
      public static void main(String[] args) {
         UserInterface langUI = new UserInterface();
         langUI.userList.add(new User(UUID.randomUUID(), "Jane", "Smith", "jsmith@gmail.com", "817-902-3201", LocalDate.of(1998, 10, 7), "janesmith10", "IlovemyCat"));

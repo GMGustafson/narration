@@ -4,27 +4,37 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
+
 /**
- * @author gracie
+ * @author zaniah, sri, gracie, and grace
  */
+
 public class Progress {
-     /**
-     * attributes for progress class
-     */
     private int totalQuestionsAnswered;
     private int numCorrectAnswers;
     private String currentCategory;
     private int progressInCategory;
     private int streak;
     private ArrayList<String> missedWords;
-
     private static final String[] categories = {"numbers", "colors", "places", "weather", "people"};
 
 
+    /**
+     * Constructor for Progress (missedWords)
+     */
     public Progress() {
         missedWords = new ArrayList<>();
     }
 
+    /**
+     * Constructor for Progress
+     * @param totalQuestionsAnswered
+     * @param numCorrectAnswers
+     * @param currentCategory
+     * @param progressInCategory
+     * @param streak
+     * @param missedWords
+     */
     public Progress(int totalQuestionsAnswered, int numCorrectAnswers, String currentCategory, 
     int progressInCategory, int streak, ArrayList<String> missedWords) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
@@ -37,7 +47,7 @@ public class Progress {
 
     /**
     * resetCategoryProgress method
-    * resets progres in category to 0
+    * Resets progres in category to 0
     */
     public void resetCategoryProgress() {
         this.totalQuestionsAnswered = 0;
@@ -49,7 +59,7 @@ public class Progress {
 
     /**
     * getTotalQuestionsAnswered method
-    * gets totalQuestionsAnswered
+    * Returns totalQuestionsAnswered
     * @return  totalQuestionsAnswered
     */
     public int getTotalQuestionsAnswered() {    
@@ -58,7 +68,8 @@ public class Progress {
 
     /**
     * setTotalQuestionsAnswered method
-    * sets totalQuestionsAnswered
+    * Sets totalQuestionsAnswered
+    * @param totalQuestionsAnswered
     */
     public void setTotalQuestionsAnswered(int totalQuestionsAnswered) {
         this.totalQuestionsAnswered = totalQuestionsAnswered;
@@ -77,6 +88,7 @@ public class Progress {
     /**
     * setNumCorrectAnswers method
     * sets numCorrectAnswers
+    * @param numCorrectAnswers
     */
     public void setNumCorrectAnswers(int numCorrectAnswers){
         this.numCorrectAnswers = numCorrectAnswers;
@@ -84,7 +96,7 @@ public class Progress {
 
     /**
     * getCurrentCategorymethod
-    * get currentCategory
+    * Returns the current category
     * @return currentCategory
     */
     public String getCurrentCategory() {
@@ -93,7 +105,8 @@ public class Progress {
 
     /**
     * setCurrentCategory method
-    * sets currentCategory
+    * Sets currentCategory
+    * @param currentCategory
     */
     public void setCurrentCategory(String currentCategory){
         this.currentCategory = currentCategory;
@@ -101,15 +114,25 @@ public class Progress {
 
     /**
     * getProgressInCategory method
-    * gets progressInCategory
+    * Returns the progress in category
+    * @return progressInCategory
     */
     public int getProgressInCategory() {
         return progressInCategory;
     }
 
+     /**
+    * setProgressInCategory method
+    * sets progressInCategory
+    * @param progressInCategory
+    */
+    public void setProgressInCategory(int progressInCategory){
+        this.progressInCategory = progressInCategory;
+    }
+
     /**
     * getStreak method
-    * gets streak
+    * Returns the user's streak
     * @return streak
     */
     public int getStreak() {
@@ -118,18 +141,11 @@ public class Progress {
 
     /**
     * setStreak method
-    * sets streak
+    * Sets the user's streak
+    * @param streak
     */
     public void setStreak(int streak) {
         this.streak = streak;
-    }
-
-    /**
-    * setProgressInCategory method
-    * sets progressInCategory
-    */
-    public void setProgressInCategory(int progressInCategory){
-        this.progressInCategory = progressInCategory;
     }
 
     /**
@@ -144,6 +160,7 @@ public class Progress {
     /**
     * addMissedWords method
     * adds missed words to the missedWords list
+    * @param word
     */
     public void addMissedWords(String word) {
         missedWords.add(word);
@@ -151,7 +168,7 @@ public class Progress {
 
     /**
      * trackQuestion method
-     * tracks the question and related information
+     * Tracks the question and the total amount answered in a category
      */
     public void trackQuestion() {
         totalQuestionsAnswered++;
@@ -160,7 +177,7 @@ public class Progress {
 
      /**
      * trackLesson method
-     * tracks the progress in lesson and related information
+     * Tracks the progress in lesson and related information
      */
     public void trackLesson() {
         progressInCategory++;
@@ -174,7 +191,8 @@ public class Progress {
 
     /**
      * trackPercentCorrect method
-     * tracks the percentage of correct answers out of the total answers
+     * Tracks the percentage of correct answers out of the total answers
+     * Does not allow the user to progress if percentCorrect not 80% or higher
      */
     public void trackPercentCorrect() {
 
@@ -196,7 +214,7 @@ public class Progress {
 
     /**
      * trackCorrectAnswer method
-     * tracks the amount of questions that have been answered correctly
+     * Tracks the amount of questions that have been answered correctly
      */
     public void trackCorrectAnswer() {
         numCorrectAnswers++;
@@ -206,28 +224,9 @@ public class Progress {
 
     /**
     * goToNextCategory method
-    * switches the user to the next possible category once the user has passed it
+    * Switches the user to the next possible category once the user has passed it
     */
     public void goToNextCategory() {
-        // progressInCategory++;
-        // if (progressInCategory == 1){
-        //     currentCategory = "numbers";
-        // }
-        // if (progressInCategory == 2){
-        //     currentCategory = "colors";
-        // }
-        // if (progressInCategory == 3){
-        //     currentCategory = "places";
-        // }
-        // if (progressInCategory == 4) {
-        //     currentCategory = "weather";
-        // }
-        // if (progressInCategory == 5) {
-        //     currentCategory = "people";
-        // }
-        // if (progressInCategory == 6) {
-        //     switchToNextCourse();
-        // }
         if (progressInCategory < categories.length) {
             currentCategory = categories[progressInCategory];
             trackLesson();
@@ -239,7 +238,7 @@ public class Progress {
 
     /**
     * switchToNextCourse method
-    * switches the user to the next possible course once the categories are finished
+    * Switches the user to the next possible course once the categories are finished
     */
     public void switchToNextCourse() {
         CourseList courseList = CourseList.getInstance();
@@ -269,7 +268,7 @@ public class Progress {
 
      /**
      * saveProgress method
-     * saves the user's progress in the language and category
+     * Saves the user's progress in the language and category
      */
     public void saveProgress() {
        // boolean savedProgress = DataWriter.saveProgress(this);

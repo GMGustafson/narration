@@ -3,9 +3,10 @@ package com.language;
 import java.util.ArrayList;
 import java.util.UUID;
 
-/** @author grace 
- * 
-**/
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
+
 public class CourseList {
     private ArrayList<Course> courses; 
     private static CourseList courseList;
@@ -32,7 +33,11 @@ public class CourseList {
         return courseList;
     }
 
-
+    /**
+     * getCourses method
+     * retrieves the list of courses
+     * @return courses
+     */
     public ArrayList<Course> getCourses() 
     { 
         return courses;

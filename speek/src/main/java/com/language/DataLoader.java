@@ -11,11 +11,19 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 /**
+ * @author zaniah, sri, gracie, and grace
+ */
+
+/**
  * The DataLoader class is responsible for loading data from the JSON files.
  * It parses the JSON data and converts it into a list of objects.
  */
 public class DataLoader extends DataConstants{
-    // Loads the lists of Users
+    /**
+     * Loads the attributes related to the user and parses them
+     * Returns them as userList
+     * @return userList
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> userList = new ArrayList<User>();
     try {
@@ -72,7 +80,11 @@ public class DataLoader extends DataConstants{
     return null;
     }
             
-
+    /**
+     * Loads the attributes related to the Course and parses them
+     * Returns them as courseList
+     * @return courseList
+     */
 public static ArrayList<Course> getCourse() {
     ArrayList<Course> courseList = new ArrayList<Course>();
     try {
@@ -129,6 +141,11 @@ public static ArrayList<Course> getCourse() {
 return null;
 }
 
+    /**
+    * Loads the attributes related to the Phrase and parses them
+    * Returns them as newPhrase
+    * @return newPhrase
+    */
 public static Phrase getPhrase(JSONObject phraseJSON) {
     String translation = (String)phraseJSON.get(WORD_TRANSLATION);
     String phraseWords = (String)phraseJSON.get(WORDS);
@@ -137,6 +154,11 @@ public static Phrase getPhrase(JSONObject phraseJSON) {
     return newPhrase;
 }
 
+     /**
+     * Loads the attributes related to Word and parses them
+     * Returns them as newWord
+     * @return wordList
+     */
 public static Word getWord(JSONObject wordJSON) {
     String word = (String)wordJSON.get(WORD);
     String pronunciation = (String)wordJSON.get(WORD_PRONUNCIATION);
@@ -152,7 +174,11 @@ public static Word getWord(JSONObject wordJSON) {
     return newWord;  
 }
 
-
+    /**
+    * Loads the attributes related to Story and parses them
+    * Returns them as newStory
+    * @return newStory
+    */
 public static Story getStory(JSONObject storyJSON) {
     String title = (String)storyJSON.get(TITLE);
     JSONArray textListJSON = (JSONArray)storyJSON.get(TEXT);
@@ -179,7 +205,7 @@ public static Story getStory(JSONObject storyJSON) {
 
 
 
-// Main method to test getUsers and getCourse  
+// Main method to test getUsers and other methods
 
 public static void main(String[] args) {
     ArrayList<Course> courseList = getCourse();
@@ -201,10 +227,7 @@ public static void main(String[] args) {
         System.out.println("Course list is null, possibly due to loading error.");
     }
 
-    
-
-    
-}
+  }
 }
 
 

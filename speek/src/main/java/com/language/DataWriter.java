@@ -8,7 +8,10 @@ import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-//import java.util.ArrayList;
+
+/**
+ * @author zaniah, sri, gracie, and grace
+ */
 
 /**
  * The DataWriter class is responsible for writing flashcard data to a JSON file.
@@ -89,6 +92,28 @@ public class DataWriter extends DataConstants {
     }
 
    
+<<<<<<< HEAD
+=======
+   /**
+    * Writes a list of flashcards to the JSON file specified in FILE_PATH.
+    * This method converts each Flashcard object into a JSON representation and writes
+    * the entire list of flashcards as a JSON array to the file.
+    *
+    * @param flashcards The list of Flashcard objects to be written to the file.
+    */
+
+    public static void main(String[] args) {
+        Flashcard flashcard1 = new Flashcard("Bonjour", "Hello", "Bonjour! Je m'appelle Pierre.");
+        Flashcard flashcard2 = new Flashcard("Hola", "Hello", "Hola! Me llamo Juan.");
+
+        ArrayList<Flashcard> cards = new ArrayList<Flashcard>();
+        cards.add(flashcard1);
+        cards.add(flashcard2);
+
+       // writeFlashcards(cards);
+    }
+   
+>>>>>>> ebf6383187d35a2c554d32adc15ff4b28b4dc7b8
 
    @SuppressWarnings("unchecked")
    public static void writeUsers(List<User> users) {
