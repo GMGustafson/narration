@@ -61,8 +61,8 @@ public class Course {
         return words;
     }
 
-    public ArrayList<Word> getWordsByCategory(String category) {
-        return words.getOrDefault(category, new ArrayList<>());
+    public ArrayList<Word> getWordsByCategory(String category2) {
+        return words.getOrDefault(category2, new ArrayList<>());
     }
 
     public HashMap<String, Story> getStories() {
