@@ -100,7 +100,7 @@ public class UserInterface{
     public void choseStory() {
         story.getTitle();
         story.getText();
-        story.getTextTranslation();
+        story.getStoryTranslation();
 
     }
 
