@@ -125,6 +125,8 @@ public class UserInterface{
         System.out.print("Tracking the progress of what the user has learned.");
     }
 
+
+
     // Scenario 
     public void scenarioJim() {
         System.out.println("Scenario: Jim Smith");
@@ -187,20 +189,6 @@ public class UserInterface{
                 "What is the Spanish word for orange?"  
             };
 
-            String[] translations  = {"rojo", "azule", "verde", "amarillo", "naranja"};
-            
-
-           
-            
-            int correctAnswers2 = 0;
-
-            //jim got 3 right and 2 wrong
-            for (int i = 0; i < questions2.length; i++) {
-                System.out.println(questions2[i]);
-                if (i != 3) { 
-                    correctAnswers2++;
-                }
-            }
             ArrayList<String> missedWords = new ArrayList<>();
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
             progress.addMissedWords("azul");
