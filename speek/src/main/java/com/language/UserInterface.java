@@ -226,6 +226,22 @@ public class UserInterface{
                 "What is the Spanish word for yellow?", 
                 "What is the Spanish word for pink?"  
             };            
+
+            String [] matching ={
+                "morado", 
+                "azule",
+                "verde",
+                "amarillo",
+                "rosado",
+            } ;
+
+            String[] matchingAns = {
+                "rojo",
+                "azule",
+                "verde",
+                "ocho", 
+                "rosado"
+            } ;
             int correctAnswers2 = 0;
 
             // colors story 
@@ -249,9 +265,9 @@ public class UserInterface{
             }
             ArrayList<String> missedWords = new ArrayList<>();
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
-            progress.addMissedWords("azul");
+            progress.addMissedWords("azule");
             progress.addMissedWords("amarillo");
-            Narriator.playSound("Missed words: Azul and Amarillo"); 
+            Narriator.playSound("Missed words: Azule and Amarillo"); 
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored a sixty percent. You have to start over");
