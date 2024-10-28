@@ -309,16 +309,18 @@
                     }
                 ],
                 "story" : {
-                            "title" : "Let's decorate a cake!",
+                            "title" : "Travel with Aria!",
                             "text" : [
-                                "Emily frosts the cake pink .",
-                                "She adds yellow, purple, and blue sprinkles.",
-                                "She tops the cake with five green candles."
+                                "Aria is visiting New York and wants to visit many places.",
+                                "As soon as she lands in the airport, she takes a cab to her hotel. ",
+                                "She then goes to the zoo.",
+                                "She ends her day by eating dinner at a big restaurant."
                             ],
                             "storyTranslation" : [
-                                "Emily glasea el pastel de rosa.",
-                                "Agrega chispas amarillas, moradas y azules.",
-                                "Ella cubre el pastel con cinco velas verdes."
+                                "Aria está de visita en New York y quiere visitar muchos lugares. ",
+                                "Tan pronto como aterriza en el aeropuerto, toma un taxi hasta su hotel. ",
+                                "Luego va al zoológico.",
+                                "Termina su día cenando en un gran restaurante."
                             ]
                         }
                         
@@ -417,16 +419,18 @@
                     } 
                 ],
                 "story" : {
-                            "title" : "Let's decorate a cake!",
+                            "title" : "What's your favorite weather?",
                             "text" : [
-                                "Emily frosts the cake pink .",
-                                "She adds yellow, purple, and blue sprinkles.",
-                                "She tops the cake with five green candles."
+                                "Jack and Jill are arguing about what weather is better.",
+                                "Jack's favorite weather is summer. ",
+                                "He likes summer because it is hot. ",
+                                "Jill likes winter because she loves to play in the snow."
                             ],
                             "storyTranslation" : [
-                                "Emily glasea el pastel de rosa.",
-                                "Agrega chispas amarillas, moradas y azules.",
-                                "Ella cubre el pastel con cinco velas verdes."
+                                "Jack y Jill están discutiendo sobre qué el tiempo.",
+                                " El clima favorito de Jack es el verano.",
+                                "Le gusta el verano porque hace calor.",
+                                "A Jill le gusta el invierno porque le encanta jugar en la nieve."
                             ]
                         }
                         
@@ -526,16 +530,19 @@
                               
                 ],
                 "story" : {
-                            "title" : "Let's decorate a cake!",
+                            "title" : "My family!",
                             "text" : [
-                                "Emily frosts the cake pink .",
-                                "She adds yellow, purple, and blue sprinkles.",
-                                "She tops the cake with five green candles."
+                                "My mom and dad got married thirty years ago and had a son and a daughter.",
+                                "I am their daughter, my name is Haley.",
+                                "My brother's name is Henry. ",
+                                " My grandmother and grandfather also live with us."
                             ],
                             "storyTranslation" : [
-                                "Emily glasea el pastel de rosa.",
-                                "Agrega chispas amarillas, moradas y azules.",
-                                "Ella cubre el pastel con cinco velas verdes."
+                                "Mi mamá y mi papá se casaron hace treinta años y tuvieron un hijo y una hija.",
+                                "Soy su hija, mi nombre es Haley. ",
+                                "El nombre de mi hermano es Henry.",
+                                " Mi abuela y mi abuelo también viven con nosotros."
+
                             ]
                         }
                         
