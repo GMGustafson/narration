@@ -12,6 +12,12 @@ public class MockConversations extends Question{
     private ArrayList<String> roles;
     private ArrayList<String> answers;
 
+    /*
+     * Constructor for new MockConversations
+     */
+    public MockConversations() {
+
+    }
     /**
     * Constructor for MockConversations
     * @param question
