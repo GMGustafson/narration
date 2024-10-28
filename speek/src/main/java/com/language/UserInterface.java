@@ -153,26 +153,62 @@ public class UserInterface{
             Narriator.playSound("Text: At the store, Tom buys one red apple. He also looks for two ripe oranges. He finally buys three yellow bannanas.");
             Narriator.playSound("Story Translation: En la tienda, Tom compra una manzana roja. También busca dos naranjas maduras. Finalmente compra tres plátanos amarillos.");
             //jim answers questions. gets 4/5
-            String[] questions1 = {
-                "What is the number one in Spanish?",
-                "What is the number two in Spanish?",
-                "What is the number three in Spanish?",
-                "What is the number four in Spanish?",
-                "What is the number five in Spanish?"
-            };            
+
+            // Fill in the blank
+            String [] fibques ={
+                "Diez menos cuatro es igual a ___", 
+                "Dos más ___ es igual a nueve ",
+                "___ por dos es igual a ocho",
+                "¿Cuál es el número cuatro en español?",
+                "____ is five in spanish.",
+                "____ is eight in spanish"
+            } ;
+
+            String[] fibans = {
+                "seis",
+                "seite",
+                "Cuatro",
+                "cinco", 
+                "uno"
+            } ;
+    
+
+
+            // Numbers story 
+            // "title" : "Let's go grocery shopping!",
+            //                     "text" : [
+            //                         "At the store, Tom buys one red apple.",
+            //                         "He also looks for two ripe oranges.",
+            //                         "He finally buys three yellow bananas."
+            //                     ],
+            //                     "storyTranslation" : [
+            //                         "En la tienda, Tom compra una manzana roja.",
+            //                         "También busca dos naranjas maduras.",
+            //                         "Finalmente compra tres plátanos amarillos."
+            //                     ]
+            
+
+               
             int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
-            // for (int i = 0; i < questions1.length; i++) {
-            //     System.out.println(questions1[i]);
-            //     if (i != 4) { 
-            //         correctAnswers1++;
-            //     }
-            // }
+            for (int i = 0; i < fibques.length; i++) {
+                System.out.println(fibques[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }
+            
+            for (int i = 0; i < fibans.length; i++) {
+                System.out.println(fibans[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }
             ArrayList<String> missedWord = new ArrayList<>();
             progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
-            progress.addMissedWords("cinco");
-            Narriator.playSound("Missed word: Cinco");
+            progress.addMissedWords("Ocho");
+            Narriator.playSound("Missed word: Ocho");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored an eighty percent");
@@ -192,6 +228,18 @@ public class UserInterface{
             };            
             int correctAnswers2 = 0;
 
+            // colors story 
+            // "title" : "Let's decorate a cake!",
+            // "text" : [
+            //     "Emily frosts the cake pink .",
+            //     "She adds yellow, purple, and blue sprinkles.",
+            //     "She tops the cake with five green candles."
+            // ],
+            // "storyTranslation" : [
+            //     "Emily glasea el pastel de rosa.",
+            //     "Agrega chispas amarillas, moradas y azules.",
+            //     "Ella cubre el pastel con cinco velas verdes."
+            // ]
             //jim got 3 right and 2 wrong
             for (int i = 0; i < questions2.length; i++) {
                 System.out.println(questions2[i]);
