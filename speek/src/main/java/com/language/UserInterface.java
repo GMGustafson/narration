@@ -169,21 +169,20 @@ public class UserInterface{
                 "cinco", 
                 "uno"
             } ;
-    
 
-
-            // Numbers story 
-            // "title" : "Let's go grocery shopping!",
-            //                     "text" : [
-            //                         "At the store, Tom buys one red apple.",
-            //                         "He also looks for two ripe oranges.",
-            //                         "He finally buys three yellow bananas."
-            //                     ],
-            //                     "storyTranslation" : [
-            //                         "En la tienda, Tom compra una manzana roja.",
-            //                         "También busca dos naranjas maduras.",
-            //                         "Finalmente compra tres plátanos amarillos."
-            //                     ]
+             //Flashcards 
+             String [] front ={
+                "How do you say seven in spanish?", 
+                "How do you say eight in spanish?",
+                "How do you say ten in spanish?",
+               "How do you say four in spanish?",
+                "How do you say three in spanish?",
+            } ;
+                Narriator.playSound("see-yet-eh");
+                Narriator.playSound("och-o");
+                Narriator.playSound("dee-ace");
+                Narriator.playSound("kwat-ro");
+                Narriator.playSound("saze"); 
             
 
                
@@ -203,10 +202,16 @@ public class UserInterface{
                     correctAnswers1++;
                 }
             }
+            for (int i = 0; i < front.length; i++) {
+                System.out.println(front[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }
             ArrayList<String> missedWord = new ArrayList<>();
             progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
             progress.addMissedWords("Ocho");
-            Narriator.playSound("Missed word: Ocho");
+            Narriator.playSound("Missed words: Ocho, tres");
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored an eighty percent");
@@ -217,39 +222,67 @@ public class UserInterface{
             Narriator.playSound("Text: Emily frosts the cake pink. She adds yellow, purple, and blue sprinkles. She tops the cake with five green candles");
             Narriator.playSound("Translation: Emily glasea el pastel de rosa. Agrega chispas amarillas, moradas y azules. Ella cubre el pastel con cinco velas verdes");
             //jim answers questions. gets 3/5
-            String[] questions2 = {
-                "What is the Spanish word for purple?", 
-                "What is the Spanish word for blue?", 
-                "What is the Spanish word for green?", 
-                "What is the Spanish word for yellow?", 
-                "What is the Spanish word for pink?"  
-            };            
-            int correctAnswers2 = 0;
+             // Fill in the blank
+             String [] fibques2 ={
+                "Las fresas son _____", 
+                "Los autobuses escolares son ______ ",
+                "El ______ y el negro hacen gris",
+                "¿Cuál es el número cuatro en español?",
+                "____ is pink in spanish.",
+                "____ is blue in spanish"
+            } ;
 
-            // colors story 
-            // "title" : "Let's decorate a cake!",
-            // "text" : [
-            //     "Emily frosts the cake pink .",
-            //     "She adds yellow, purple, and blue sprinkles.",
-            //     "She tops the cake with five green candles."
-            // ],
-            // "storyTranslation" : [
-            //     "Emily glasea el pastel de rosa.",
-            //     "Agrega chispas amarillas, moradas y azules.",
-            //     "Ella cubre el pastel con cinco velas verdes."
-            // ]
+            String[] fibans2 = {
+                "rojos",
+                "amarillos",
+                "blanco",
+                "naranja", 
+                "morado"
+            } ;
+
+             //Flashcards 
+             String [] front2 ={
+                "How do you say blue in spanish?", 
+                "How do you say blanco in spanish?",
+                "How do you say black in spanish?",
+               "How do you say gray in spanish?",
+                "How do you say orange in spanish?",
+            } ;
+                Narriator.playSound("ah-sool");
+                Narriator.playSound("ah-mah-ree-yo");
+                Narriator.playSound("new-eh-veh");
+                Narriator.playSound("roh-ho");
+                Narriator.playSound("nah-rahn-ha"); 
+
+
             //jim got 3 right and 2 wrong
-            for (int i = 0; i < questions2.length; i++) {
-                System.out.println(questions2[i]);
-                if (i != 3) { 
-                    correctAnswers2++;
+            for (int i = 0; i < fibques2.length; i++) {
+                System.out.println(fibques2[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
                 }
             }
+            
+            for (int i = 0; i < fibans2.length; i++) {
+                System.out.println(fibans2[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }
+            for (int i = 0; i < front2.length; i++) {
+                System.out.println(front2[i]);
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }      
+        
             ArrayList<String> missedWords = new ArrayList<>();
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
+            progress.addMissedWords("rosa");
             progress.addMissedWords("azul");
-            progress.addMissedWords("amarillo");
-            Narriator.playSound("Missed words: Azul and Amarillo"); 
+            progress.addMissedWords("blanco");
+            progress.addMissedWords("gray");
+            Narriator.playSound("Missed words: rosa, azul, blanco, and gray "); 
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored a sixty percent. You have to start over");
@@ -260,19 +293,21 @@ public class UserInterface{
                 //learnStory();
                 chooseLangauage();
                 chooseCourse();
+                System.out.println("You scored below 80% You have to restart the Colors category");
+
 
                 //chooseCategory();
-                //System.out.println("You scored below 80% You have to restart the Numbers category");
                 
-                progress.resetCategoryProgress();
-                for (String question : questions2) {
-                    System.out.println(question);
-                    correctAnswers2++;
-                }
-                progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
-                System.out.println("Jim's Progress: " + progress.getProgress());
-                progress.trackPercentCorrect();
-                Narriator.playSound("You scored a hundred percent on second attempt");
+                
+                // progress.resetCategoryProgress();
+                // for (String question : questions2) {
+                //     System.out.println(question);
+                //     correctAnswers2++;
+                // }
+                // progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
+                // System.out.println("Jim's Progress: " + progress.getProgress());
+                // progress.trackPercentCorrect();
+                // Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
     }
