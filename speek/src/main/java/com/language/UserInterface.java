@@ -286,7 +286,7 @@ public class UserInterface{
                 Narriator.playSound("roh-ho");
                 Narriator.playSound("nah-rahn-ha"); 
 
-            String [] matching ={
+            String [] matching2 ={
                 "purple", 
                 "blue",
                 "green",
@@ -294,25 +294,23 @@ public class UserInterface{
                 "pink",
             } ;
 
-            String[] matchingAns = {
+            String[] matchingAns2 = {
                 "rojo",
                 "azule",
                 "verde",
                 "ocho", 
                 "rosado"
             } ;
-
-            int correctAnswers2 = 0;
             System.out.println("Matching!");
-            for (int i = 0; i < matching.length; i++) {
-                System.out.println(matching[i]);
+            for (int i = 0; i < matching2.length; i++) {
+                System.out.println(matching2[i]);
                 if (i != 4) { 
                     correctAnswers2++;
                 }
             }
             System.out.println("Match the English with Spanish!");
-            for (int i = 0; i < matchingAns.length; i++) {
-                System.out.println(matchingAns[i]);
+            for (int i = 0; i < matchingAns2.length; i++) {
+                System.out.println(matchingAns2[i]);
                 if (i != 4) { 
                     correctAnswers2++;
                 }
