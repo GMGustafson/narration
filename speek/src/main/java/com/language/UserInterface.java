@@ -162,7 +162,10 @@ public class UserInterface{
             //chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
-            System.out.println("Lets learn something!");
+            System.out.println("Lets learn some numbers!");
+            Narriator.playSound("Title: Lets go grocery Shopping.");
+            Narriator.playSound("Text: At the store, Tom buys one red apple. He also looks for two ripe oranges. He finally buys three yellow bannanas.");
+            Narriator.playSound("Story Translation: En la tienda, Tom compra una manzana roja. También busca dos naranjas maduras. Finalmente compra tres plátanos amarillos.");
             //jim answers questions. gets 4/5
             String[] questions1 = {
                 "What is the number one in Spanish?",
@@ -170,8 +173,7 @@ public class UserInterface{
                 "What is the number three in Spanish?",
                 "What is the number four in Spanish?",
                 "What is the number five in Spanish?"
-            };
-            
+            };            
             int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
@@ -190,13 +192,17 @@ public class UserInterface{
             Narriator.playSound("You scored an eighty percent");
 
             Narriator.playSound("Lesson Two: Colors");
+            System.out.println("Lets learn some colors!");
+            Narriator.playSound("Title: Lets decorate a cake");
+            Narriator.playSound("Text: Emily frosts the cake pink. She adds yellow, purple, and blue sprinkles. She tops the cake with five green candles");
+            Narriator.playSound("Translation: Emily glasea el pastel de rosa. Agrega chispas amarillas, moradas y azules. Ella cubre el pastel con cinco velas verdes");
             //jim answers questions. gets 3/5
             String[] questions2 = {
-                "What is the Spanish word for red?", 
+                "What is the Spanish word for purple?", 
                 "What is the Spanish word for blue?", 
                 "What is the Spanish word for green?", 
                 "What is the Spanish word for yellow?", 
-                "What is the Spanish word for orange?"  
+                "What is the Spanish word for pink?"  
             };            
             int correctAnswers2 = 0;
 
