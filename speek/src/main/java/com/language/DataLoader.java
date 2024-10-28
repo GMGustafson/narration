@@ -183,6 +183,7 @@ public static Story getStory(JSONObject storyJSON) {
     String title = (String)storyJSON.get(TITLE);
     JSONArray textListJSON = (JSONArray)storyJSON.get(TEXT);
     JSONArray textTranslationsJSON = (JSONArray)storyJSON.get(STORY_TRANSLATION);
+    String category = (String)storyJSON.get(STORY_CATEGORY);
     
     ArrayList<String> textList = new ArrayList<>();
     ArrayList<String> textTranslations = new ArrayList<>(); 
@@ -198,7 +199,7 @@ public static Story getStory(JSONObject storyJSON) {
         textTranslations.add(textTranslation); 
     }
     
-    Story newStory = new Story(title,textList,textTranslations);
+    Story newStory = new Story(title,textList,textTranslations,category);
     return newStory;
 
 }
