@@ -113,8 +113,8 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void choseStory() {
-        
+    public void learnStory() {
+        story.getCategory();
         story.getTitle();
         story.getText();
         story.getStoryTranslation();

@@ -7,13 +7,13 @@ package com.language;
 import java.util.ArrayList;
 public class Story {
     private String category;
-    private String title;
+    private String title; 
     private ArrayList<String> text;
     private ArrayList<String> storyTranslation;
 
     /**
      * Story constructor method
-     * @param title
+     * @param title 
      * @param text
      * @param storyTranslation
      * @param category
@@ -75,6 +75,4 @@ public class Story {
         result += title + "--" + text + "--" + storyTranslation;
         return result;
     }
-    
-    
 }
