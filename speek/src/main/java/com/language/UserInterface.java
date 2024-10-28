@@ -59,6 +59,8 @@ public class UserInterface{
         return false;
     }
 
+    public void printStoryNum() {
+    }
     /**
      * Logout method
      * logs the user out
@@ -113,26 +115,8 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void choseStory() {
-        story.getTitle();
-        story.getText();
-        story.getStoryTranslation();
+    
 
-    }
-
-    public void chooseLearning() {
-        int answerLearning = 2;
-        if (answerLearning == 1) {
-            for (int i = 0; i < 5; i++) {
-                flashcards.showFlashcard();
-            }
-        }
-        if (answerLearning == 2) {
-           // choseStory();
-            
-        }
-        // answerLearning = 2;
-    }
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -177,12 +161,12 @@ public class UserInterface{
             int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
-            for (int i = 0; i < questions1.length; i++) {
-                System.out.println(questions1[i]);
-                if (i != 4) { 
-                    correctAnswers1++;
-                }
-            }
+            // for (int i = 0; i < questions1.length; i++) {
+            //     System.out.println(questions1[i]);
+            //     if (i != 4) { 
+            //         correctAnswers1++;
+            //     }
+            // }
             ArrayList<String> missedWord = new ArrayList<>();
             progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
             progress.addMissedWords("cinco");
@@ -228,6 +212,7 @@ public class UserInterface{
                 //learnStory();
                 chooseLangauage();
                 chooseCourse();
+
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
                 
