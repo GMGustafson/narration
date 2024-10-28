@@ -185,7 +185,37 @@ public class UserInterface{
                 Narriator.playSound("dee-ace");
                 Narriator.playSound("kwat-ro");
                 Narriator.playSound("saze"); 
-            
+                String [] matching ={
+                    "seven", 
+                    "three",
+                    "ten",
+                    "nine",
+                    "two",
+                } ;
+    
+                String[] matchingAns = {
+                    "siete",
+                    "tres",
+                    "diez",
+                    "uno", 
+                    "dos"
+                } ;
+    
+                int correctAnswers2 = 0;
+                System.out.println("Matching!");
+                for (int i = 0; i < matching.length; i++) {
+                    System.out.println(matching[i]);
+                    if (i != 4) { 
+                        correctAnswers2++;
+                    }
+                }
+                System.out.println("Match the English with Spanish!");
+                for (int i = 0; i < matchingAns.length; i++) {
+                    System.out.println(matchingAns[i]);
+                    if (i != 4) { 
+                        correctAnswers2++;
+                    }
+                }
 
                
             int correctAnswers1 = 0;
@@ -256,16 +286,6 @@ public class UserInterface{
                 Narriator.playSound("roh-ho");
                 Narriator.playSound("nah-rahn-ha"); 
 
-
-            // String[] questions2 = {
-            //     "What is the Spanish word for purple?", 
-            //     "What is the Spanish word for blue?", 
-            //     "What is the Spanish word for green?", 
-            //     "What is the Spanish word for yellow?", 
-            //     "What is the Spanish word for pink?"  
-            // };            
-
-
             String [] matching ={
                 "purple", 
                 "blue",
@@ -298,20 +318,8 @@ public class UserInterface{
                 }
             }
 
-            // colors story 
-            // "title" : "Let's decorate a cake!",
-            // "text" : [
-            //     "Emily frosts the cake pink .",
-            //     "She adds yellow, purple, and blue sprinkles.",
-            //     "She tops the cake with five green candles."
-            // ],
-            // "storyTranslation" : [
-            //     "Emily glasea el pastel de rosa.",
-            //     "Agrega chispas amarillas, moradas y azules.",
-            //     "Ella cubre el pastel con cinco velas verdes."
-            // ]
             //jim got 3 right and 2 wrong
-            // for (int i = 0; i < fibques2.length; i++) {
+            for (int i = 0; i < fibques2.length; i++) {
                 System.out.println(fibques2[i]);
                 if (i != 4) { 
                     correctAnswers1++;
@@ -374,6 +382,7 @@ public class UserInterface{
                 Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
+    }
     }
      /**
       * Main method to run Good Version
