@@ -162,6 +162,7 @@ public class UserInterface{
             //chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
+            System.out.println("Lets learn something!");
             //jim answers questions. gets 4/5
             String[] questions1 = {
                 "What is the number one in Spanish?",
