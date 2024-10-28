@@ -332,10 +332,10 @@ public class UserInterface{
             }
             for (int i = 0; i < front2.length; i++) {
                 System.out.println(front2[i]);
-            //     if (i != 4) { 
-            //         correctAnswers1++;
-            //     }
-            // }      
+                if (i != 4) { 
+                    correctAnswers1++;
+                }
+            }      
         
             ArrayList<String> missedWords = new ArrayList<>();
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
@@ -369,19 +369,10 @@ public class UserInterface{
                 // System.out.println("Jim's Progress: " + progress.getProgress());
                 // progress.trackPercentCorrect();
                 // Narriator.playSound("You scored a hundred percent on second attempt");
-                progress.resetCategoryProgress();
-                // for (String question : questions2) {
-                //     System.out.println(question);
-                //     correctAnswers2++;
-                // }
-                progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
-                System.out.println("Jim's Progress: " + progress.getProgress());
-                progress.trackPercentCorrect();
-                Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
     }
-    }
+    
      /**
       * Main method to run Good Version
       * @param args
@@ -398,3 +389,4 @@ public class UserInterface{
 
 
 }
+
