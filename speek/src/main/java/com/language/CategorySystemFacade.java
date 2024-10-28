@@ -2,6 +2,7 @@ package com.language;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 /**
  * @author zaniah, sri, gracie, and grace
  */
@@ -213,4 +214,11 @@ public class CategorySystemFacade {
         }
 
     }
+
+    public Story getStory() {
+        String category = course.getCategory();
+        return course.getStoriesByCategory(category);
+
+    }
+  
 }

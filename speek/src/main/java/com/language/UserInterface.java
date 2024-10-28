@@ -113,11 +113,8 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void choseStory() {
-        
-        story.getTitle();
-        story.getText();
-        story.getStoryTranslation();
+    public void learnStory() {
+        facade.getStory();
     }
 
        /**
@@ -213,6 +210,7 @@ public class UserInterface{
                 System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
                 chooseLangauage();
                 chooseCourse();
+                learnStory();
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
                 progress.resetCategoryProgress();
