@@ -214,9 +214,9 @@ public class CategorySystemFacade {
 
     }
 
-    public void getStory(){
+    public Story getStory(){
         String category = course.getCategory();
-        return course.get
+        return course.getStoriesByCategory(category);
     }
 }
 
