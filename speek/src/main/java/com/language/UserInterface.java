@@ -113,10 +113,6 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void learnStory() {
-        facade.getStory();
-    }
-
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -208,11 +204,12 @@ public class UserInterface{
             //showUser()
             if (login("jimsmith44", "smithj1")){
                 System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
+                //learnStory();
                 chooseLangauage();
                 chooseCourse();
+
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
-                learnStory();
                 progress.resetCategoryProgress();
                 for (String question : questions2) {
                     System.out.println(question);
@@ -238,5 +235,6 @@ public class UserInterface{
         System.out.println("Testing scenarios.");
         langUI.scenarioJim(); 
     }
+
 
 }
