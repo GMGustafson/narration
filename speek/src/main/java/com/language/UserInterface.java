@@ -170,6 +170,19 @@ public class UserInterface{
                 "What is the number four in Spanish?",
                 "What is the number five in Spanish?"
             };
+
+            // Numbers story 
+            "title" : "Let's go grocery shopping!",
+                                "text" : [
+                                    "At the store, Tom buys one red apple.",
+                                    "He also looks for two ripe oranges.",
+                                    "He finally buys three yellow bananas."
+                                ],
+                                "storyTranslation" : [
+                                    "En la tienda, Tom compra una manzana roja.",
+                                    "También busca dos naranjas maduras.",
+                                    "Finalmente compra tres plátanos amarillos."
+                                ]
             
             int correctAnswers1 = 0;
 
@@ -199,6 +212,18 @@ public class UserInterface{
             };            
             int correctAnswers2 = 0;
 
+            // colors story 
+            "title" : "Let's decorate a cake!",
+            "text" : [
+                "Emily frosts the cake pink .",
+                "She adds yellow, purple, and blue sprinkles.",
+                "She tops the cake with five green candles."
+            ],
+            "storyTranslation" : [
+                "Emily glasea el pastel de rosa.",
+                "Agrega chispas amarillas, moradas y azules.",
+                "Ella cubre el pastel con cinco velas verdes."
+            ]
             //jim got 3 right and 2 wrong
             for (int i = 0; i < questions2.length; i++) {
                 System.out.println(questions2[i]);
