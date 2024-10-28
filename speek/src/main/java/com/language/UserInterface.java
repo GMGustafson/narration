@@ -114,25 +114,12 @@ public class UserInterface{
         System.out.println("You have chosen the 'Numbers' category.");
     }
     public void choseStory() {
+        
         story.getTitle();
         story.getText();
         story.getStoryTranslation();
-
     }
 
-    public void chooseLearning() {
-        int answerLearning = 2;
-        if (answerLearning == 1) {
-            for (int i = 0; i < 5; i++) {
-                flashcards.showFlashcard();
-            }
-        }
-        if (answerLearning == 2) {
-           // choseStory();
-            
-        }
-        // answerLearning = 2;
-    }
        /**
      * progressLearning method 
      * tracks what the user has learned
