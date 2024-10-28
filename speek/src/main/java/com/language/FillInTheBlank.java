@@ -57,9 +57,9 @@ public class FillInTheBlank extends Question{
      * @return sentence
      */
   public String getSampleSentence() {
-    String sentence = sampleSentence.getTranslation();
+    ArrayList<Course> sampleSentence = DataLoader.getCourse();
+    String sentence = getTranslation();
     String missingWord = getMissingWord();
     return sentence.replace(missingWord, "___"); 
   }
- 
 }

@@ -141,7 +141,7 @@ public class UserInterface{
         //Show the users.json -> illustrating that Jim is now in the file.
         //showUsers(); 
         // Now have Jim successfully login to the system
-        if (facade.login(username, password)) {
+        if (login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
@@ -150,23 +150,29 @@ public class UserInterface{
 
             Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
-            String[] questions1 = {
-                "What is the number one in Spanish?",
-                "What is the number two in Spanish?",
-                "What is the number three in Spanish?",
-                "What is the number four in Spanish?",
-                "What is the number five in Spanish?"
-            };
+             
+            facade.getFlashcards(); 
+            //facade.getMockConversation();
+            //facade.getFillintheBlank();
+            
+
+                
+                // "What is the number one in Spanish?",
+                // "What is the number two in Spanish?",
+                // "What is the number three in Spanish?",
+                // "What is the number four in Spanish?",
+                // "What is the number five in Spanish?"
+        
             
             int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
-            for (int i = 0; i < questions1.length; i++) {
-                System.out.println(questions1[i]);
-                if (i != 4) { 
-                    correctAnswers1++;
-                }
-            }
+            // for (int i = 0; i < questions1.length; i++) {
+            //     System.out.println(questions1[i]);
+            //     if (i != 4) { 
+            //         correctAnswers1++;
+            //     }
+            // }
             ArrayList<String> missedWord = new ArrayList<>();
             progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
             progress.addMissedWords("cinco");

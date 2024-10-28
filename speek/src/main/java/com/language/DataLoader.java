@@ -45,7 +45,7 @@ public class DataLoader extends DataConstants{
             String password = (String)userJSON.get(USER_PASSWORD);
             
             HashMap<Course, Progress> courseProgresses = new HashMap<>();
-            JSONArray CoursesJSON = (JSONArray) userJSON.get(USER_COURSES);
+            JSONObject CoursesJSON = (JSONObject) userJSON.get(USER_COURSES);
             for (int j = 0; j < CoursesJSON.size(); j++) {
                 JSONObject courseJSON = (JSONObject) CoursesJSON.get(j);
                 UUID courseID = UUID.fromString((String)courseJSON.get(COURSE_ID));
