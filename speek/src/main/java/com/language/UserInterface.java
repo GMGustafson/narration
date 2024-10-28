@@ -204,9 +204,9 @@ public class UserInterface{
                 System.out.println("Welcome back " + currentUser.getFirstName() + " " + currentUser.getLastName());
                 chooseLangauage();
                 chooseCourse();
-                learnStory();
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
+                learnStory();
                 progress.resetCategoryProgress();
                 for (String question : questions2) {
                     System.out.println(question);
