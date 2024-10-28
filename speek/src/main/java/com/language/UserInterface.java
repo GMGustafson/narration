@@ -125,6 +125,8 @@ public class UserInterface{
         System.out.print("Tracking the progress of what the user has learned.");
     }
 
+
+
     // Scenario 
     public void scenarioJim() {
         System.out.println("Scenario: Jim Smith");
@@ -255,8 +257,61 @@ public class UserInterface{
                 Narriator.playSound("nah-rahn-ha"); 
 
 
+            // String[] questions2 = {
+            //     "What is the Spanish word for purple?", 
+            //     "What is the Spanish word for blue?", 
+            //     "What is the Spanish word for green?", 
+            //     "What is the Spanish word for yellow?", 
+            //     "What is the Spanish word for pink?"  
+            // };            
+
+
+            String [] matching ={
+                "purple", 
+                "blue",
+                "green",
+                "yellow",
+                "pink",
+            } ;
+
+            String[] matchingAns = {
+                "rojo",
+                "azule",
+                "verde",
+                "ocho", 
+                "rosado"
+            } ;
+
+            int correctAnswers2 = 0;
+            System.out.println("Matching!");
+            for (int i = 0; i < matching.length; i++) {
+                System.out.println(matching[i]);
+                if (i != 4) { 
+                    correctAnswers2++;
+                }
+            }
+            System.out.println("Match the English with Spanish!");
+            for (int i = 0; i < matchingAns.length; i++) {
+                System.out.println(matchingAns[i]);
+                if (i != 4) { 
+                    correctAnswers2++;
+                }
+            }
+
+            // colors story 
+            // "title" : "Let's decorate a cake!",
+            // "text" : [
+            //     "Emily frosts the cake pink .",
+            //     "She adds yellow, purple, and blue sprinkles.",
+            //     "She tops the cake with five green candles."
+            // ],
+            // "storyTranslation" : [
+            //     "Emily glasea el pastel de rosa.",
+            //     "Agrega chispas amarillas, moradas y azules.",
+            //     "Ella cubre el pastel con cinco velas verdes."
+            // ]
             //jim got 3 right and 2 wrong
-            for (int i = 0; i < fibques2.length; i++) {
+            // for (int i = 0; i < fibques2.length; i++) {
                 System.out.println(fibques2[i]);
                 if (i != 4) { 
                     correctAnswers1++;
@@ -264,25 +319,25 @@ public class UserInterface{
             }
             
             for (int i = 0; i < fibans2.length; i++) {
-                System.out.println(fibans2[i]);
+            //     System.out.println(fibans2[i]);
                 if (i != 4) { 
                     correctAnswers1++;
                 }
             }
             for (int i = 0; i < front2.length; i++) {
                 System.out.println(front2[i]);
-                if (i != 4) { 
-                    correctAnswers1++;
-                }
-            }      
+            //     if (i != 4) { 
+            //         correctAnswers1++;
+            //     }
+            // }      
         
             ArrayList<String> missedWords = new ArrayList<>();
             progress = new Progress(5, 3, currentCategory.label, 60, 0, missedWords);            
             progress.addMissedWords("rosa");
-            progress.addMissedWords("azul");
+            progress.addMissedWords("azule");
             progress.addMissedWords("blanco");
             progress.addMissedWords("gray");
-            Narriator.playSound("Missed words: rosa, azul, blanco, and gray "); 
+            Narriator.playSound("Missed words: rosa, azule, blanco, and gray "); 
             System.out.println("Jim's Progress: " + progress.getProgress());
             progress.trackPercentCorrect();
             Narriator.playSound("You scored a sixty percent. You have to start over");
@@ -308,6 +363,15 @@ public class UserInterface{
                 // System.out.println("Jim's Progress: " + progress.getProgress());
                 // progress.trackPercentCorrect();
                 // Narriator.playSound("You scored a hundred percent on second attempt");
+                progress.resetCategoryProgress();
+                // for (String question : questions2) {
+                //     System.out.println(question);
+                //     correctAnswers2++;
+                // }
+                progress = new Progress(5, 5, currentCategory.label, 100, 0, missedWords);            
+                System.out.println("Jim's Progress: " + progress.getProgress());
+                progress.trackPercentCorrect();
+                Narriator.playSound("You scored a hundred percent on second attempt");
             }
         }
     }
