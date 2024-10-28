@@ -59,6 +59,8 @@ public class UserInterface{
         return false;
     }
 
+    public void printStoryNum() {
+    }
     /**
      * Logout method
      * logs the user out
@@ -113,26 +115,8 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void choseStory() {
-        story.getTitle();
-        story.getText();
-        story.getStoryTranslation();
+    
 
-    }
-
-    public void chooseLearning() {
-        int answerLearning = 2;
-        if (answerLearning == 1) {
-            for (int i = 0; i < 5; i++) {
-                flashcards.showFlashcard();
-            }
-        }
-        if (answerLearning == 2) {
-           // choseStory();
-            
-        }
-        // answerLearning = 2;
-    }
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -163,36 +147,28 @@ public class UserInterface{
 
             Narriator.playSound("Lesson One: Numbers");
             //jim answers questions. gets 4/5
-            String[] questions1 = {
-                "What is the number one in Spanish?",
-                "What is the number two in Spanish?",
-                "What is the number three in Spanish?",
-                "What is the number four in Spanish?",
-                "What is the number five in Spanish?"
-            };
+            
+            //facade.getMockConversation();
+            //facade.getFillintheBlank();
+            
 
-            // Numbers story 
-            "title" : "Let's go grocery shopping!",
-                                "text" : [
-                                    "At the store, Tom buys one red apple.",
-                                    "He also looks for two ripe oranges.",
-                                    "He finally buys three yellow bananas."
-                                ],
-                                "storyTranslation" : [
-                                    "En la tienda, Tom compra una manzana roja.",
-                                    "También busca dos naranjas maduras.",
-                                    "Finalmente compra tres plátanos amarillos."
-                                ]
+                
+                // "What is the number one in Spanish?",
+                // "What is the number two in Spanish?",
+                // "What is the number three in Spanish?",
+                // "What is the number four in Spanish?",
+                // "What is the number five in Spanish?"
+        
             
             int correctAnswers1 = 0;
 
             //jim got 4 right and 1 wrong
-            for (int i = 0; i < questions1.length; i++) {
-                System.out.println(questions1[i]);
-                if (i != 4) { 
-                    correctAnswers1++;
-                }
-            }
+            // for (int i = 0; i < questions1.length; i++) {
+            //     System.out.println(questions1[i]);
+            //     if (i != 4) { 
+            //         correctAnswers1++;
+            //     }
+            // }
             ArrayList<String> missedWord = new ArrayList<>();
             progress = new Progress(5, 4, currentCategory.label, 80, 0, missedWord);      
             progress.addMissedWords("cinco");
@@ -209,21 +185,15 @@ public class UserInterface{
                 "What is the Spanish word for green?", 
                 "What is the Spanish word for yellow?", 
                 "What is the Spanish word for orange?"  
-            };            
+            };
+
+            String[] translations  = {"rojo", "azule", "verde", "amarillo", "naranja"};
+            
+
+           
+            
             int correctAnswers2 = 0;
 
-            // colors story 
-            "title" : "Let's decorate a cake!",
-            "text" : [
-                "Emily frosts the cake pink .",
-                "She adds yellow, purple, and blue sprinkles.",
-                "She tops the cake with five green candles."
-            ],
-            "storyTranslation" : [
-                "Emily glasea el pastel de rosa.",
-                "Agrega chispas amarillas, moradas y azules.",
-                "Ella cubre el pastel con cinco velas verdes."
-            ]
             //jim got 3 right and 2 wrong
             for (int i = 0; i < questions2.length; i++) {
                 System.out.println(questions2[i]);
@@ -246,6 +216,7 @@ public class UserInterface{
                 //learnStory();
                 chooseLangauage();
                 chooseCourse();
+
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
                 
