@@ -245,13 +245,14 @@ public class UserInterface{
             } ;
 
             int correctAnswers2 = 0;
+            System.out.println("Matching!");
             for (int i = 0; i < matching.length; i++) {
                 System.out.println(matching[i]);
                 if (i != 4) { 
                     correctAnswers2++;
                 }
             }
-            
+            System.out.println("Match the English with Spanish!");
             for (int i = 0; i < matchingAns.length; i++) {
                 System.out.println(matchingAns[i]);
                 if (i != 4) { 
