@@ -213,4 +213,11 @@ public class CategorySystemFacade {
         }
 
     }
+
+    public void getStory(){
+        String category = course.getCategory();
+        return course.get
+    }
 }
+
+

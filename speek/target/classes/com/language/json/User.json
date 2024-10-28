@@ -2,25 +2,25 @@
     {
         "userID" : "85e9d2cb-9847-4934-970c-442d081fffa4",
         "firstName" : "John" ,
-        "lastName" : "Doe",
-        "email" : "johndoe@gmail.com",
-        "phoneNumber" : "627-917-2739",
-        "dateOfBirth" : "01/05/2001",
-        "username" : "johndoe73",
-        "password" : "IlovemyCat",
-        "courses" : {
-            "course" : {
-                "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
-                "Progress" : {
-                    "totalQuestionsAnswered" : 10,
-                    "numCorrectAnswers" : 7,
-                    "currentCategory" : "numbers",
-                    "progressInCategory" : 7,
-                    "streak" : 3,
-                    "missedWords" : ["tres", "cinco", "ocho"]
+        "lastName" : "Doe",    
+            "email" : "johndoe@gmail.com",
+            "phoneNumber" : "627-917-2739",
+            "dateOfBirth" : "01/05/2001",
+            "username" : "johndoe73",
+            "password" : "IlovemyCat",
+            "courses" : [
+                "course" : {
+                    "courseID" : "8c24fea9-e192-457d-8ba3-db5828f62490",
+                    "Progress" : {
+                        "totalQuestionsAnswered" : 10,
+                        "numCorrectAnswers" : 7,
+                        "currentCategory" : "numbers",
+                        "progressInCategory" : 7,
+                        "streak" : 3,
+                        "missedWords" : ["tres", "cinco", "ocho"]
+                    }
                 }
-            }
-        }
+            ]    
     },
 
     {

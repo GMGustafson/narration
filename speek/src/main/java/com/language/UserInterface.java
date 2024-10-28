@@ -139,7 +139,7 @@ public class UserInterface{
         //Show the users.json -> illustrating that Jim is now in the file.
         //showUsers(); 
         // Now have Jim successfully login to the system
-        if (facade.login(username, password)) {
+        if (login(username, password)) {
             System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!");
             chooseLangauage();
             chooseCourse();
