@@ -59,6 +59,8 @@ public class UserInterface{
         return false;
     }
 
+    public void printStoryNum() {
+    }
     /**
      * Logout method
      * logs the user out
@@ -113,26 +115,8 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    public void choseStory() {
-        story.getTitle();
-        story.getText();
-        story.getStoryTranslation();
+    
 
-    }
-
-    public void chooseLearning() {
-        int answerLearning = 2;
-        if (answerLearning == 1) {
-            for (int i = 0; i < 5; i++) {
-                flashcards.showFlashcard();
-            }
-        }
-        if (answerLearning == 2) {
-           // choseStory();
-            
-        }
-        // answerLearning = 2;
-    }
        /**
      * progressLearning method 
      * tracks what the user has learned
@@ -162,6 +146,10 @@ public class UserInterface{
             //chooseLearning();
 
             Narriator.playSound("Lesson One: Numbers");
+            System.out.println("Lets learn some numbers!");
+            Narriator.playSound("Title: Lets go grocery Shopping.");
+            Narriator.playSound("Text: At the store, Tom buys one red apple. He also looks for two ripe oranges. He finally buys three yellow bannanas.");
+            Narriator.playSound("Story Translation: En la tienda, Tom compra una manzana roja. También busca dos naranjas maduras. Finalmente compra tres plátanos amarillos.");
             //jim answers questions. gets 4/5
 
             // Fill in the blank
@@ -224,13 +212,17 @@ public class UserInterface{
             Narriator.playSound("You scored an eighty percent");
 
             Narriator.playSound("Lesson Two: Colors");
+            System.out.println("Lets learn some colors!");
+            Narriator.playSound("Title: Lets decorate a cake");
+            Narriator.playSound("Text: Emily frosts the cake pink. She adds yellow, purple, and blue sprinkles. She tops the cake with five green candles");
+            Narriator.playSound("Translation: Emily glasea el pastel de rosa. Agrega chispas amarillas, moradas y azules. Ella cubre el pastel con cinco velas verdes");
             //jim answers questions. gets 3/5
             String[] questions2 = {
-                "What is the Spanish word for red?", 
+                "What is the Spanish word for purple?", 
                 "What is the Spanish word for blue?", 
                 "What is the Spanish word for green?", 
                 "What is the Spanish word for yellow?", 
-                "What is the Spanish word for orange?"  
+                "What is the Spanish word for pink?"  
             };            
             int correctAnswers2 = 0;
 
@@ -268,6 +260,7 @@ public class UserInterface{
                 //learnStory();
                 chooseLangauage();
                 chooseCourse();
+
                 //chooseCategory();
                 //System.out.println("You scored below 80% You have to restart the Numbers category");
                 
