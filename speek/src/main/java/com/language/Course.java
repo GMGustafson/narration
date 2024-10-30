@@ -60,7 +60,7 @@ public class Course {
      * gets course
      * @return course
      */
-    public String getCourse(){
+    public static String getCourse(){
         return course;
     }
 

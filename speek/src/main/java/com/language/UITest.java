@@ -1,9 +1,11 @@
 package com.language;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class UITest {
     private CategorySystemFacade facade;
+    private DataLoader dataloader;
 
     public UITest() {
 
@@ -57,7 +59,7 @@ public class UITest {
 
     public void chooseCourse() 
     {
-        Course course = facade.getCourse(); 
+        ArrayList<Course> course = dataloader.getCourse(); 
         if (course != null) 
         { 
             System.out.println("User is now learing" + Course.getCourse()); 
