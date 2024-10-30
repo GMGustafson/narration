@@ -207,6 +207,8 @@ public class CategorySystemFacade {
     /**
      * getMatch method
      * a way for the user to study by matching words with an image
+
+    * We should fix this 
      */
     public void getMatching(){
         List<String> wordList = Matching.getImageList(); 
