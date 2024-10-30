@@ -94,7 +94,8 @@ public class UserInterface{
      * chooses language
      */
     public void chooseLangauage(){
-        System.out.println("You have chosen to learn Spanish");
+        //System.out.println("You have chosen to learn Spanish");
+        facade.chooseLanguage("Spanish");
     }
 
     /**
