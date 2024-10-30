@@ -55,6 +55,14 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
+    public void chooseCourse() 
+    {
+        if (!facade.getCourse(currentCourse))
+        { 
+            
+        }
+    }
+
 
     public static void main(String[] args){
         UITest tester = new UITest();
