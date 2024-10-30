@@ -1,6 +1,8 @@
 package com.language;
 
-import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -27,7 +29,9 @@ public class DataLoader extends DataConstants{
     public static ArrayList<User> getUsers() {
         ArrayList<User> userList = new ArrayList<User>();
     try {
-        FileReader reader = new FileReader(FILE_NAME_USER);
+        InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_USER); 
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
+        BufferedReader reader = new BufferedReader(inputStreamReader); 
         JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -88,8 +92,9 @@ public class DataLoader extends DataConstants{
 public static ArrayList<Course> getCourse() {
     ArrayList<Course> courseList = new ArrayList<Course>();
     try {
-        FileReader reader = new FileReader(FILE_NAME_COURSES);
-        //JSONParser parser = new JSONParser();
+        InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_COURSES); 
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
+        BufferedReader reader = new BufferedReader(inputStreamReader); 
         JSONArray CoursesJSON = (JSONArray)new JSONParser().parse(reader);
 
         for (int i=0; i < CoursesJSON.size(); i++) {

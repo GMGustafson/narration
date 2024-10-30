@@ -12,8 +12,8 @@ public abstract class DataConstants {
     //JSON FILES
     protected static final String FILE_NAME_USER_INTERFACE = "user.json";
     //protected static final String FILE_NAME_COURSES = "test/resources/json/Course.json";
-    protected static final String FILE_NAME_COURSES = "speek/src/main/java/com/language/json/Course.json";
-    protected static final String FILE_NAME_USER = "speek/src/main/java/com/language/json/User.json";
+    protected static final String FILE_NAME_COURSES = "/json/Course.json";
+    protected static final String FILE_NAME_USER = "/json/User.json";
     
     //USER JSON 
     protected static final String USER_ID = "userID";

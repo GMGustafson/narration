@@ -2,8 +2,11 @@ package com.language;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+
 import java.util.HashMap;
 
 import org.json.simple.JSONArray;
@@ -40,12 +43,19 @@ public class DataWriter extends DataConstants {
             jsonUserList.add(getUserJSON(userList.get(i)));
         }
 
-       try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
-           file.write(jsonUserList.toJSONString());
-           file.flush();
-       } catch (IOException e) {
+       try {
+       URI url = DataLoader.class.getResource(FILE_NAME_USER_INTERFACE).toURI();  
+       FileWriter writer = new FileWriter(url.getPath());
+       
+           writer.write(jsonUserList.toJSONString());
+           writer.flush();
+    }
+           catch (IOException e) {
            e.printStackTrace();
-       }
+       } catch (URISyntaxException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
        
     }
   
@@ -91,25 +101,6 @@ public class DataWriter extends DataConstants {
         return userDetails;
     }
 
-   
-   /**
-    * Writes a list of flashcards to the JSON file specified in FILE_PATH.
-    * This method converts each Flashcard object into a JSON representation and writes
-    * the entire list of flashcards as a JSON array to the file.
-    *
-    * @param flashcards The list of Flashcard objects to be written to the file.
-    */
-
-    public static void main(String[] args) {
-        Flashcard flashcard1 = new Flashcard("Bonjour", "Hello", "Bonjour! Je m'appelle Pierre.");
-        Flashcard flashcard2 = new Flashcard("Hola", "Hello", "Hola! Me llamo Juan.");
-
-        ArrayList<Flashcard> cards = new ArrayList<Flashcard>();
-        cards.add(flashcard1);
-        cards.add(flashcard2);
-
-       // writeFlashcards(cards);
-    }
    
 
    @SuppressWarnings("unchecked")

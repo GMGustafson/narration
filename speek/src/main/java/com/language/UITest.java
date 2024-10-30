@@ -57,9 +57,10 @@ public class UITest {
 
     public void chooseCourse() 
     {
-        if (!facade.getCourse(currentCourse))
+        Course course = facade.getCourse(); 
+        if (course != null) 
         { 
-            
+            System.out.println("User is now learing" + Course.getCourse()); 
         }
     }
 
