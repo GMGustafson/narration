@@ -99,6 +99,9 @@ public class CategorySystemFacade {
     public User getCurrentUser() {
         return user;
     }
+    public void setCurrentUser(User user){
+        this.user = user;
+    }
 
     public String chooseLanguage(String chosenLanguage){
         this.language = chosenLanguage;
