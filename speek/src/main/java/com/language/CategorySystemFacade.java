@@ -82,6 +82,17 @@ public class CategorySystemFacade {
         return false; 
     }
 
+    public void logout(String username) {
+        UserList userList = UserList.getInstance();
+        User user = userList.getUser(username);
+        if (this.user != null) {
+            System.out.println("User " + this.user.getUsername() + " has logged out.");
+            this.user = null;
+        } 
+    }
+
+
+
     public User getCurrentUser() {
         return user;
     }
