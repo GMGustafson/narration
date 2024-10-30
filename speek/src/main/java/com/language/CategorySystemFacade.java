@@ -97,6 +97,8 @@ public class CategorySystemFacade {
         return false;
     }
 
+
+
     public User getCurrentUser() {
         return user;
     }
@@ -257,12 +259,12 @@ public class CategorySystemFacade {
     * We should fix this 
      */
     public void getMatching(){
-        List<String> wordList = Matching.getImageList(); 
-        List<String> imageList = Matching.getWordList(); 
+        List<String> wordList = Matching.getWordList(); 
+        List<String> translations = Matching.getTranslations(); 
 
-        System.out.println("Match the words correctly with the corresponding images:");
+        System.out.println("Match the words correctly with the corresponding translations:");
         for (int i = 0; i < wordList.size(); i++) {
-            System.out.println("Word: " + wordList.get(i) + " - Image: " + imageList.get(i));
+            System.out.println("Word: " + wordList.get(i) + " - Translation: " + translations.get(i));
         }
 
     }
