@@ -1,9 +1,11 @@
 package com.language;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class UITest {
     private CategorySystemFacade facade;
+
 
     public UITest() {
 
@@ -14,7 +16,11 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
+<<<<<<< HEAD
         chooseCategory();
+=======
+        getCourse();
+>>>>>>> 4446d629657f6531fedbb6ad07b9ef134f03afa1
         logout();
 
     }
@@ -56,6 +62,7 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
+<<<<<<< HEAD
     // public void chooseCourse() 
     // {
     //     Course course = facade.getCourse(); 
@@ -68,6 +75,14 @@ public class UITest {
     public void chooseCategory(){
         if(facade.getCategory().isEmpty()){
             System.out.println("Couldnt find category");
+=======
+    public void getCourse() 
+    {
+        ArrayList<String> course = (ArrayList<String>) facade.getCourse();  
+        if (course != null) 
+        { 
+            System.out.println("User is now learing" + facade.getCourse()); 
+>>>>>>> 4446d629657f6531fedbb6ad07b9ef134f03afa1
         }
         System.out.println("youre learning " + Category.NUMBERS);
     }
