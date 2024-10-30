@@ -1,4 +1,4 @@
-package com.language.json;
+package com.resources.json;
 
 import java.util.UUID;
 
