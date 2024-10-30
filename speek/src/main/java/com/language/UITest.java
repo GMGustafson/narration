@@ -10,6 +10,7 @@ public class UITest {
     public void run() {
         facade = CategorySystemFacade.getFacadeInstance();
         login();
+        logout();
 
     }
 
@@ -20,6 +21,18 @@ public class UITest {
         }
         User user = facade.getCurrentUser();
         System.out.println(user.getFirstName() + " " + user.getLastName() + " is now logged in");
+    }
+
+    public void logout(){
+        if(!facade.logout("johndoe73")){
+            System.out.println("User couldnt log out");
+            return;
+        }
+        User user = facade.getCurrentUser();
+        if(user != null){
+         System.out.println(user.getFirstName() + " " + user.getLastName()+ "is now logged out");
+        }
+        
     }
 
     public static void main(String[] args){

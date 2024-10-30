@@ -17,6 +17,7 @@ public class CategorySystemFacade {
     private Phrase phrases;
     private Word words;
     private Progress progress;
+    private String language;
     private static CategorySystemFacade facade;
 
     /**
@@ -82,8 +83,27 @@ public class CategorySystemFacade {
         return false; 
     }
 
+    public boolean logout(String username) {
+        UserList userList = UserList.getInstance();
+        User user = userList.getUser(username);
+        if (this.user != null) {
+            System.out.println("User " + this.user.getUsername() + " has logged out.");
+            this.user = null;
+            return true;
+        } 
+        return false;
+    }
+
+
+
     public User getCurrentUser() {
         return user;
+    }
+
+    public String chooseLanguage(String chosenLanguage){
+        this.language = chosenLanguage;
+        System.out.println("Language Chosen: " + this.language);
+        return this.language;
     }
 
     public List<String> getCourse(){
