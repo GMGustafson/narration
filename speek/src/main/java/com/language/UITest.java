@@ -55,17 +55,23 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
-    public void chooseCourse() 
-    {
-        if (!facade.getCourse(currentCourse))
-        { 
+    // public void chooseCourse() 
+    // {
+    //     if (!facade.getCourse(currentCourse))
+    //     { 
             
-        }
-    }
+    //     }
+    // }
 
+    
+    // boolean isCorrectAnswer = true;
     public void progressLearning() {
         facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
+
+        int totalQuestionsAnswered = 5;
+        int numCorrectAnswers = 4;
+        
     }
 
     
