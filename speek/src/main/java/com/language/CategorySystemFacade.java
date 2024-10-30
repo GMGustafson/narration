@@ -99,11 +99,20 @@ public class CategorySystemFacade {
     public User getCurrentUser() {
         return user;
     }
+    public void setCurrentUser(User user){
+        this.user = user;
+    }
 
     public String chooseLanguage(String chosenLanguage){
         this.language = chosenLanguage;
         System.out.println("Language Chosen: " + this.language);
         return this.language;
+    }
+    public Course chooseCourse(Course currentCourse) 
+    { 
+        this.course = currentCourse; 
+        System.out.println("Course Choosen"+ this.course); 
+        return this.course; 
     }
 
     public List<String> getCourse(){
@@ -227,6 +236,8 @@ public class CategorySystemFacade {
     /**
      * getMatch method
      * a way for the user to study by matching words with an image
+
+    * We should fix this 
      */
     public void getMatching(){
         List<String> wordList = Matching.getImageList(); 
