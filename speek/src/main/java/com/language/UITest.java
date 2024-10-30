@@ -1,6 +1,8 @@
 package com.language;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 
 public class UITest {
     private CategorySystemFacade facade;
@@ -14,6 +16,8 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
+        chooseCategory();
+        chooseCourse();
         logout();
 
     }
@@ -57,21 +61,25 @@ public class UITest {
 
     public void chooseCourse() 
     {
-        Course course = facade.getCourse(); 
-        if (course != null) 
-        { 
-            System.out.println("User is now learing" + Course.getCourse()); 
-        }
+        facade.chooseCourse("Words");
+        //  course = facade.chooseCourse(); 
+        // if (course != null) 
+        // { 
+        //     System.out.println("User is now learing" + Course.getCourse()); 
+        // }
     }
 
-    
-    // boolean isCorrectAnswer = true;
+    public void chooseCategory() {
+        facade.chooseCategory("People");
+    }
+
+    boolean isCorrectAnswer = true;
     public void progressLearning() {
         facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
 
-        int totalQuestionsAnswered = 5;
-        int numCorrectAnswers = 4;
+        // int totalQuestionsAnswered = 5;
+        // int numCorrectAnswers = 4;
         
     }
 

@@ -97,8 +97,6 @@ public class CategorySystemFacade {
         return false;
     }
 
-
-
     public User getCurrentUser() {
         return user;
     }
@@ -111,12 +109,29 @@ public class CategorySystemFacade {
         System.out.println("Language Chosen: " + this.language);
         return this.language;
     }
-    public Course chooseCourse(Course currentCourse) 
-    { 
-        this.course = currentCourse; 
-        System.out.println("Course Choosen"+ this.course); 
-        return this.course; 
+
+    // public Course chooseCourse(Course currentCourse) 
+    // { 
+    //     this.course = currentCourse; 
+    //     System.out.println("Course Choosen"+ this.course); 
+    //     return this.course; 
+    // }
+
+     /**
+    * chooseCourse method
+    * chooses course from list
+    * @param courseNames
+    * @return selectedCourse
+    */
+
+    public Course chooseCourse(Course chosenCourse){
+        Course.getAvailableCourse(Arraylist<Course> courses);
     }
+    public String chooseCourse(ArrayList<String> courseNames){
+        String selectedCourse = "Phrases";
+        return selectedCourse;
+    }
+
 
     public List<String> getCourse(){
         List<String> courseTitles = new ArrayList<>();
