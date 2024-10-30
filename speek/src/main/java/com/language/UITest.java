@@ -24,12 +24,15 @@ public class UITest {
     }
 
     public void logout(){
-        if(!facade.logout("jonedoe73")){
+        if(!facade.logout("johndoe73")){
             System.out.println("User couldnt log out");
             return;
         }
         User user = facade.getCurrentUser();
-        System.out.println(user.getFirstName() + " " + user.getLastName()+ "is now logged out");
+        if(user != null){
+         System.out.println(user.getFirstName() + " " + user.getLastName()+ "is now logged out");
+        }
+        
     }
 
     public static void main(String[] args){

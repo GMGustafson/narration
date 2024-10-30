@@ -49,7 +49,7 @@ public class UserList {
      */
     public User getUser(String username){
         for(User user : users){
-            if(user.getUsername().equals(username)){
+            if(user != null && user.getUsername() != null && user.getUsername().equals(username)){
                 return user;
             }
         }

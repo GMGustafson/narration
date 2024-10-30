@@ -17,6 +17,7 @@ public class CategorySystemFacade {
     private Phrase phrases;
     private Word words;
     private Progress progress;
+    private String language;
     private static CategorySystemFacade facade;
 
     /**
@@ -97,6 +98,12 @@ public class CategorySystemFacade {
 
     public User getCurrentUser() {
         return user;
+    }
+
+    public String chooseLanguage(String chosenLanguage){
+        this.language = chosenLanguage;
+        System.out.println("Language Chosen: " + this.language);
+        return this.language;
     }
 
     public List<String> getCourse(){
