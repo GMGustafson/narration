@@ -123,6 +123,7 @@ public class UserInterface{
      * tracks what the user has learned
      */
     public void progressLearning() {
+        facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
     }
 
