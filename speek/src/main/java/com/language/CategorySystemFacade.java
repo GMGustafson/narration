@@ -94,8 +94,6 @@ public class CategorySystemFacade {
         return false;
     }
 
-
-
     public User getCurrentUser() {
         return user;
     }

@@ -41,38 +41,8 @@ public class UserInterface{
         facade = CategorySystemFacade.getFacadeInstance();
         }
 
-    /**
-     * login method
-     * @param username The username
-     * @param password The password
-     * @return true (placeholder)
-     */
-    public boolean login(String username, String password) {
-        for (User user : userList) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                currentUser = user;
-                System.out.println("Login successful for: " + username);
-                return true;
-            }
-        }
-        System.out.println("Incorrect username or password!");
-        return false;
-    }
 
     public void printStoryNum() {
-    }
-    /**
-     * Logout method
-     * logs the user out
-     */
-    public void logout ()
-    { 
-        if (currentUser != null) {
-            System.out.println("User " + currentUser.getUsername() + " has been logged out.");
-            currentUser = null;
-          } else {
-              System.out.println("No user is currently logged in.");
-         }
     }
 
      /**
@@ -116,7 +86,6 @@ public class UserInterface{
         currentCategory = Category.NUMBERS;
         System.out.println("You have chosen the 'Numbers' category.");
     }
-    
 
        /**
      * progressLearning method 
@@ -126,8 +95,6 @@ public class UserInterface{
         facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
     }
-
-
 
     // Scenario 
     public void scenarioJim() {
@@ -147,7 +114,7 @@ public class UserInterface{
             chooseLangauage();
             chooseCourse();
             chooseCategory();
-            //chooseLearning();
+            
 
             Narriator.playSound("Lesson One: Numbers");
             System.out.println("Lets learn some numbers!");
