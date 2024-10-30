@@ -16,6 +16,7 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
+        chooseCourse();
         chooseCategory();
         logout();
 
@@ -66,10 +67,16 @@ public class UITest {
     //         System.out.println("User is now learing" + Course.getCourse()); 
     //     }
     // }
+    public void chooseCourse(){
+        if(facade.getCourse().isEmpty()){
+            System.out.println("Couldnt select course");
+        }
+        System.out.println("Youre learning " + Course.getAvailableCourse());
+    }
 
     public void chooseCategory(){
         if(facade.getCategory().isEmpty()){
-            System.out.println("Couldnt find category");
+            System.out.println("Couldnt select category");
         }
         System.out.println("youre learning " + Category.NUMBERS);
     }
