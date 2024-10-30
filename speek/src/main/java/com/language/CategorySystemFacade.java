@@ -2,7 +2,6 @@ package com.language;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
 /**
  * @author zaniah, sri, gracie, and grace
  */
@@ -66,6 +65,10 @@ public class CategorySystemFacade {
             return false;
         }
         return userList.addUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getUsername(), user.getPassword());
+    }
+
+    public boolean createAccount(String firstName, String lastName, String email, String username, String password) {
+        return UserList.getInstance().getUser(username) == null && UserList.getInstance().addUser(firstName, lastName, email, username, password);
     }
 
     /** 

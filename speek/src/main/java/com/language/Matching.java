@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Matching extends Question{
 
 
-    private static ArrayList<String> imageList;
+    private static ArrayList<String> translations;
     private static ArrayList<String> wordList;  
     
     public Matching(String question) {
@@ -17,8 +17,8 @@ public class Matching extends Question{
         //TODO Auto-generated constructor stub
             }
 
-    public static ArrayList<String> getImageList(){
-        return imageList;
+    public static ArrayList<String> getTranslations(){
+        return translations;
     }
 
     /**
@@ -32,16 +32,12 @@ public class Matching extends Question{
 
     }
 
-    /**
-     * setImageList method
-     * Sets imageList if it is not null
-     * @param imageList
-     */
-    public void setImageList(ArrayList<String> imageList) 
+    
+    public void setTranslations(ArrayList<String> translations) 
     {
         // check to avoid null-pointer exception
-        if(imageList != null){
-        this.imageList = imageList;
+        if(translations != null){
+        this.translations = translations;
         }
     }
 
