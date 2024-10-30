@@ -55,13 +55,14 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
-    // public void chooseCourse() 
-    // {
-    //     if (!facade.getCourse(currentCourse))
-    //     { 
-            
-    //     }
-    // }
+    public void chooseCourse() 
+    {
+        Course course = facade.getCourse(); 
+        if (course != null) 
+        { 
+            System.out.println("User is now learing" + Course.getCourse()); 
+        }
+    }
 
     
     // boolean isCorrectAnswer = true;
