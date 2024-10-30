@@ -82,6 +82,10 @@ public class CategorySystemFacade {
         return false; 
     }
 
+    public User getCurrentUser() {
+        return user;
+    }
+
     public List<String> getCourse(){
         List<String> courseTitles = new ArrayList<>();
         CourseList courseList = CourseList.getInstance();
