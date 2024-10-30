@@ -1,5 +1,5 @@
 package com.language.test;
 
-public class DataLoaderTest {
+public class DataLoaderTester {
     
 }
