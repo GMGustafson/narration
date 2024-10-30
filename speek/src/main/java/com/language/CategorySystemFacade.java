@@ -108,6 +108,12 @@ public class CategorySystemFacade {
         System.out.println("Language Chosen: " + this.language);
         return this.language;
     }
+    public Course chooseCourse(Course currentCourse) 
+    { 
+        this.course = currentCourse; 
+        System.out.println("Course Choosen"+ this.course); 
+        return this.course; 
+    }
 
     public List<String> getCourse(){
         List<String> courseTitles = new ArrayList<>();
