@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class UITest {
     private CategorySystemFacade facade;
-    private DataLoader dataloader;
+
 
     public UITest() {
 
@@ -16,6 +16,7 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
+        getCourse();
         logout();
 
     }
@@ -57,18 +58,24 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
-    public void chooseCourse() 
+    public void getCourse() 
     {
-        ArrayList<Course> course = dataloader.getCourse(); 
+        ArrayList<String> course = (ArrayList<String>) facade.getCourse();  
         if (course != null) 
         { 
-            System.out.println("User is now learing" + Course.getCourse()); 
+            System.out.println("User is now learing" + facade.getCourse()); 
         }
     }
 
+    
+    // boolean isCorrectAnswer = true;
     public void progressLearning() {
         facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
+
+        int totalQuestionsAnswered = 5;
+        int numCorrectAnswers = 4;
+        
     }
 
     

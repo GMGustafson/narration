@@ -264,7 +264,7 @@ public class CategorySystemFacade {
 
         System.out.println("Match the words correctly with the corresponding translations:");
         for (int i = 0; i < wordList.size(); i++) {
-            System.out.println("Word: " + wordList.get(i) + " - Translation: " + translations.get(i));
+            System.out.println("Word: " + wordList.get(i) + " - Translations: " + translations.get(i));
         }
 
     }
