@@ -82,10 +82,10 @@ public class UserInterface{
      * chooseCategory method
      * chooses category and informs the user
      */
-    // public void chooseCategory() {
-    //     currentCategory = Category.NUMBERS;
-    //     System.out.println("You have chosen the 'Numbers' category.");
-    // }
+    public void chooseCategory() {
+        currentCategory = Category.NUMBERS;
+        System.out.println("You have chosen the 'Numbers' category.");
+    }
 
        /**
      * progressLearning method 
