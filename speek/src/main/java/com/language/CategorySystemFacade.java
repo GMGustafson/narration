@@ -140,6 +140,22 @@ public class CategorySystemFacade {
         return categories;
     }
 
+    public void manageProgress(boolean isCorrectAnswer) {
+        if (isCorrectAnswer) {
+            progress.trackCorrectAnswer();
+        } else {
+            progress.trackQuestion();  // increments total questions even if incorrect
+        }
+        
+        // Track percent correct and potentially advance if over 80%
+        progress.trackPercentCorrect();
+
+        // Show current state to the user
+        System.out.println("Current category: " + progress.getCurrentCategory());
+        System.out.println("Progress in category: " + progress.getProgressInCategory());
+        System.out.println("Streak: " + progress.getStreak());
+    }
+    
     /**
      * getProgress method
      * @return the user progress
