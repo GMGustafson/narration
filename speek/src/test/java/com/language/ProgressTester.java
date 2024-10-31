@@ -36,4 +36,33 @@ public class ProgressTester {
         progress.resetCategoryProgress();
         assertTrue(progress.getMissedWords().isEmpty());
     }
+    @Test
+    public void trackPercentCorrectTest(){
+        progress.trackPercentCorrect();
+        progress.resetCategoryProgress();
+    }
+    @Test
+    //not too sure about this one
+    public void trackCorrectAnswerNullTest(){
+        progress.trackCorrectAnswer();
+        progress.resetCategoryProgress();
+        assertEquals("null", progress.trackPercentCorrect());
+    }
+    @Test
+    public void getProgressNullTest(){
+        progress.getProgress();
+        progress.resetCategoryProgress();
+        assertEquals("null", progress.getProgress());
+    }
+    @Test
+    public void getProgressOneTest(){
+        progress.getProgress();
+        progress.resetCategoryProgress();
+        assertEquals("1", progress.getProgress());
+    }
+    @Test
+    public void getProgressTest(){
+
+    }
+
 }
