@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class UserList {
     private static UserList userList;
-    private ArrayList<User> users;
+    private ArrayList<User> users = new ArrayList<>();
     private UUID id;
 
     /**
@@ -48,6 +48,10 @@ public class UserList {
      * @return user
      */
     public User getUser(String username){
+        if(users ==null ){
+            users = new ArrayList<>();
+        }
+        
         for(User user : users){
             if(user != null && user.getUsername() != null && user.getUsername().equals(username)){
                 return user;
