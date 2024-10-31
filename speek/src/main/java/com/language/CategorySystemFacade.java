@@ -124,12 +124,19 @@ public class CategorySystemFacade {
     * @return selectedCourse
     */
 
-    public Course chooseCourse(Course chosenCourse){
-        Course.getAvailableCourse(Arraylist<Course> courses);
-    }
-    public String chooseCourse(ArrayList<String> courseNames){
-        String selectedCourse = "Phrases";
-        return selectedCourse;
+    // public Course chooseCourse(Course chosenCourse){
+    //     Course.getAvailableCourse(Arraylist<Course> courses);
+    // }
+    // public String chooseCourse(ArrayList<String> courseNames){
+    //     String selectedCourse = "Phrases";
+    //     return selectedCourse;
+    // }
+
+    public void chooseCourse() {
+        if(facade.getCourse().isEmpty()) {
+            System.out.println("Couldn't find a course.");
+        }
+        System.out.println("Course: " + Course.);
     }
 
 

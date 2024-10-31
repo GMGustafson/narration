@@ -105,7 +105,7 @@ public class UserInterface{
         String password = "smithj1";
         createAccount("Jim", "Smith", "jimsmith@gmail.com", "643-917-1800", LocalDate.of(2005, 1, 1), "jimsmith44", "smithj1");
         //Jim logs out of the system.
-        facade.logout();
+        facade.logout(username);
         //Show the users.json -> illustrating that Jim is now in the file.
         //showUsers(); 
         // Now have Jim successfully login to the system
