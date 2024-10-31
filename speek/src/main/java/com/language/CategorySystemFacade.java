@@ -132,13 +132,13 @@ public class CategorySystemFacade {
     //     return selectedCourse;
     // }
 
-    public void chooseCourse() {
+    /*public void chooseCourse() {
         if(facade.getCourse().isEmpty()) {
             System.out.println("Couldn't find a course.");
         }
         System.out.println("Course: " + Course.);
     }
-
+    */
 
     public List<String> getCourse(){
         List<String> courseTitles = new ArrayList<>();

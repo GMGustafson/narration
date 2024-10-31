@@ -16,7 +16,7 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
-        chooseCourse();
+        //chooseCourse();
         chooseCategory();
         logout();
 
@@ -59,26 +59,28 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
-    // public void chooseCourse() 
-    // {
-    //     Course course = facade.getCourse(); 
-    //     if (course != null) 
-    //     { 
-    //         System.out.println("User is now learing" + Course.getCourse()); 
-    //     }
-    // }
-    public void chooseCourse(){
-        if(facade.getCourse().isEmpty()){
-            System.out.println("Couldnt select course");
-        }
-        System.out.println("Youre learning " + Course.getAvailableCourse());
-    }
+    //  public void chooseCourse() 
+    //  {
+    //      Course course = facade.getCourse(); 
+    //      if (course != null) 
+    //      { 
+    //          System.out.println("User is now learing" + Course.getCourse()); 
+    //      }
+    //  }
+
+
+     public void chooseCourse(){
+         if(facade.getCourse().isEmpty()){
+             System.out.println("Couldnt select course");
+         }
+         System.out.println("Youre learning " + Course.getCourse(course));
+     }
 
     public void chooseCategory(){
         if(facade.getCategory().isEmpty()){
             System.out.println("Couldnt select category");
         }
-        System.out.println("youre learning " + Category.NUMBERS);
+        System.out.println("You're learning " + Category.NUMBERS);
     }
 
     
