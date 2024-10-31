@@ -3,6 +3,7 @@ package com.language;
 import com.language.CategorySystemFacade;
 import com.language.User;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import org.junit.Test;
 public class ProgressTester {
     private Progress progress;
 
-    @BeforeEach
+    @Before
     public void setup(){
         progress = new Progress();
     }
