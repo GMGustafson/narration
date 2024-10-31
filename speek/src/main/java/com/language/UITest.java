@@ -25,7 +25,6 @@ public class UITest {
     public void login() {
         if(!facade.login("johndoe73", "IlovemyCat")){
             System.out.println("Couldn't login John");
-            return;
         }
         User user = facade.getCurrentUser();
         System.out.println(user.getFirstName() + " " + user.getLastName() + " is now logged in");
