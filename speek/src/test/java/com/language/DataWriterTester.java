@@ -45,14 +45,14 @@ public class DataWriterTester {
 
     @Test
     void testWritingOneUser() {
-        userList.add(new User( null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "2004-12-8", "ilovemyCat"));
+        userList.add(new User( null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "jdoe", "ilovemyCat"));
         DataWriter.saveUsers();
         assertEquals("jdoe", DataLoader.getUsers().get(0).getUsername());
    }
 
    @Test
    void testWritingUserProgress() {
-    User user = new User(null, "jdoe", "John", "Doe", "jdoe@gmail.com", null, "627-917-2739", null, null);
+    User user = new User(null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "2004-12-8", "ilovemyCat");
     Progress progress = new Progress(10, 7, "colors", 5, 2, new ArrayList<>(List.of("verde", "amarillo")));
     user.setProgress(progress);
     userList.add(user);
@@ -93,8 +93,8 @@ void testWritingNullUser() {
 
 @Test
 void testMultipleUsers() {
-    userList.add(new User(null, "jdoe", "John", "Doe", "jdoe@gmail.com", "", "627-917-2739", "ilovemycat"));
-    userList.add(new User(null, "jdoe", "John", "Doe", "jdoe@gmail.com", 2005-12-5, "627-917-2739", "ilovemycat"));
+    userList.add(new User(null, "John", "Doe", "jdoe@gmail.com", "803-144-1021", null, "jdoe", "ilovemycat"));
+    userList.add(new User(null, "Amy", "Smith", "asmith@gamil.com","803-456-9037", null, "jdoe", "ilovemycat"));
     
     DataWriter.saveUsers();
     
