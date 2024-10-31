@@ -44,7 +44,7 @@ public class DataWriter extends DataConstants {
         }
 
        try {
-       URI url = DataLoader.class.getResource(FILE_NAME_USER_INTERFACE).toURI();  
+       URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
        FileWriter writer = new FileWriter(url.getPath());
        
            writer.write(jsonUserList.toJSONString());
