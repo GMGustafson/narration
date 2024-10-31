@@ -1,15 +1,20 @@
 package com.language;
 
-import static org.junit.jupiter.api.Assertions.*;
+// import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.time.LocalDate;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.BeforeEach;
+// import org.junit.jupiter.api.AfterEach;
+//import org.junit.jupiter.api.Test;
 
 import com.language.DataLoader;
 import com.language.DataWriter;
@@ -40,14 +45,14 @@ public class DataWriterTester {
 
     @Test
     void testWritingOneUser() {
-        userList.add(new User( null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "2004-12-8", "ilovemyCat"));
+        userList.add(new User( null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "jdoe", "ilovemyCat"));
         DataWriter.saveUsers();
         assertEquals("jdoe", DataLoader.getUsers().get(0).getUsername());
    }
 
    @Test
    void testWritingUserProgress() {
-    User user = new User("jdoe", "John", "Doe", "jdoe@gmail.com", "627-917-2739");
+    User user = new User(null, "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "2004-12-8", "ilovemyCat");
     Progress progress = new Progress(10, 7, "colors", 5, 2, new ArrayList<>(List.of("verde", "amarillo")));
     user.setProgress(progress);
     userList.add(user);
@@ -71,36 +76,25 @@ public class DataWriterTester {
     assertEquals("numbers", loadedCourse.getCategories().get(0).getTitle());
 }
 
-@Test
-    void testWritingCourseWithCategories() {
-        Course course = new Course("Spanish", "8c24fea9-e192-457d-8ba3-db5828f62490");
-        Category category = new Category("numbers");
-        course.addCategory(category);
-        
-        DataWriter.saveCourse(course);
-        
-        Course loadedCourse = DataLoader.getCourses().get(0);
-        assertEquals("numbers", loadedCourse.getCategories().get(0).getTitle());
-    }
 
 @Test
 void testWritingEmptyUser() {
-    userList.add(new User("", "", "", "", ""));
+    userList.add(new User(null, "", "", "", "", null, "", null));
     DataWriter.saveUsers();
     assertEquals("", DataLoader.getUsers().get(0).getUsername());
 }
 
 @Test
 void testWritingNullUser() {
-    userList.add(new User(null, null, null, null, null));
+    userList.add(new User(null, null, null, null, null, null, null, null));
     DataWriter.saveUsers();
     assertNull(DataLoader.getUsers().get(0).getUsername());
 }
 
 @Test
 void testMultipleUsers() {
-    userList.add(new User("jdoe", "John", "Doe", "jdoe@gmail.com", "627-917-2739"));
-    userList.add(new User("asmith", "Alice", "Smith", "asmith@gmail.com", "803-454-3344"));
+    userList.add(new User(null, "John", "Doe", "jdoe@gmail.com", "803-144-1021", null, "jdoe", "ilovemycat"));
+    userList.add(new User(null, "Amy", "Smith", "asmith@gamil.com","803-456-9037", null, "jdoe", "ilovemycat"));
     
     DataWriter.saveUsers();
     
