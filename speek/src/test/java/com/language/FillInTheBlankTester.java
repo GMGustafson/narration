@@ -15,8 +15,10 @@ public class FillInTheBlankTester {
 
     @Before
     public void setup(){
-        private FillInTheBlank = new fillInBlank;
-
+         fillInBlank = new FillInTheBlank(null, null, null, null);
     }
+
+    @Test
+    public void 
 
 }
