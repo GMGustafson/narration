@@ -1,4 +1,4 @@
-package com.language.test;
+package com.language;
 
 public class DataWriterTester {
     

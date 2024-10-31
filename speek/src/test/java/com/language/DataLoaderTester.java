@@ -1,4 +1,4 @@
-package com.language.test;
+package com.language;
 
 import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
