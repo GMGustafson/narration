@@ -153,7 +153,7 @@ public class Course {
      * gets available courses
      * @return courses
      */
-    public ArrayList<String> getAvailableCourse() {
+    public static ArrayList<String> getAvailableCourse() {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("Phrases");
         courses.add("Words");
