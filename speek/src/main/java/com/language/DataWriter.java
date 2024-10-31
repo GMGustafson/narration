@@ -50,12 +50,9 @@ public class DataWriter extends DataConstants {
            writer.write(jsonUserList.toJSONString());
            writer.flush();
     }
-           catch (IOException e) {
+           catch (IOException |URISyntaxException e) {
            e.printStackTrace();
-       } catch (URISyntaxException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+       } 
        
     }
   
@@ -118,11 +115,13 @@ public class DataWriter extends DataConstants {
             userDetails.put("password", user.getPassword());
             userList.add(userDetails);
         }
-
-        try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
-            file.write(userList.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+        try {
+            URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
+            FileWriter writer = new FileWriter(url.getPath());
+            
+                writer.write(userList.toJSONString());;
+                writer.flush();
+         }catch (IOException | URISyntaxException e) {
             e.printStackTrace();
         }
    }
@@ -144,10 +143,13 @@ public class DataWriter extends DataConstants {
        }
        progressDetails.put(MISSED_WORDS, missedWordsArray);
 
-       try (FileWriter file = new FileWriter(PROGRESS)) {
-           file.write(progressDetails.toJSONString());
-           file.flush();
-       } catch (IOException e) {
+       try {
+        URI url = DataLoader.class.getResource(PROGRESS).toURI();  
+        FileWriter writer = new FileWriter(url.getPath());
+        
+            writer.write(progressDetails.toJSONString());
+            writer.flush();
+     }catch (IOException | URISyntaxException e) {
            e.printStackTrace();
        }
    }
