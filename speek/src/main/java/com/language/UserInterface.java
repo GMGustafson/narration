@@ -92,6 +92,7 @@ public class UserInterface{
      * tracks what the user has learned
      */
     public void progressLearning() {
+        boolean isCorrectAnswer = true;
         facade.manageProgress(isCorrectAnswer);
         System.out.print("Tracking the progress of what the user has learned.");
     }
