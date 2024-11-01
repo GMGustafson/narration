@@ -72,7 +72,7 @@ public class DataWriterTester {
     
     DataWriter.saveCourse(course);
     
-    Course loadedCourse = DataLoader.getCourses().get(0);
+    HashMap<Course,Progress> loadedCourse = DataLoader.getCourses().get(0);
     assertEquals("numbers", loadedCourse.getCategories().get(0).getTitle());
 }
 
