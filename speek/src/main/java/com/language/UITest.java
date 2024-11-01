@@ -25,10 +25,7 @@ public class UITest {
     public void login() {
         if(!facade.login("johndoe73", "IlovemyCat")){
             System.out.println("Couldn't login John");
-<<<<<<< HEAD
-=======
             
->>>>>>> 95ad6f3fc9f4702c9ba9f587e0fc570251888195
         }
         User user = facade.getCurrentUser();
         System.out.println(user.getFirstName() + " " + user.getLastName() + " is now logged in");
@@ -76,7 +73,7 @@ public class UITest {
          if(facade.getCourse().isEmpty()){
              System.out.println("Couldnt select course");
          }
-         System.out.println("Youre learning " + Course.getCourse(course));
+         System.out.println("Youre learning " + Course.getCourse());
      }
 
     public void chooseCategory(){
