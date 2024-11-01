@@ -1,6 +1,9 @@
 package com.language;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -15,6 +18,12 @@ import com.language.UserList;
 public class DataLoaderTester {
    // private UserList users = UserList.getInstance(); 
    // private ArrayList<User> userList = users.getUsers(); 
+
+   @Test 
+   public void testTesting()
+   { 
+        assertTrue(true);
+   }
 
     @Before
     public void setup() { 
@@ -115,16 +124,17 @@ public class DataLoaderTester {
     // how to get the courses
 
     @Test
-    public void testGetFirstCourses() {
+    public void testGetCourseID() {
         CourseList courses = CourseList.getInstance(); 
         //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
         //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
-        ArrayList<Course> courseList = courseList.getCourse();
+        ArrayList<Course> courseList = DataLoader.getCourse();
         courseList = DataLoader.getCourse();
-        (courseList.get(0).getCourse());
+        assertEquals("8c24fea9-e192-457d-8ba3-db5828f62490", courseList.get(0));
     }
 
 
+    
     
 
 

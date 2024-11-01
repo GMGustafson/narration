@@ -44,13 +44,19 @@ public class DataWriter extends DataConstants {
         }
 
        try {
-       URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
-       FileWriter writer = new FileWriter(url.getPath());
-       
-           writer.write(jsonUserList.toJSONString());
-           writer.flush();
+
+        String path = getFileWritingPath(FILE_NAME_USER, FILE_NAME_USER_JUNIT );
+			FileWriter writer = new FileWriter(path);
+			
+			writer.write(jsonUserList.toJSONString());
+			writer.flush();
+
+            //URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
+            //FileWriter writer = new FileWriter(url.getPath());
+            //writer.write(jsonUserList.toJSONString());
+            //writer.flush();
     }
-           catch (IOException |URISyntaxException e) {
+           catch (IOException e) {
            e.printStackTrace();
        } 
        
@@ -153,4 +159,19 @@ public class DataWriter extends DataConstants {
            e.printStackTrace();
        }
    }
+
+
+   private static String getFileWritingPath(String PATH_NAME, String JUNIT_PATH_NAME) {
+    try {
+        if(isJUnitTest()){
+            URI url = DataLoader.class.getResource(JUNIT_PATH_NAME).toURI();
+            return url.getPath();
+        } else {
+            return PATH_NAME;
+        }
+    } catch(Exception e){
+        System.out.println("Difficulty getting resource path");
+        return "";
+    }
+}
 }
