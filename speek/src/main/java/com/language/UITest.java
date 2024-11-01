@@ -16,7 +16,7 @@ public class UITest {
         createAccount();
         login();
         chooseLangauage();
-        //chooseCourse();
+        chooseCourse();
         chooseCategory();
         logout();
 
@@ -73,7 +73,7 @@ public class UITest {
          if(facade.getCourse().isEmpty()){
              System.out.println("Couldnt select course");
          }
-         System.out.println("Youre learning " + Course.getCourse());
+         System.out.println("Youre learning " + facade.getCourse());
      }
 
     public void chooseCategory(){

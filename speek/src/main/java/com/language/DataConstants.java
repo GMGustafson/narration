@@ -12,10 +12,10 @@ public abstract class DataConstants {
     //JSON FILES
     //protected static final String FILE_NAME_USER_INTERFACE = "user.json";
     
-    protected static final String FILE_NAME_COURSES = "src/main/resources/json/Course.json";
+    protected static final String FILE_NAME_COURSES = "speek/src/main/json/Course.json";
     protected static final String FILE_NAME_COURSE_JUNIT = "/json/Course.json";
     
-    protected static final String FILE_NAME_USER = "src/main/resources/json/User.json";
+    protected static final String FILE_NAME_USER = "speek/src/main/json/User.json";
     protected static final String FILE_NAME_USER_JUNIT = "/json/User.json";
     
     //USER JSON 

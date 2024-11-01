@@ -273,7 +273,7 @@ public class Progress {
      */
     public void saveProgress() {
        // boolean savedProgress = DataWriter.saveProgress(this);
-       DataWriter.saveProgress(this);
+       //DataWriter.saveProgress(this);
         
     }  
 }

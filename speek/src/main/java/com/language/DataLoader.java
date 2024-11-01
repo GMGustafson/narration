@@ -213,10 +213,10 @@ public static Story getStory(JSONObject storyJSON) {
 
 }
 
-private static BufferedReader getReaderFromFile(String fileName, String jsonFileName){
+private static BufferedReader getReaderFromFile(String fileName, String junitFileName){
 		try {
 			if(isJUnitTest()){
-				InputStream inputStream = DataLoader.class.getResourceAsStream(jsonFileName);
+				InputStream inputStream = DataLoader.class.getResourceAsStream(junitFileName);
 				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 				return new BufferedReader(inputStreamReader);
 			} else {
