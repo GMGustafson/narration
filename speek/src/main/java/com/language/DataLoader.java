@@ -1,6 +1,7 @@
 package com.language;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -28,10 +29,11 @@ public class DataLoader extends DataConstants{
      */
     public static ArrayList<User> getUsers() {
         ArrayList<User> userList = new ArrayList<User>();
+        BufferedReader reader = getReaderFromFile(FILE_NAME_USER, FILE_NAME_USER_JUNIT );
     try {
-        InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_USER); 
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
-        BufferedReader reader = new BufferedReader(inputStreamReader); 
+        //InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_USER); 
+        //InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
+        //BufferedReader reader = new BufferedReader(inputStreamReader); 
         JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
@@ -91,10 +93,12 @@ public class DataLoader extends DataConstants{
      */
 public static ArrayList<Course> getCourse() {
     ArrayList<Course> courseList = new ArrayList<Course>();
+    BufferedReader reader = getReaderFromFile(FILE_NAME_COURSES, FILE_NAME_COURSE_JUNIT );
+    
     try {
-        InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_COURSES); 
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
-        BufferedReader reader = new BufferedReader(inputStreamReader); 
+        //InputStream inputStream = DataLoader.class.getResourceAsStream(FILE_NAME_COURSES); 
+        //InputStreamReader inputStreamReader = new InputStreamReader(inputStream); 
+        //BufferedReader reader = new BufferedReader(inputStreamReader); 
         JSONArray CoursesJSON = (JSONArray)new JSONParser().parse(reader);
 
         for (int i=0; i < CoursesJSON.size(); i++) {
@@ -207,6 +211,22 @@ public static Story getStory(JSONObject storyJSON) {
     Story newStory = new Story(title,textList,textTranslations,category);
     return newStory;
 
+}
+
+private static BufferedReader getReaderFromFile(String fileName, String junitFileName){
+		try {
+			if(isJUnitTest()){
+				InputStream inputStream = DataLoader.class.getResourceAsStream(junitFileName);
+				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+				return new BufferedReader(inputStreamReader);
+			} else {
+				FileReader reader = new FileReader(fileName);
+				return new BufferedReader(reader);
+			}
+		} catch(Exception e){
+			System.out.println("Can't load");
+			return null;
+		}
 }
 
 

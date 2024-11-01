@@ -13,55 +13,55 @@ public class Course {
      * attributes to match courses.json
      */
     private UUID courseID;
-    private String course;
-    private HashMap<String, ArrayList<Phrase>> phrases = new HashMap<>();
-    private HashMap<String, ArrayList<Word>> words = new HashMap<>();
-    private String category;
-    private HashMap<String, Story> stories;
-
-    /**
-     * Course constructor
-     * @param courseID
-     * @param course
-     * @param phrases
-     * @param words
-     * @param category
-     * @param stories 
-     */
-    public Course(UUID courseID, String course, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
-        this.courseID = courseID;
-        this.course = course;
-        this.phrases = phrases;
-        this.category = category;
-        this.words = words;
-        this.stories = stories;
-    }
-
-    /**
-     * getCourseID method
-     * gets courseID
-     * @return courseID
-     */
-    public UUID getCourseID(){
-        return courseID;
-    }
-
-    /**
-    * setCourseID method
-    * sets courseID
-    * @param courseID
-    */
-    public void setCourseID(UUID courseID){
-        this.courseID = courseID;
-    }
-
-    /**
-     * getCourse method
-     * gets course
-     * @return course
-     */
-    public String getCourse(){
-        return course;
+    private  String course;
+        private HashMap<String, ArrayList<Phrase>> phrases = new HashMap<>();
+        private HashMap<String, ArrayList<Word>> words = new HashMap<>();
+        private String category;
+        private HashMap<String, Story> stories;
+    
+        /**
+         * Course constructor
+         * @param courseID
+         * @param course
+         * @param phrases
+         * @param words
+         * @param category
+         * @param stories 
+         */
+        public Course(UUID courseID, String course, HashMap<String, ArrayList<Phrase>> phrases,  HashMap<String, ArrayList<Word>>words, String category, HashMap<String, Story> stories ){
+            this.courseID = courseID;
+            this.course = course;
+            this.phrases = phrases;
+            this.category = category;
+            this.words = words;
+            this.stories = stories;
+        }
+    
+        /**
+         * getCourseID method
+         * gets courseID
+         * @return courseID
+         */
+        public UUID getCourseID(){
+            return courseID;
+        }
+    
+        /**
+        * setCourseID method
+        * sets courseID
+        * @param courseID
+        */
+        public void setCourseID(UUID courseID){
+            this.courseID = courseID;
+        }
+    
+        /**
+         * getCourse method
+         * gets course
+         * @return course
+         */
+        public String getCourse(){
+            return course;
     }
 
     /**

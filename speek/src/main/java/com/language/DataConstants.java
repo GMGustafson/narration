@@ -10,9 +10,13 @@ package com.language;
 public abstract class DataConstants {
  
     //JSON FILES
-    protected static final String FILE_NAME_USER_INTERFACE = "user.json";
-    protected static final String FILE_NAME_COURSES = "/json/Course.json";
-    protected static final String FILE_NAME_USER = "/json/User.json";
+    //protected static final String FILE_NAME_USER_INTERFACE = "user.json";
+    
+    protected static final String FILE_NAME_COURSES = "speek/src/main/json/Course.json";
+    protected static final String FILE_NAME_COURSE_JUNIT = "/json/Course.json";
+    
+    protected static final String FILE_NAME_USER = "speek/src/main/json/User.json";
+    protected static final String FILE_NAME_USER_JUNIT = "/json/User.json";
     
     //USER JSON 
     protected static final String USER_ID = "userID";
@@ -67,4 +71,14 @@ public abstract class DataConstants {
     protected static final String TEXT = "text"; 
     protected static final String STORY_TRANSLATION = "storyTranslation"; 
     protected static final String STORY_CATEGORY = "category";
+
+
+    public static boolean isJUnitTest() {  
+		for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+		  if (element.getClassName().startsWith("org.junit.")) {
+			return true;
+		  }           
+		}
+		return false;
+	  }
 }

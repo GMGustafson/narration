@@ -1,6 +1,9 @@
 package com.language;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
 import java.util.ArrayList;
 
 import org.junit.After;
@@ -16,26 +19,18 @@ public class DataLoaderTester {
    // private UserList users = UserList.getInstance(); 
    // private ArrayList<User> userList = users.getUsers(); 
 
-    @Before
-    public void setup() { 
-      //  userList.clear(); 
-      //  users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-      //  users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
-      //  DataWriter.saveUsers();
-    }
+   @Test 
+   public void testTesting()
+   { 
+        assertTrue(true);
+   }
 
-    @After
-    public void tearDown() {
-      //  users.getUsers().clear();
-      //  DataWriter.saveUsers();
-    }
 
     @Test
     public void testGetUsersSize() {
       UserList users = UserList.getInstance(); 
-     // users.getUsers().clear(); 
-      //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-      //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+      users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+      users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
       ArrayList<User> userList = DataLoader.getUsers();
       assertEquals(2, userList.size());
     }
@@ -53,9 +48,9 @@ public class DataLoaderTester {
     @Test
     public void testGetFirstUserName() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
-        ArrayList<User> userList = users.getUsers();
+        users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+       ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
         assertEquals("johndoe73", userList.get(0).getUsername());
     }
@@ -63,9 +58,9 @@ public class DataLoaderTester {
     @Test
     public void testGetSecondUserName() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
-        ArrayList<User> userList = users.getUsers();
+        users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+       ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
         assertEquals("janesmith10", userList.get(1).getUsername());
     }
@@ -73,8 +68,8 @@ public class DataLoaderTester {
     @Test
     public void testGetFirstFirstName() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+        users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
         ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
         assertEquals("John", userList.get(0).getFirstName());
@@ -83,8 +78,8 @@ public class DataLoaderTester {
     @Test
     public void testGetSecondFirstName() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+        users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
         ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
         assertEquals("Jane", userList.get(1).getFirstName());
@@ -93,38 +88,38 @@ public class DataLoaderTester {
     @Test
     public void testGetFirstEmail() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+        users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
         ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
-        assertEquals("johndoe@gmail.com", userList.get(0));
+        assertEquals("johndoe@gmail.com", userList.get(0).getEmail());
     }
     @Test
     public void testGetSecondEmail() {
         UserList users = UserList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
+       users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
+        users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
         ArrayList<User> userList = users.getUsers();
         userList = DataLoader.getUsers();
-        assertEquals("jsmith@gmail.com", userList.get(1));
+        assertEquals("jsmith@gmail.com", userList.get(1).getEmail());
     }
 
+    // false emails 
 
 
 
     // how to get the courses
 
     @Test
-    public void testGetFirstCourses() {
+    public void testGetCourseID() {
         CourseList courses = CourseList.getInstance(); 
-        //users.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat"); 
-        //users.addUser("Jane", "Smith", "jsmith@gmail.com", "janesmith10", "IlovemyCat");
-        ArrayList<Course> courseList = courseList.getCourse();
+        ArrayList<Course> courseList = DataLoader.getCourse();
         courseList = DataLoader.getCourse();
-        (courseList.get(0).getCourse());
+        assertEquals("8c24fea9-e192-457d-8ba3-db5828f62490", courseList.get(0).getCourseID().toString());
     }
 
 
+    
     
 
 
