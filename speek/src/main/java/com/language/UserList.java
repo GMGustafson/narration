@@ -175,7 +175,7 @@ public class UserList {
      * @param name users first/last name
      * @return valid first/last name
      */
-    private boolean validName(String name) {
+    public boolean validName(String name) {
         return name != null && !name.trim().isEmpty();
     }
 

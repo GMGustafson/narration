@@ -146,5 +146,35 @@ public class UserListTester {
         assertEquals("IlovemyCat", user.getPassword());
     }
 
-    
+    @Test
+    public void testSaveZeroUsers(){
+        userlist.saveUsers();
+        assertEquals(null, DataLoader.getUsers());
+    }
+
+    @Test
+    public void testSaveUser(){
+        userlist.editUser(user, "John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat");
+        userlist.saveUsers();
+        ArrayList<User> saved = DataLoader.getUsers();
+        assertEquals("johndoe73", saved.get(0).getUsername());
+    }
+
+    @Test
+    public void testValidFirstName(){
+        boolean valName = userlist.validName("John");
+        assertEquals(true, valName);
+    }
+
+    @Test
+    public void testValidName(){
+        boolean valName = userlist.validName("John Doe");
+        assertEquals(true, valName);
+    }
+
+    @Test
+    public void testEmptyName(){
+        boolean invalName = userlist.validName("");
+        assertEquals(false, invalName);
+    }
 }
