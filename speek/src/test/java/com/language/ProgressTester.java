@@ -135,6 +135,13 @@ public class ProgressTester {
         progress.trackCorrectAnswer();
         assertEquals(1, progress.getNumCorrectAnswers());
     }
+    @Test
+    public void trackCorrectAnswerMultipleTest() {
+        progress.trackCorrectAnswer();
+        progress.trackCorrectAnswer();
+        progress.trackCorrectAnswer();
+        assertEquals(3, progress.getNumCorrectAnswers());
+    }
 
     // trackPercentCorrect 
 
@@ -147,6 +154,13 @@ public class ProgressTester {
         progress.setTotalQuestionsAnswered(10);
         progress.trackPercentCorrect();
         assertEquals(6, progress.getNumCorrectAnswers());
+    }
+    @Test
+    public void trackPercentCorrectZeroScoreTest() {
+        progress.setNumCorrectAnswers(0);
+        progress.setTotalQuestionsAnswered(10);
+        progress.trackPercentCorrect();
+        assertEquals(0, progress.getNumCorrectAnswers());
     }
 
     /**

@@ -61,21 +61,6 @@ public class UITest {
         facade.chooseLanguage("Spanish");
     }
 
-<<<<<<< HEAD
-    //  public void chooseCourse() 
-    //  {
-    //      Course course = facade.getCourse(); 
-    //      if (course != null) 
-    //      { 
-    //          System.out.println("User is now learing" + Course.getCourse()); 
-    //      }
-    //  }
-     public void chooseCourse(){
-         if(facade.getCourse().isEmpty()){
-             System.out.println("Couldnt select course");
-         }
-         System.out.println("Youre learning " + Course.getAvailableCourse());
-=======
      public void chooseCourse() 
      {
          List<String> courses = facade.getCourse(); 
@@ -85,7 +70,6 @@ public class UITest {
              return;
          }
         System.out.println("Courses: " + facade.getCourse());
->>>>>>> 0891081736ff304f3100b14e5faab060334f5059
      }
 
 
