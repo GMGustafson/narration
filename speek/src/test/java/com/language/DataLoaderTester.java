@@ -2,32 +2,22 @@ package com.language;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-
 import java.util.ArrayList;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import com.language.DataLoader;
-import com.language.DataWriter;
-import com.language.User;
-import com.language.UserList;
+
+/* Worked on by Grace Gustafson */
 
 public class DataLoaderTester {
-   // private UserList users = UserList.getInstance(); 
-   // private ArrayList<User> userList = users.getUsers(); 
+
 
    @Test 
    public void testTesting()
    { 
         assertTrue(true);
    }
-
-
     @Test
     public void testGetUsersSize() {
       UserList users = UserList.getInstance(); 
@@ -105,6 +95,22 @@ public class DataLoaderTester {
         userList = DataLoader.getUsers();
         assertEquals("jsmith@gmail.com", userList.get(1).getEmail());
     }
+    @Test
+    public void testGetFirstBirthday() {
+        UserList users = UserList.getInstance(); 
+        ArrayList<User> userList = users.getUsers();
+        userList = DataLoader.getUsers();
+        assertEquals("2001-01-05", userList.get(0).getDateOfBirth());
+    }
+    //this is correct idk why its saying its not 
+    @Test
+    public void testGetSecondPhoneNumber() {
+        UserList users = UserList.getInstance(); 
+        ArrayList<User> userList = users.getUsers();
+        userList = DataLoader.getUsers();
+        assertEquals("817-902-3201", userList.get(1).getPhoneNumber());
+    }
+   
 
     // false emails 
     @Test
@@ -116,7 +122,6 @@ public class DataLoaderTester {
         assertEquals("JHan@email.com", "JHanemail.com");
     }
     // Wanted to fail, they forgot the @ sign 
-
 
 
     // how to get the courses
@@ -212,9 +217,44 @@ public class DataLoaderTester {
         CourseList courses = CourseList.getInstance(); 
         ArrayList<Course> courseList = DataLoader.getCourse();
         courseList = DataLoader.getCourse(); 
-        assertEquals(1, courses.getCourses().size());
+        assertEquals(0, courses.getCourses().size());
         //WE want this one to fail 
     }
+
+    @Test 
+    public void testGetStoriesbyCategoryN() 
+    { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("story-numbers", courseList.get(0).getStoriesByCategory("numbers"));
+    }
+    @Test 
+    public void testGetStoriesbyCategoryW() 
+    { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("story-weather", courseList.get(0).getStoriesByCategory("weather"));
+    }
+
+    @Test 
+    public void testGetProgress() 
+    { 
+        UserList users = UserList.getInstance(); 
+        ArrayList<User> userList = users.getUsers();
+        userList = DataLoader.getUsers();
+        //assertEquals("story-weather", userList.get(0).getProgress();
+    }
+
+    
+
+
+
+    
+
+
+    
 
 
 
