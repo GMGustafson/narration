@@ -2,6 +2,7 @@ package com.language;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UITest {
     private CategorySystemFacade facade;
@@ -15,9 +16,10 @@ public class UITest {
         facade = CategorySystemFacade.getFacadeInstance();
         createAccount();
         login();
-        chooseLangauage();
-        //chooseCourse();
+        chooseLanguage();
+        chooseCourse();
         chooseCategory();
+        progressLearning();
         logout();
 
     }
@@ -55,10 +57,11 @@ public class UITest {
         
     }
 
-    public void chooseLangauage(){
+    public void chooseLanguage(){
         facade.chooseLanguage("Spanish");
     }
 
+<<<<<<< HEAD
     //  public void chooseCourse() 
     //  {
     //      Course course = facade.getCourse(); 
@@ -72,25 +75,57 @@ public class UITest {
              System.out.println("Couldnt select course");
          }
          System.out.println("Youre learning " + Course.getAvailableCourse());
+=======
+     public void chooseCourse() 
+     {
+         List<String> courses = facade.getCourse(); 
+         if (courses.isEmpty()) 
+         { 
+             System.out.println("No courses available"); 
+             return;
+         }
+        System.out.println("Courses: " + facade.getCourse());
+>>>>>>> 0891081736ff304f3100b14e5faab060334f5059
      }
+
+
+    //  public void chooseCourse(){
+    //      if(facade.getCourse().isEmpty()){
+    //          System.out.println("Couldnt select course");
+    //      }
+    //      System.out.println("Youre learning " + Course.getCourse(course));
+    //  }
 
     public void chooseCategory(){
         if(facade.getCategory().isEmpty()){
             System.out.println("Couldnt select category");
         }
-        System.out.println("You're learning " + Category.NUMBERS);
+        System.out.println("Category: " + Category.NUMBERS);
     }
 
     
-    // boolean isCorrectAnswer = true;
-    // public void progressLearning() {
-    //     facade.manageProgress(isCorrectAnswer);
-    //     System.out.print("Tracking the progress of what the user has learned.");
+    boolean isCorrectAnswer = true;
+    public void progressLearning() {
+        // facade.manageProgress(isCorrectAnswer);
+        // System.out.print("Tracking the progress of what the user has learned.");
+        // //return;
 
-    //     int totalQuestionsAnswered = 5;
-    //     int numCorrectAnswers = 4;
+        // int totalQuestionsAnswered = 5;
+        // int numCorrectAnswers = 4;
         
-    // }
+        if (facade.getProgress() == null) {
+            Progress progress = new Progress(0, 0, "NUMBERS", 0, 0, new ArrayList<>());
+            facade.setProgress(progress);
+        }
+        Progress progress = facade.getProgress();
+        
+        System.out.println("Total Questions Answered: " + progress.getTotalQuestionsAnswered());
+        System.out.println("Number of Correct Answers: " + progress.getNumCorrectAnswers());
+        System.out.println("Current Category: " + progress.getCurrentCategory());
+        System.out.println("Progress in Category: " + progress.getProgressInCategory());
+        System.out.println("Streak: " + progress.getStreak());
+        System.out.println("Missed Words: " + progress.getMissedWords());        
+    }
 
     
 

@@ -146,4 +146,5 @@ public class UserListTester {
         assertEquals("IlovemyCat", user.getPassword());
     }
 
+    
 }

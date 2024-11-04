@@ -167,6 +167,9 @@ public class CategorySystemFacade {
         }
         return this.progress;
     }
+    public void setProgress(Progress progress){
+        this.progress = progress;
+    }
 
     /**
      * getPhrase method

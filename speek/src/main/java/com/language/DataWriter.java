@@ -44,18 +44,21 @@ public class DataWriter extends DataConstants {
         }
 
        try {
-       URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
-       FileWriter writer = new FileWriter(url.getPath());
-       
-           writer.write(jsonUserList.toJSONString());
-           writer.flush();
+
+        String path = getFileWritingPath(FILE_NAME_USER, FILE_NAME_USER_JUNIT );
+			FileWriter writer = new FileWriter(path);
+			
+			writer.write(jsonUserList.toJSONString());
+			writer.flush();
+
+            //URI url = DataLoader.class.getResource(FILE_NAME_USER).toURI();  
+            //FileWriter writer = new FileWriter(url.getPath());
+            //writer.write(jsonUserList.toJSONString());
+            //writer.flush();
     }
            catch (IOException e) {
            e.printStackTrace();
-       } catch (URISyntaxException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+       } 
        
     }
   
@@ -118,15 +121,18 @@ public class DataWriter extends DataConstants {
             userDetails.put("password", user.getPassword());
             userList.add(userDetails);
         }
-
-        try (FileWriter file = new FileWriter(FILE_NAME_USER_INTERFACE)) {
-            file.write(userList.toJSONString());
-            file.flush();
-        } catch (IOException e) {
+        try {
+            String path = getFileWritingPath(FILE_NAME_USER, FILE_NAME_USER_JUNIT );
+			FileWriter writer = new FileWriter(path);
+            
+                writer.write(userList.toJSONString());;
+                writer.flush();
+         }catch (Exception e) {
             e.printStackTrace();
         }
    }
 
+   /* 
    @SuppressWarnings("unchecked")
    public static void saveProgress(Progress progress) {
        JSONObject progressDetails = new JSONObject();
@@ -144,11 +150,29 @@ public class DataWriter extends DataConstants {
        }
        progressDetails.put(MISSED_WORDS, missedWordsArray);
 
-       try (FileWriter file = new FileWriter(PROGRESS)) {
-           file.write(progressDetails.toJSONString());
-           file.flush();
-       } catch (IOException e) {
+       try {
+        String path = getFileWritingPath(FILE_NAME_PROGRESS, FILE_NAME_PROGR_JUNIT );
+			FileWriter writer = new FileWriter(path);
+        
+            writer.write(progressDetails.toJSONString());
+            writer.flush();
+     }catch (IOException | URISyntaxException e) {
            e.printStackTrace();
        }
-   }
+   }*/
+
+
+   private static String getFileWritingPath(String pathName, String junitPathName) {
+    try {
+        if(isJUnitTest()){
+            URI url = DataLoader.class.getResource(junitPathName).toURI();
+            return url.getPath();
+        } else {
+            return pathName;
+        }
+    } catch(Exception e){
+        System.out.println("Difficulty getting resource path");
+        return "";
+    }
+}
 }
