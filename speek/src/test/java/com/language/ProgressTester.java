@@ -45,7 +45,7 @@ public class ProgressTester {
      */
     @Test
     public void resetCategoryMissedWordsTest() {
-        progress.addMissedWords("apple");
+        progress.addMissedWords("dos");
         progress.resetCategoryProgress();
         assertTrue(progress.getMissedWords().isEmpty());
     }
@@ -109,6 +109,11 @@ public class ProgressTester {
         assertEquals(3, progress.getMissedWords().size());
     }
 
+    @Test
+    public void addEmptyMissedWordsTest() {
+        progress.addMissedWords("");
+        assertTrue(progress.getMissedWords().isEmpty());
+    }
     //trackQuestion 
 
     /**
