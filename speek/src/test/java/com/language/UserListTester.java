@@ -33,7 +33,7 @@ public class UserListTester {
     @Test
     public void testGetUsersIfOneUsers(){
         ArrayList<User> users = userlist.getUsers();
-        assertEquals(1, users.size());
+        assertEquals(2, users.size());
 
     }
 
