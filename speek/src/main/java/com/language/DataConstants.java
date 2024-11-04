@@ -28,7 +28,7 @@ public abstract class DataConstants {
     protected static final String USER_USERNAME = "username";
     protected static final String USER_PASSWORD = "password";
     protected static final String USER_COURSES = "courses"; 
-    protected static final String CURRENT_CATEGORY_TITLE = "category";
+    protected static final String CURRENT_CATEGORY_TITLE = "title";
 
     //COURSES - USER JSON 
     protected static final String COURSES = "courses";

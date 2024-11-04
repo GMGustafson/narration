@@ -3,6 +3,8 @@ package com.language;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 
@@ -105,6 +107,15 @@ public class DataLoaderTester {
     }
 
     // false emails 
+    @Test
+    public void TestFalseEmails() {
+        UserList users = UserList.getInstance(); 
+        users.addUser("Jen", "Han", "JHanemail.com", "jhan43", "IlovemyDog"); 
+        ArrayList<User> userList = users.getUsers();
+        userList = DataLoader.getUsers();
+        assertEquals("JHan@email.com", "JHanemail.com");
+    }
+    // Wanted to fail, they forgot the @ sign 
 
 
 
@@ -117,6 +128,101 @@ public class DataLoaderTester {
         courseList = DataLoader.getCourse();
         assertEquals("8c24fea9-e192-457d-8ba3-db5828f62490", courseList.get(0).getCourseID().toString());
     }
+
+    @Test
+    public void TestGetCourseName() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse();
+        assertEquals("Spanish", courseList.get(0).getCourse()); 
+    }
+    @Test
+    public void TestGetWordsByCategoryN() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("numbers", courseList.get(0).getWordsByCategory("numbers"));
+        assertNotNull(courseList.get(0).getWordsByCategory("numbers")); 
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+    @Test
+    public void TestGetWordsByCategoryP() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("places", courseList.get(0).getWordsByCategory("places")); 
+        assertNotNull(courseList.get(0).getWordsByCategory("places")); 
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+
+    @Test
+    public void TestGetWordsByCategoryW() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("weather", courseList.get(0).getWordsByCategory("weather")); 
+        assertNotNull(courseList.get(0).getWordsByCategory("weather")); 
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+
+    @Test
+    public void TestGetWordsByCategoryPe() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("people", courseList.get(0).getWordsByCategory("people")); 
+        assertNotNull(courseList.get(0).getWordsByCategory("people")); 
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+
+    @Test
+    public void TestGetWordsByCategoryC() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("colors", courseList.get(0).getWordsByCategory("colors")); 
+        assertNull(courseList.get(0).getWordsByCategory("colors")); 
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+    
+    @Test
+    public void TestGetPhrasesByCategoryC() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("colors", courseList.get(0).getPhrasesByCategory("colors")); 
+        assertNull(courseList.get(0).getPhrasesByCategory("colors")); 
+        //assertTrue(courseList.get(0).getPhrasesByCategory("colors").contains("blue"));
+    }
+    //Want to fail becuase it proves that is it pulling the correct information 
+
+    @Test
+    public void TestGetPhrasesByCategoryP() { 
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals("colors", courseList.get(0).getPhrasesByCategory("colors")); 
+        assertNull(courseList.get(0).getPhrasesByCategory("colors")); 
+        //assertTrue(courseList.get(0).getPhrasesByCategory("colors").contains("blue"));
+    }
+    
+
+    @Test
+    public void testGetCoursesSizeZero() {
+        CourseList courses = CourseList.getInstance(); 
+        ArrayList<Course> courseList = DataLoader.getCourse();
+        courseList = DataLoader.getCourse(); 
+        assertEquals(1, courses.getCourses().size());
+        //WE want this one to fail 
+    }
+
+
+
+   
+
+    
+    
+
 
 
     

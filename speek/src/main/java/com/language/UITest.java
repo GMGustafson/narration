@@ -16,11 +16,7 @@ public class UITest {
         facade = CategorySystemFacade.getFacadeInstance();
         createAccount();
         login();
-<<<<<<< HEAD
-        chooseLangauage();
-=======
         chooseLanguage();
->>>>>>> 2b0a5754af0a932ef2981e9e9209efc2dc8df1dd
         chooseCourse();
         chooseCategory();
         progressLearning();
@@ -73,11 +69,7 @@ public class UITest {
              System.out.println("No courses available"); 
              return;
          }
-<<<<<<< HEAD
-         System.out.println("Youre learning " + facade.getCourse());
-=======
         System.out.println("Courses: " + facade.getCourse());
->>>>>>> 2b0a5754af0a932ef2981e9e9209efc2dc8df1dd
      }
 
 
