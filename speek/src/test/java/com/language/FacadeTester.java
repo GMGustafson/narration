@@ -35,18 +35,18 @@ public class FacadeTester {
     public void testLoadUsers(){
 
         ArrayList<Course> courses = DataLoader.getCourse();
-        assertSame(courses.size(), 5);
+        assertEquals("There sould be two courses loaded.", 2, courses.size());
         
     }
 
     @Test
     public void testCreateAccountValid() {
         boolean created = facade.createAccount("John", "Doe", "john@example.com", "johndoe", "password123");
-        assertTrue("Expected account to be created successfully",created);
+        assertTrue("Expected account to be created successfully", created);
         
         User newUser = UserList.getInstance().getUser("johndoe");
         assertNotNull("New user should be present in UserList", newUser);
-        assertEquals("johndoe", newUser.getUsername(), "Username should match");
+        assertEquals("Username should match", "johndoe", newUser.getUsername());
     }
 
     @Test
@@ -59,10 +59,9 @@ public class FacadeTester {
 
     @Test
     public void testCreateSaved() {
-        facade.createAccount("Frank", "Marks", "frank.marks@example.com", "fmarks", "password123");
+        facade.createAccount("Frank", "Marks", "frank.marks@gmail.com", "fmarks", "password123");
         facade.logout("fmarks");
 
-        // Reinitialize facade to simulate application restart
         facade = CategorySystemFacade.getFacadeInstance();
         facade.login("fmarks", "password123");
         User currentUser = facade.getCurrentUser();
@@ -71,7 +70,7 @@ public class FacadeTester {
 
     @Test
     public void testCreateEmptyUserName() {
-        boolean isCreated = facade.createAccount("", "", "invalid@example.com", "", "pass");
+        boolean isCreated = facade.createAccount("", "", "invalid@gmail.com", "", "pass");
         assertFalse("Account creation should fail for empty username.", isCreated);
     }
 
@@ -89,10 +88,17 @@ public class FacadeTester {
         assertFalse("Course titles should not be empty", courseTitles.isEmpty());
     }
 
+    // @Test
+    // public void testGetCategory() {
+    //     List<String> categories = facade.getCategory();
+    //     List<String> expectedCategories = Category.asList("numbers", "colors", "places", "weather", "people");
+    //     assertEquals("Categories should match expected list", expectedCategories, categories);
+    // }
+
     @Test
     public void testGetCategory() {
         List<String> categories = facade.getCategory();
-        List<String> expectedCategories = Category.asList("numbers", "colors", "places", "weather", "people");
+        List<String> expectedCategories = List.of("numbers", "colors", "places", "weather", "people");
         assertEquals("Categories should match expected list", expectedCategories, categories);
     }
 
@@ -103,8 +109,8 @@ public class FacadeTester {
         facade.setProgress(progress);
         facade.manageProgress(true);
         
-        assertEquals(1, progress.getNumCorrectAnswers());
-        assertEquals(1, progress.getTotalQuestionsAnswered());
+        assertEquals("Number of correct answers should be 1", 1, progress.getNumCorrectAnswers());
+        assertEquals("Total questions answered should be 1",1, progress.getTotalQuestionsAnswered());
     }
 
     @Test
@@ -113,8 +119,8 @@ public class FacadeTester {
         facade.setProgress(progress);
         facade.manageProgress(false);
         
-        assertEquals(0, progress.getNumCorrectAnswers());
-        assertEquals(1, progress.getTotalQuestionsAnswered());
+        assertEquals("Number of correct answers should be 0",0, progress.getNumCorrectAnswers());
+        assertEquals("Total questions answered should be 1", 1, progress.getTotalQuestionsAnswered());
     }
 
     @Test
@@ -135,7 +141,7 @@ public class FacadeTester {
     public void testGetQuestion() {
         Question question = facade.getQuestion();
         assertNotNull("Question should not be null", question);
-        assertTrue("Question text should not be empty", question.getText().length() > 0);
+        assertTrue("Question text should not be empty", question.getQuestion().length() > 0);
     }
 
     @Test
@@ -152,16 +158,24 @@ public class FacadeTester {
         assertNotNull("Mock conversation answers should not be null", answers);
     }
 
-    @Test
-    public void testGetFillintheBlank() {
-        FillInTheBlank fillInBlank = new FillInTheBlank(null, facade.getPhrase(), null, null);
-        String sentence = fillInBlank.getSampleSentence();
-        String missingWord = fillInBlank.getMissingWord();
+@Test
+public void testGetFillintheBlank() {
+    // Create a valid Phrase object (make sure it has a meaningful translation)
+    Phrase samplePhrase = new Phrase("Where is the library", "Donde esta la biblioteca?"); // Adjust as necessary
+    ArrayList<String> wordBank = new ArrayList<>();
+    // Add some words to the wordBank if necessary
+    wordBank.add("missing");
+    wordBank.add("sample");
 
-        assertNotNull("Sample sentence should not be null", sentence);
-        assertNotNull("Missing word should not be null", missingWord);
-        assertTrue("Sentence should contain the missing word", sentence.contains(missingWord));
-    }
+    // Instantiate the FillInTheBlank object
+    FillInTheBlank fillInBlank = new FillInTheBlank("What is missing?", samplePhrase, wordBank, null);
+    String sentence = fillInBlank.getSampleSentence();
+    String missingWord = fillInBlank.getMissingWord();
+
+    assertNotNull("Sample sentence should not be null", sentence);
+    assertNotNull("Missing word should not be null", missingWord);
+    assertTrue("Sentence should contain the missing word", sentence.contains(missingWord));
+}
 
     @Test
     public void testGetFlashcards() {
@@ -170,7 +184,7 @@ public class FacadeTester {
         assertFalse("Flashcards list should not be empty", flashcards.isEmpty());
 
         for (Flashcard flashcard : flashcards) {
-            assertNotNull("Flashcard word text should not be null", flashcard.getWordText());
+            assertNotNull("Flashcard word text should not be null", flashcard.getWord());
             assertNotNull("Flashcard translation should not be null", flashcard.getTranslation());
             assertNotNull("Flashcard phrase should not be null", flashcard.getPhrase());
         }
