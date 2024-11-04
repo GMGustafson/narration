@@ -188,7 +188,7 @@ public class UserList {
      * @param email the users emial
      * @return valid email
      */
-    private boolean validEmail(String email) {
+    public boolean validEmail(String email) {
         return email != null && email.contains("@") && email.contains(".");
     }
 

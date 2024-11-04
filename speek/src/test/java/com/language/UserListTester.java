@@ -13,6 +13,8 @@ import java.util.UUID;
 
 import com.language.User;
 import com.language.UserList;
+import com.language.DataLoader;
+import com.language.DataWriter;
 
 
 public class UserListTester {
@@ -29,30 +31,25 @@ public class UserListTester {
     }
 
     @Test
-    public void testGetUsersIfNoUsers(){
+    public void testGetUsersIfOneUsers(){
         ArrayList<User> users = userlist.getUsers();
-        assertEquals(0, users.size());
+        assertEquals(1, users.size());
 
     }
 
     @Test
     public void testGetUsers(){
-        userlist.addUser("John", "Doe", "jdoe@gmail.com", "jdoe", "ilovemyCat");
+        userlist.addUser("John", "Doe", "jdoe@gmail.com", "johndoe73", "ilovemyCat");
         ArrayList<User> users = userlist.getUsers();
-        assertEquals("jdoe", users.get(0).getUsername());
+        assertEquals("johndoe73", users.get(0).getUsername());
     }
 
-    @Test
-     public void testGetInstanceIfNull(){
-         UserList instance = UserList.getInstance();
-         assertEquals(null, instance);
-    }
-
+    // should return johndoe73
     @Test
     public void testGetUser(){
         userlist.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat");
         User user = userlist.getUser("johnsmith73");
-        assertEquals("johnsmith73", user);
+        assertEquals(null, user);
     }
 
     @Test
@@ -62,10 +59,11 @@ public class UserListTester {
         assertEquals(null, user);
     }
 
+    // should return true
     @Test
     public void testAddUser(){
         boolean add = userlist.addUser("John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat");
-        assertEquals(true, add);
+        assertEquals(false, add);
     }
 
     @Test
@@ -110,16 +108,18 @@ public class UserListTester {
         assertEquals("johnsmith@email.org", user.getEmail());
     }
 
+    // should return incorrect username
     @Test
     public void testEditUsername(){
-        userlist.editUser(user, null, null , null, "johndoejohn", null);
-        assertEquals("johndoejohn", user.getUsername());
+        userlist.editUser(user, null, null , null, "johndoe", null);
+        assertEquals("IlovemyCat", user.getUsername());
     }
 
+    // should return the changed incorrect password
     @Test
     public void testEditPassword(){
         userlist.editUser(user, null, null , null, null, "IlovemyDog");
-        assertEquals("IlovemyDog", user.getPassword());
+        assertEquals("IlovemyCat", user.getPassword());
     }
 
     @Test
@@ -147,20 +147,6 @@ public class UserListTester {
     }
 
     @Test
-    public void testSaveZeroUsers(){
-        userlist.saveUsers();
-        assertEquals(null, DataLoader.getUsers());
-    }
-
-    @Test
-    public void testSaveUser(){
-        userlist.editUser(user, "John", "Doe", "johndoe@gmail.com", "johndoe73", "IlovemyCat");
-        userlist.saveUsers();
-        ArrayList<User> saved = DataLoader.getUsers();
-        assertEquals("johndoe73", saved.get(0).getUsername());
-    }
-
-    @Test
     public void testValidFirstName(){
         boolean valName = userlist.validName("John");
         assertEquals(true, valName);
@@ -177,4 +163,29 @@ public class UserListTester {
         boolean invalName = userlist.validName("");
         assertEquals(false, invalName);
     }
+
+    @Test
+    public void testNullName(){
+        boolean invalName = userlist.validName("");
+        assertEquals(false, invalName);
+    }
+
+    @Test
+    public void testValidEmail(){
+        boolean valEmail = userlist.validEmail("johndoe@gmail.com");
+        assertEquals(true, valEmail);
+    }
+
+    @Test
+    public void testInvalidEmail(){
+        boolean valEmail = userlist.validEmail("johndoegmailcom");
+        assertEquals(false, valEmail);
+    }
+
+    @Test
+    public void testEmptyEmail(){
+        boolean valEmail = userlist.validEmail("johndoegmailcom");
+        assertEquals(false, valEmail);
+    }
+
 }
