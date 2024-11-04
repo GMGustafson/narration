@@ -71,6 +71,7 @@ public class CategorySystemFacade {
         return UserList.getInstance().getUser(username) == null && UserList.getInstance().addUser(firstName, lastName, email, username, password);
     }
 
+
     /** 
      * login method
      * user can login if they already have an account
