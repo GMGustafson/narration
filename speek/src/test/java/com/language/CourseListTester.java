@@ -49,9 +49,7 @@ public class CourseListTester {
 
     @Test
     public void testGetCourses(){
-        UUID courseID = UUID.fromString("8c24fea9-e192-457d-8ba3-db5828f62490");
-        ArrayList<Course> courses = courselist.getCourses();
-        Course course = courses.get(0);
+        Course course = courselist.getCourses().get(0);
         assertEquals("Spanish", course.getCourse());
     }
 
@@ -61,6 +59,5 @@ public class CourseListTester {
         Course cours = courselist.getCourseByUUID(courseID);
         assertEquals(courseID, cours.getCourseID());
     }
-
 
 }
