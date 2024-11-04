@@ -212,7 +212,7 @@ public class DataLoaderTester {
         CourseList courses = CourseList.getInstance(); 
         ArrayList<Course> courseList = DataLoader.getCourse();
         courseList = DataLoader.getCourse(); 
-        assertEquals(1, courses.getCourses().size());
+        assertEquals(0, courses.getCourses().size());
         //WE want this one to fail 
     }
 

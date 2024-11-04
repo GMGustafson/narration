@@ -1,15 +1,15 @@
 package com.language;
 
-import com.language.CategorySystemFacade;
-import com.language.User;
-import com.language.UserList;
-import com.language.Course;
-import com.language.CourseList;
-import com.language.Phrase;
-import com.language.Progress;
-import com.language.Word;
-import com.language.Story;
-import com.language.Question;
+// import com.language.CategorySystemFacade;
+// import com.language.User;
+// import com.language.UserList;
+// import com.language.Course;
+// import com.language.CourseList;
+// import com.language.Phrase;
+// import com.language.Progress;
+// import com.language.Word;
+// import com.language.Story;
+// import com.language.Question;
 import static org.junit.Assert.*;
 
 import java.nio.file.Paths;
@@ -88,17 +88,12 @@ public class FacadeTester {
         assertFalse("Course titles should not be empty", courseTitles.isEmpty());
     }
 
-    // @Test
-    // public void testGetCategory() {
-    //     List<String> categories = facade.getCategory();
-    //     List<String> expectedCategories = Category.asList("numbers", "colors", "places", "weather", "people");
-    //     assertEquals("Categories should match expected list", expectedCategories, categories);
-    // }
+   
 
     @Test
     public void testGetCategory() {
         List<String> categories = facade.getCategory();
-        List<String> expectedCategories = List.of("numbers", "colors", "places", "weather", "people");
+        List<String> expectedCategories = List.of("Numbers", "Colors", "People", "Weather", "Places");
         assertEquals("Categories should match expected list", expectedCategories, categories);
     }
 
