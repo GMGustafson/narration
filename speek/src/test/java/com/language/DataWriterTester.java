@@ -22,6 +22,10 @@ import com.language.DataWriter;
 import com.language.User;
 import com.language.UserList;
 
+/**
+ * @author Gracie Driggers
+ */
+
 public class DataWriterTester {
     private UserList users = UserList.getInstance();
     private ArrayList<User> userList = users.getUsers();
@@ -38,12 +42,18 @@ public class DataWriterTester {
         DataWriter.saveUsers();
     }
 
+    /**
+     * tests if no users are written
+     */
     @Test
 public void testWritingNoUsers() {
         userList = DataLoader.getUsers();
         assertEquals(0, userList.size());
     }
 
+    /**
+     * tests if one user is written
+     */
     @Test
 public void testWritingOneUser() {
         userList.add(new User(UUID.randomUUID(), "John", "Doe", "jdoe@gmail.com", "627-917-2739",null, "jdoe", "ilovemyCat"));
@@ -51,6 +61,9 @@ public void testWritingOneUser() {
         assertEquals("jdoe", DataLoader.getUsers().get(0).getUsername());
    }
 
+   /**
+    * tests if an empty user can be written
+    */
 @Test
 public void testWritingEmptyUser() {
     userList.add(new User(UUID.randomUUID(), "", "", "", "", null, "", null));
@@ -58,6 +71,9 @@ public void testWritingEmptyUser() {
     assertEquals("", DataLoader.getUsers().get(0).getUsername());
 }
 
+    /**
+     * tests if a null user is written
+     */
 @Test
 public void testWritingNullUser() {
     userList.add(new User(null, null, null, null, null, null, null, null));
@@ -65,6 +81,9 @@ public void testWritingNullUser() {
     assertNull(DataLoader.getUsers().get(0).getUsername());
 }
 
+    /**
+     * tests if a multiple users can be written
+     */
 @Test
 public void testMultipleUsers() {
     userList.add(new User(UUID.randomUUID(), "John", "Doe", "jdoe@gmail.com", "803-144-1021", null, "jdoe", "ilovemycat"));
@@ -75,6 +94,9 @@ public void testMultipleUsers() {
     assertEquals("asmith", DataLoader.getUsers().get(1).getUsername());
 }
 
+/**
+     * tests if user's progress can be written
+     */
 @Test
 public void testWritingUserProgress() {
     User user = new User(UUID.randomUUID(), "John", "Doe", "jdoe@gmail.com", "627-917-2739", null, "jdoe", "ilovemyCat");
@@ -100,6 +122,9 @@ public void testWritingUserProgress() {
     assertEquals("Colors", loadedProgress.getCurrentCategory());
 }
 
+/**
+     * tests if multiple user's progresses can be written and if unvalid courses can be written
+     */
 
 @Test
 public void testMultipleUsersProgressAndCourses() {
@@ -130,12 +155,13 @@ public void testMultipleUsersProgressAndCourses() {
     assertEquals("Users with invalid courses should not be added", 0, loadedUsers.size());
 }
 
+/**
+ * Checks if a course is valid
+ * @param courseCategory
+ * @return
+ */
 private boolean isValidCourseCategory(String courseCategory) {
     return courseCategory.equals("Words") || courseCategory.equals("Phrases");
-}
-
-public static void main(String[] args) {
-    org.junit.runner.JUnitCore.main("com.language.DataWriterTester");
 }
 
 }

@@ -18,9 +18,16 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * @author Gracie Driggers
+ */
+
 public class FacadeTester {
     private CategorySystemFacade facade = CategorySystemFacade.getFacadeInstance();
 
+    /**
+     * Checks if login method works
+     */
     @Test
     public void loginValidTest() {
         if(!facade.login("johndoe73", "IlovemyCat")){
@@ -31,6 +38,9 @@ public class FacadeTester {
         assertEquals(user.getUsername(), "johndoe73");
     }
 
+    /**
+     * Tests if courses can be loaded
+     */
     @Test
     public void testLoadCourses(){
 
@@ -39,6 +49,9 @@ public class FacadeTester {
         
     }
 
+    /**
+     * tests if valid accounts are created
+     */
     @Test
     public void testCreateAccountValid() {
         boolean created = facade.createAccount("John", "Doe", "john@example.com", "johndoe", "password123");
@@ -49,6 +62,9 @@ public class FacadeTester {
         assertEquals("Username should match", "johndoe", newUser.getUsername());
     }
 
+    /**
+     * tests if a duplicate account can be made
+     */
     @Test
     public void testCreateAccountDuplicateUsername() {
         facade.createAccount("Jane", "Doe", "jane@example.com", "janedoe", "password123");
@@ -57,6 +73,9 @@ public class FacadeTester {
         assertFalse( "Account with duplicate username should not be created", createdDuplicate);
     }
 
+    /**
+     * tests if created accounts can be saved
+     */
     @Test
     public void testCreateSaved() {
         facade.createAccount("Frank", "Marks", "frank.marks@gmail.com", "fmarks", "password123");
@@ -68,12 +87,18 @@ public class FacadeTester {
         assertEquals("Expected to retrieve username 'fmarks'", "fmarks", currentUser.getUsername());
     }
 
+   /**
+    * tests if accounts with empty usernames can be made
+    */
     @Test
     public void testCreateEmptyUserName() {
         boolean isCreated = facade.createAccount("", "", "invalid@gmail.com", "", "pass");
         assertFalse("Account creation should fail for empty username.", isCreated);
     }
 
+    /**
+     * tests if logout method will logout
+     */
     @Test
     public void testLogout() {
         facade.login ("johndoe73", "IlovemyCat");
@@ -81,6 +106,9 @@ public class FacadeTester {
         assertNull("User should be null after logout", facade.getCurrentUser());
     }
 
+    /**
+     * tests the getCourse method
+     */
     @Test
     public void testGetCourse() {
         List<String> courseTitles = facade.getCourse();
@@ -88,8 +116,9 @@ public class FacadeTester {
         assertFalse("Course titles should not be empty", courseTitles.isEmpty());
     }
 
-   
-
+    /**
+     * tests the getCategory method
+     */
     @Test
     public void testGetCategory() {
         List<String> categories = facade.getCategory();
@@ -97,7 +126,9 @@ public class FacadeTester {
         assertEquals("Categories should match expected list", expectedCategories, categories);
     }
 
-
+    /**
+     * tests if correct answers are counted correctly
+     */
     @Test
     public void testManageProgressCorrectAnswer() {
         Progress progress = new Progress();
@@ -107,7 +138,9 @@ public class FacadeTester {
         assertEquals("Number of correct answers should be 1", 1, progress.getNumCorrectAnswers());
         assertEquals("Total questions answered should be 1",1, progress.getTotalQuestionsAnswered());
     }
-
+    /**
+     * tests if incorrect answers are counted incorrectly
+     */
     @Test
     public void testManageProgressIncorrectAnswer() {
         Progress progress = new Progress();
@@ -118,6 +151,9 @@ public class FacadeTester {
         assertEquals("Total questions answered should be 1", 1, progress.getTotalQuestionsAnswered());
     }
 
+    /**
+     * tests if the getPhrase method works
+     */
     @Test
     public void testGetPhrase() {
         List<Phrase> phrases = facade.getPhrase();
@@ -125,6 +161,9 @@ public class FacadeTester {
         assertFalse("Phrases list should not be empty", phrases.isEmpty());
     }
 
+    /**
+     * tests if the getWord method gets a works
+     */
     @Test
     public void testGetWord() {
         List<Word> words = facade.getWord();
@@ -132,6 +171,9 @@ public class FacadeTester {
         assertFalse("Words list should not be empty", words.isEmpty());
     }
 
+    /**
+     * tests if the getQuestion method works
+     */
     @Test
     public void testGetQuestion() {
         Question question = facade.getQuestion();
@@ -139,6 +181,9 @@ public class FacadeTester {
         assertTrue("Question text should not be empty", question.getQuestion().length() > 0);
     }
 
+    /**
+     * tests if the getMockConversation works
+     */
     @Test
     public void testGetMockConversation() {
         MockConversations mockConversation = new MockConversations();
@@ -153,6 +198,9 @@ public class FacadeTester {
         assertNotNull("Mock conversation answers should not be null", answers);
     }
 
+    /**
+     * tests if the getFillInTheBlank method works
+     */
 @Test
 public void testGetFillintheBlankEmpty() {
     // Create a valid Phrase object (make sure it has a meaningful translation)
@@ -172,7 +220,9 @@ public void testGetFillintheBlankEmpty() {
     assertTrue("Sentence should contain the missing word", sentence.contains(missingWord));
 }
 
-
+/**
+ * Tests if the getFillInTheBlank method works with an example
+ */
     @Test
 public void testGetFillInTheBlankLibrary() {
     // Create a Phrase object
@@ -212,6 +262,9 @@ public void testGetFillInTheBlankLibrary() {
     assertEquals("Correct!", result); // Assuming that "Correct!" is the expected response for a correct answer
 }
 
+/**
+ * tests if the getFlashcards method works
+ */
     @Test
     public void testGetFlashcards() {
         List<Flashcard> flashcards = facade.getFlashcards();
@@ -225,6 +278,9 @@ public void testGetFillInTheBlankLibrary() {
         }
     }
 
+    /**
+     * tests if the GetMatching method works
+     */
     @Test
     public void testGetMatching() {
         List<String> wordList = Matching.getWordList();
@@ -235,6 +291,9 @@ public void testGetFillInTheBlankLibrary() {
         assertEquals("Word list and translations should be the same size", wordList.size(), translations.size());
     }
 
+    /**
+     * tests if the GetStory method works
+     */
     @Test
     public void testGetStory() {
         Story story = facade.getStory();
