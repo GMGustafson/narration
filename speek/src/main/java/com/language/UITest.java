@@ -67,13 +67,11 @@ public class UITest {
     //          System.out.println("User is now learing" + Course.getCourse()); 
     //      }
     //  }
-
-
      public void chooseCourse(){
          if(facade.getCourse().isEmpty()){
              System.out.println("Couldnt select course");
          }
-         System.out.println("Youre learning " + Course.getCourse(course));
+         System.out.println("Youre learning " + Course.getAvailableCourse());
      }
 
     public void chooseCategory(){
