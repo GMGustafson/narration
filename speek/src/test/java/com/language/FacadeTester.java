@@ -194,7 +194,6 @@ public class FacadeTester {
         assertNotNull("Story text should not be empty", story.getText());
     }
 
-
 }
 
 
