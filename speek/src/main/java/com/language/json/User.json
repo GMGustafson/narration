@@ -1,0 +1,57 @@
+[
+    {
+        "userID": "85e9d2cb-9847-4934-970c-442d081fffa4",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@gmail.com",
+        "phoneNumber": "627-917-2739",
+        "dateOfBirth": "01/05/2001",
+        "username": "johndoe73",
+        "password": "IlovemyCat",
+        "courses": [
+            {
+                "courseID": "8c24fea9-e192-457d-8ba3-db5828f62490",
+                "Progress": {
+                    "totalQuestionsAnswered": 10,
+                    "numCorrectAnswers": 7,
+                    "currentCategory": "numbers",
+                    "progressInCategory": 7,
+                    "streak": 3,
+                    "missedWords": [
+                        "tres",
+                        "cinco",
+                        "ocho"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "userID": "9dfc6cef-6cd2-45e7-8a78-c24b0bfa1063",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "email": "jsmith@gmail.com",
+        "phoneNumber": "817-902-3201",
+        "dateOfBirth": "10/07/2004",
+        "userName": "janesmith10",
+        "password": "IlovemyCat",
+        "courses": [
+            {
+                "courseID": "36ae4839-6711-4b3c-a15b-b0aa2d8c5c5e",
+                "languageName": "Spanish",
+                "Progress": {
+                    "totalQuestionsAnswered": 5,
+                    "numCorrectAnswers": 2,
+                    "currentCategory": "colors",
+                    "progressInCategory": 3,
+                    "streak": 1,
+                    "missedWords": [
+                        "amarillo",
+                        "azule",
+                        "verde"
+                    ]
+                }
+            }
+        ]
+    }
+]
