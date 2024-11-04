@@ -32,7 +32,7 @@ public class FacadeTester {
     }
 
     @Test
-    public void testLoadUsers(){
+    public void testLoadCourses(){
 
         ArrayList<Course> courses = DataLoader.getCourse();
         assertEquals("There sould be two courses loaded.", 2, courses.size());
@@ -91,7 +91,7 @@ public class FacadeTester {
     @Test
     public void testGetCategory() {
         List<String> categories = facade.getCategory();
-        List<String> expectedCategories = List.of("numbers", "colors", "places", "weather", "people");
+        List<String> expectedCategories = List.of("Numbers", "Colors", "Places", "Weather", "People");
         assertEquals("Categories should match expected list", expectedCategories, categories);
     }
 
@@ -174,14 +174,14 @@ public void testGetFillintheBlankEmpty() {
     @Test
 public void testGetFillInTheBlankLibrary() {
     // Create a Phrase object
-    Phrase phrase = new Phrase("Where is the library", "Donde esta la biblioteca?");
+    Phrase phrase = new Phrase("Where is the library?", "Donde esta la biblioteca?");
     
     // Create an empty word bank (can be filled with relevant words if needed)
     ArrayList<String> wordBank = new ArrayList<>();
     wordBank.add("library"); // Adding the expected word for testing
     
     // Create a FillInTheBlank object
-    FillInTheBlank fillInBlank = new FillInTheBlank("Fill in the blank: ", phrase, wordBank, null);
+    FillInTheBlank fillInBlank = new FillInTheBlank("Where is the library?", phrase, wordBank, null);
     
     // Generate the sample sentence with a missing word
     String sentence = fillInBlank.getSampleSentence();
@@ -223,9 +223,6 @@ public void testGetFillInTheBlankLibrary() {
         }
     }
 
-    
-
-
     @Test
     public void testGetMatching() {
         List<String> wordList = Matching.getWordList();
@@ -243,6 +240,9 @@ public void testGetFillInTheBlankLibrary() {
         assertNotNull("Story text should not be empty", story.getText());
     }
 
-}
 
+        public static void main(String[] args) {
+            org.junit.runner.JUnitCore.main("com.language.FacadeTester");
+        }
+    }
 
