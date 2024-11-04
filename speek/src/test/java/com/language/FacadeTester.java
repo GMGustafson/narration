@@ -154,7 +154,7 @@ public class FacadeTester {
     }
 
 @Test
-public void testGetFillintheBlank() {
+public void testGetFillintheBlankEmpty() {
     // Create a valid Phrase object (make sure it has a meaningful translation)
     Phrase samplePhrase = new Phrase("Where is the library", "Donde esta la biblioteca?"); // Adjust as necessary
     ArrayList<String> wordBank = new ArrayList<>();
@@ -172,6 +172,46 @@ public void testGetFillintheBlank() {
     assertTrue("Sentence should contain the missing word", sentence.contains(missingWord));
 }
 
+
+    @Test
+public void testGetFillInTheBlankLibrary() {
+    // Create a Phrase object
+    Phrase phrase = new Phrase("Where is the library", "Donde esta la biblioteca?");
+    
+    // Create an empty word bank (can be filled with relevant words if needed)
+    ArrayList<String> wordBank = new ArrayList<>();
+    wordBank.add("library"); // Adding the expected word for testing
+    
+    // Create a FillInTheBlank object
+    FillInTheBlank fillInBlank = new FillInTheBlank("Fill in the blank: ", phrase, wordBank, null);
+    
+    // Generate the sample sentence with a missing word
+    String sentence = fillInBlank.getSampleSentence();
+    
+    // Get the missing word for comparison
+    String missingWord = fillInBlank.getMissingWord();
+    
+    // Output the results for debugging
+    System.out.println("Generated Sentence: " + sentence);
+    System.out.println("Missing Word: " + missingWord);
+    
+    // Assert that the sentence contains a blank for the missing word
+    assertTrue("The sentence should contain a placeholder for the missing word.", sentence.contains("___"));
+
+    // Replace the missing word in the sentence to validate it
+    String expectedSentence = sentence.replace(missingWord, "___");
+    assertEquals("The generated sentence should match the expected format.", expectedSentence, sentence);
+    
+    // Example user input for testing
+    String userInput = "library"; // This should match the missing word for testing
+    
+    // Check the answer
+    String result = fillInBlank.checkAnswer(userInput);
+    
+    // Assert the result of the answer check
+    assertEquals("Correct!", result); // Assuming that "Correct!" is the expected response for a correct answer
+}
+
     @Test
     public void testGetFlashcards() {
         List<Flashcard> flashcards = facade.getFlashcards();
@@ -184,6 +224,8 @@ public void testGetFillintheBlank() {
             assertNotNull("Flashcard phrase should not be null", flashcard.getPhrase());
         }
     }
+
+    
 
 
     @Test
